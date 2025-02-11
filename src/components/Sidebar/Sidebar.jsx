@@ -106,7 +106,7 @@ const Sidebar = () => {
                 Dropdown
                 <IoIosArrowDropdownCircle
                   className={`ml-20 text-4xl transition-transform ${
-                    isDropdownOpen ? "rotate-180 text-blue-400" : "rotate-0 text-gray-900 hover:text-blue-400"
+                    isDropdownOpen ? "rotate-180 text-blue-400" : "rotate-0 text-gray-600 hover:text-blue-400"
                   }`}
                 />
               </button>
