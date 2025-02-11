@@ -55,7 +55,7 @@ const Counts = () => {
   }, []);
 
   return (
-    <div className="px-20 lg:p-6 ">
+    <div className="px-5 lg:p-6 ">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 px-5">
         {/* Happy Clients */}
         <div className="flex flex-row gap-5 lg:w-1/4 mb-10">

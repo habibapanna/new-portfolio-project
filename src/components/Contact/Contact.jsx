@@ -25,7 +25,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-12 bg-white px-20 lg:px-6">
+    <section id="contact" className="py-12 px-5 bg-white lg:px-6">
       <div className="container mx-auto">
         <div className="text-left mb-8">
           <h2 className="text-3xl font-bold mb-5">Contact</h2>
@@ -58,7 +58,7 @@ const Contact = () => {
             {/* Map Section */}
             <div className="mt-6">
               <iframe
-                className="w-full h-64 shadow-md"
+                className="w-full h-64 p-2 shadow-md"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.9299642139275!2d-74.00639358459529!3d40.71277597933071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a316b3ccfb5%3A0x8dc7c7f1dbb6b768!2sA108%20Adam%20St%2C%20New%20York%2C%20NY%2010002%2C%20USA!5e0!3m2!1sen!2sbd!4v1616587602987!5m2!1sen!2sbd"
                 allowFullScreen=""
                 loading="lazy"

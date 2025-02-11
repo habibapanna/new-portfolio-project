@@ -3,7 +3,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 const Resume = () => {
   return (
-    <section className="py-16 px-20 lg:px-6">
+    <section className="py-16 px-5 lg:px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold mb-5">Resume</h2>
         <div className="border-2 border-blue-400 w-16 mb-5"></div>

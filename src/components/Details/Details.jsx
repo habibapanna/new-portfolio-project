@@ -51,11 +51,12 @@ const Details = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInFromBottom}
       >
-        <div className="lg:flex-1">
+<div className="flex flex-col gap-2 lg:flex-row w-full lg:justify-between py-2 px-2">
+<div className="">
           <a className="text-2xl text-white font-bold">Portfolio Details</a>
         </div>
-        <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
+        <div className="">
+          <ul className="flex flex-row gap-2 px-1">
             <li>
               <button onClick={handleClick} className="text-blue-400 hover:text-blue-500">
                 Home
@@ -69,11 +70,12 @@ const Details = () => {
             </li>
           </ul>
         </div>
+</div>
       </motion.div>
 
       {/* Content Section */}
       <motion.div
-        className="flex flex-col lg:flex-row max-w-4xl mx-auto py-16 gap-8 px-20 lg:px-0"
+        className="flex flex-col lg:flex-row max-w-4xl mx-auto py-5 gap-8 px-5 lg:py-10 lg:px-0"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}

@@ -68,7 +68,7 @@ const Portfolio = () => {
   return (
     <div>
       {loading && <Loader />}
-      <section className="py-12 px-20 lg:px-3 bg-green-50">
+      <section className="py-12 px-3 bg-green-50">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-left mb-5">Portfolio</h2>
           <div className="border-2 border-blue-400 w-16 mb-5"></div>

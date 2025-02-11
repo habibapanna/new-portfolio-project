@@ -2,7 +2,7 @@
 
 const About = () => {
     return (
-<div className="px-20 lg:px-5 py-16">
+<div className="px-5 py-16">
 <h2 className="text-3xl font-bold text-left mb-5">About</h2>
                 <div className="border-2 border-blue-400 w-16 mb-5"></div>
                 <p className="text-left mb-6">
@@ -14,7 +14,7 @@ const About = () => {
     </div>
 
 <section id="about" className="lg:w-2/3">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto">
 
                 <h3 className="text-2xl font-semibold text-left mb-6 lg:mt-0 mt-">UI/UX Designer & Web Developer.
                 </h3>

@@ -59,11 +59,12 @@ const ServiceDetails = () => {
         animate="visible"
         variants={fadeInVariants}
       >
-        <div className="lg:flex-1">
+<div className="flex flex-col lg:flex-row w-full lg:justify-between gap-2 px-2 py-2">
+<div className="">
           <a className="text-2xl text-white font-bold">Service Details</a>
         </div>
-        <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
+        <div className="">
+          <ul className="flex flex-row gap-2">
             <li>
               <button
                 onClick={handleNavigateHome}
@@ -80,17 +81,18 @@ const ServiceDetails = () => {
             </li>
           </ul>
         </div>
+</div>
       </motion.div>
 
       {/* Main Content Section */}
       <motion.div
-        className="flex flex-col lg:flex-row max-w-4xl mx-auto py-16 gap-8 px-20 lg:px-0"
+        className="flex flex-col lg:flex-row max-w-4xl mx-auto py-5 lg:py-10 gap-8 px-5 lg:px-0"
         initial="hidden"
         animate="visible"
         variants={fadeInVariants}
       >
         {/* Left Sidebar */}
-        <motion.div className="lg:w-5/5" variants={fadeInVariants}>
+        <motion.div className="lg:w-3/5" variants={fadeInVariants}>
           <div className="bg-white border border-gray-300 p-6">
             <ul className="space-y-6">
               {services.map((service, index) => (
