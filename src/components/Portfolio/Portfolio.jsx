@@ -121,7 +121,7 @@ const Portfolio = () => {
                         />
                         <ImLink onClick={handleClick} className="text-white text-2xl hover:text-blue-500"></ImLink>
                       </div>
-                      <p className="text-gray-300 font-semibold mt-16 text-center">Lorem ipsum, dolor amit consectetur</p>
+                      <p className="text-gray-300 md:font-semibold md:mt-16 mt-5 text-center mb-8">Lorem ipsum, dolor amit consectetur</p>
                     </div>
                     <span className="absolute top-4 left-4 bg-blue-400 text-white px-2 py-1 text-sm font-semibold">
                       {item.name}
