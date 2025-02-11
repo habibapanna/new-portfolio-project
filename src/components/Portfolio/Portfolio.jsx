@@ -68,7 +68,7 @@ const Portfolio = () => {
   return (
     <div>
       {loading && <Loader />}
-      <section className="py-12 px-3 bg-green-50">
+      <section className="py-12 px px-3 bg-green-50">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-left mb-5">Portfolio</h2>
           <div className="border-2 border-blue-400 w-16 mb-5"></div>
@@ -94,7 +94,7 @@ const Portfolio = () => {
           </div>
 
           {/* Portfolio Grid with Animations */}
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div layout className="grid grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence>
               {filteredData.map(item => (
                 <motion.div
@@ -109,7 +109,7 @@ const Portfolio = () => {
                   <img
                     src={item.image}
                     alt={item.category}
-                    className="w-full h-[300px] lg:h-64 object-cover transform group-hover:scale-110 transition-transform duration-300 ease-in-out"
+                    className="w-full md:h-[300px] h-[200px] lg:h-64 object-cover transform group-hover:scale-110 transition-transform duration-300 ease-in-out"
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex justify-center items-center space-x-4">
                     <div className="flex flex-col items-center">
