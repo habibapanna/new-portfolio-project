@@ -2,7 +2,7 @@ import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 
 const TestimonialsSection = () => {
   return (
-    <section className="bg-blue-50 py-16 px-5 lg:px-6">
+    <section className="bg-green-50 py-16 px-5 lg:px-6">
       <div className="text-left mb-8">
         <h2 className="text-3xl font-bold mb-5">Testimonials</h2>
         <div className="border-2 border-blue-400 w-16 mb-5"></div>
