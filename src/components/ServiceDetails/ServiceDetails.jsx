@@ -51,7 +51,7 @@ const ServiceDetails = () => {
   return loading ? (
     <Loader />
   ) : (
-    <div>
+    <div className="bg-black">
       {/* Navbar */}
       <motion.div
         className="navbar bg-black py-4"

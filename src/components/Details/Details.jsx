@@ -42,7 +42,7 @@ const Details = () => {
   return loading ? (
     <Loader />
   ) : (
-    <div>
+    <div className="bg-black">
       {/* Navbar */}
       <motion.div
         className="navbar bg-black py-4"
@@ -51,14 +51,14 @@ const Details = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInFromBottom}
       >
-<div className="flex flex-col gap-2 lg:flex-row w-full lg:justify-between py-2 px-2">
+<div className="flex flex-col gap-2 lg:flex-row w-full lg:justify-between py-2 px-2 ">
 <div className="">
           <a className="text-2xl text-white font-bold">Portfolio Details</a>
         </div>
         <div className="">
           <ul className="flex flex-row gap-2 px-1">
             <li>
-              <button onClick={handleClick} className="text-blue-400 hover:text-blue-500">
+              <button onClick={handleClick} className="text-white cursor-pointer hover:text-blue-400">
                 Home
               </button>
             </li>
@@ -66,7 +66,7 @@ const Details = () => {
               <p className="text-gray-500">/</p>
             </li>
             <li>
-              <p className="text-white">Portfolio Details</p>
+              <p className="text-blue-400">Portfolio Details</p>
             </li>
           </ul>
         </div>
@@ -114,9 +114,9 @@ const Details = () => {
           <div style={{
             boxShadow: '0 4px 8px 5px rgba(0, 0, 0, 0.1)',
           }} className="bg-white p-6">
-            <h3 className="text-xl font-bold mb-4">Project Information</h3>
-            <div className="border border-gray-400 mb-3"></div>
-            <ul className="space-y-2">
+            <h3 className="text-xl text-black font-bold mb-4">Project Information</h3>
+            <div className="border border-gray-400 mb-3 "></div>
+            <ul className="space-y-2 text-black">
               <li><strong>Category:</strong> Web Design</li>
               <li><strong>Client:</strong> ASU Company</li>
               <li><strong>Project Date:</strong> 01 March, 2020</li>

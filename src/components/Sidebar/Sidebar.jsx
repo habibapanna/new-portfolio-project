@@ -54,7 +54,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 z-40 h-full bg-[#0a0b0d] text-gray-400 transform ${
+        className={`fixed top-0 left-0 z-40 h-full bg-black text-gray-400 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 w-72 transition-transform duration-300 ease-in-out`}
       >

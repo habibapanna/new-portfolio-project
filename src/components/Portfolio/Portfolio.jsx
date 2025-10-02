@@ -106,16 +106,37 @@ const Portfolio = () => {
                     alt={item.category}
                     className="w-full md:h-[300px] h-[200px] lg:h-64 object-cover transform group-hover:scale-110 transition-transform duration-300 ease-in-out"
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex justify-center items-center space-x-4">
+                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 flex justify-center items-center space-x-4">
                     <div className="flex flex-col items-center">
-                      <div className="flex gap-5 mt-10">
-                        <ZoomIn
-                          className="text-white hover:text-blue-400 cursor-pointer"
-                          fontSize="large"
-                          onClick={() => openCarousel(item.category)}
-                        />
-                        <ImLink onClick={handleClick} className="text-white text-2xl cursor-pointer hover:text-blue-400"></ImLink>
-                      </div>
+                     <div className="flex gap-5 mt-10">
+  {/* ZoomIn with name tooltip on LEFT */}
+  <div className="relative flex items-center group/icon">
+    <ZoomIn
+      className="text-white hover:text-blue-400 cursor-pointer"
+      fontSize="large"
+      onClick={() => openCarousel(item.category)}
+    />
+    <span
+      className="absolute right-full mr-2 opacity-0 translate-x-2 group-hover/icon:opacity-100 group-hover/icon:translate-x-0 transition-all bg-white text-black text-xs px-2 py-1"
+    >
+      {item.name}
+    </span>
+  </div>
+
+  {/* ImLink with More Details tooltip on RIGHT */}
+  <div className="relative flex items-center group/icon">
+    <ImLink
+      onClick={handleClick}
+      className="text-white text-2xl cursor-pointer hover:text-blue-400"
+    />
+    <span
+      className="absolute left-full ml-2 opacity-0 -translate-x-2 group-hover/icon:opacity-100 group-hover/icon:translate-x-0 transition-all bg-white text-black text-xs px-2 py-1 rounded"
+    >
+      More Details
+    </span>
+  </div>
+</div>
+
                     </div>
                     <span className="absolute top-4 left-4 bg-blue-400 text-white px-2 py-1 text-sm font-semibold">
                       {item.name}
