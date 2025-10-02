@@ -25,32 +25,28 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-12 px-5 bg-white lg:px-6">
+    <section id="contact" className="py-12 px-5 bg-black lg:px-6">
       <div className="container mx-auto">
         <div className="text-left mb-8">
-          <h2 className="text-3xl font-bold mb-5">Contact</h2>
-          <div className="border-2 w-16 border-blue-400 mb-5"></div>
-          <p className="text-gray-600 mb-16">
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
-          </p>
+         
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Contact Information */}
           <div style={{
             boxShadow: '0 4px 5px 3px rgba(0, 0, 0, 0.1)',
-          }} className="bg-white p-8 h-[600px] lg:w-2/5">
+          }} className="bg-stone-900 p-8 h-[600px] lg:w-2/5">
           {contactItems.map((item, index) => (
               <div
                 key={index}
                 className="mb-8 flex items-start transition-colors group"
               >
-                <div className="text-2xl text-blue-400 bg-green-50 group-hover:bg-blue-400 group-hover:text-white p-3 rounded-full mr-4 mb-3 lg:mb-2">
+                <div className="text-2xl text-blue-500 bg-green-50 group-hover:bg-blue-500 group-hover:text-white p-3 rounded-full mr-4 mb-3 lg:mb-2">
                   {item.icon}
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-1">{item.title}</h3>
-                  <p className="text-sm text-gray-600">{item.description}</p>
+                  <p className="text-sm text-gray-400">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -70,62 +66,62 @@ const Contact = () => {
           {/* Contact Form */}
           <div style={{
             boxShadow: '0 4px 5px 3px rgba(0, 0, 0, 0.1)',
-          }} className="bg-white p-8 h-[600px] lg:w-3/5">
+          }} className="bg-stone-900 p-8 h-[600px] lg:w-3/5">
             <form>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="name" className="block text-gray-400 font-medium mb-2">
                     Your Name
                   </label>
                   <input
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full border border-gray-300 px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-400"
+                    className="w-full border border-gray-500 px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     required
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                  <label htmlFor="email" className="block text-gray-400 font-medium mb-2">
                     Your Email
                   </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full border border-gray-300 px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-400"
+                    className="w-full border border-gray-500 px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     required
                   />
                 </div>
               </div>
               <div className="mb-4">
-                <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
+                <label htmlFor="subject" className="block text-gray-400 font-medium mb-2">
                   Subject
                 </label>
                 <input
                   type="text"
                   id="subject"
                   name="subject"
-                  className="w-full border border-gray-300 px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-400"
+                  className="w-full border border-gray-500 px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                   required
                 />
               </div>
               <div className="mb-6">
-                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                <label htmlFor="message" className="block text-gray-400 font-medium mb-2">
                   Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows="4"
-                  className="w-full h-[160px]  md:h-[250px] border border-gray-300 px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-400"
+                  className="w-full h-[160px]  md:h-[250px] border border-gray-500 px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
                   required
                 ></textarea>
               </div>
               <div className="text-center">
                 <button
                   type="submit"
-                  className="bg-blue-400 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-3xl focus:outline-none focus:ring-1 focus:ring-blue-400"
+                  className="bg-blue-400 hover:bg-blue-500 text-white font-semibold py-3 px-6 cursor-pointer rounded-3xl focus:outline-none focus:ring-1 focus:ring-blue-500"
                 >
                   Send Message
                 </button>

@@ -33,7 +33,7 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section className="bg-green-50 py-12" ref={sectionRef}>
+    <section className="bg-black py-12" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="p-6">
           <h2 className="text-3xl font-bold text-left mb-5">Skills</h2>
@@ -45,7 +45,7 @@ const SkillsSection = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 text-sm">
           {skills.map((skill, index) => (
-            <div className="bg-green-50 p-6" key={index}>
+            <div className="bg-black p-6" key={index}>
               <div className="">
                 <div className="flex justify-between">
                   <h1>{skill.name}</h1>

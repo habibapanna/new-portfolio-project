@@ -68,24 +68,19 @@ const Portfolio = () => {
   return (
     <div>
       {loading && <Loader />}
-      <section className="py-12 px px-3 bg-green-50">
+      <section className="pb-12 px px-3 bg-black">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-left mb-5">Portfolio</h2>
-          <div className="border-2 border-blue-400 w-16 mb-5"></div>
-          <p className="text-left mb-16">
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
-          </p>
 
           {/* Category Filter Buttons */}
-          <div className="flex justify-center space-x-4 mb-8 gap-4">
+          <div className="text-lg font-semibold flex justify-left space-x-4 mb-8 gap-4">
             {categories.map(category => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`${
                   activeCategory === category
-                    ? "text-blue-400"
-                    : "text-black"
+                    ? "text-blue-400 "
+                    : "text-white cursor-pointer"
                 } hover:text-blue-400`}
               >
                 {category}
@@ -113,15 +108,14 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex justify-center items-center space-x-4">
                     <div className="flex flex-col items-center">
-                      <div className="flex gap-5 mt-24">
+                      <div className="flex gap-5 mt-10">
                         <ZoomIn
-                          className="text-white hover:text-blue-500 cursor-pointer"
+                          className="text-white hover:text-blue-400 cursor-pointer"
                           fontSize="large"
                           onClick={() => openCarousel(item.category)}
                         />
-                        <ImLink onClick={handleClick} className="text-white text-2xl hover:text-blue-500"></ImLink>
+                        <ImLink onClick={handleClick} className="text-white text-2xl cursor-pointer hover:text-blue-400"></ImLink>
                       </div>
-                      <p className="text-gray-300 md:font-semibold md:mt-16 mt-5 text-center mb-8">Lorem ipsum, dolor amit consectetur</p>
                     </div>
                     <span className="absolute top-4 left-4 bg-blue-400 text-white px-2 py-1 text-sm font-semibold">
                       {item.name}
@@ -148,7 +142,7 @@ const Portfolio = () => {
                 onClick={closeCarousel}
                 className="fixed top-5 right-5 z-50"
               >
-                <RxCross1 className="lg:text-gray-400 text-2xl hover:text-white text-gray-50" />
+                <RxCross1 className="lg:text-gray-300 text-2xl hover:text-white text-gray-50 cursor-pointer" />
               </button>
 
               <motion.div

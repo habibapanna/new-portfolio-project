@@ -68,7 +68,7 @@ const ServiceDetails = () => {
             <li>
               <button
                 onClick={handleNavigateHome}
-                className="text-blue-400 hover:text-blue-500"
+                className="text-white hover:text-blue-400 cursor-pointer"
               >
                 Home
               </button>
@@ -77,7 +77,7 @@ const ServiceDetails = () => {
               <p className="text-gray-500">/</p>
             </li>
             <li>
-              <p className="text-white">Service Details</p>
+              <p className="text-blue-400">Service Details</p>
             </li>
           </ul>
         </div>

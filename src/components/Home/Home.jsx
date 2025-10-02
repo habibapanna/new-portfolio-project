@@ -38,7 +38,17 @@ const Home = () => {
         <About />
       </motion.section>
 
-      <motion.section
+         <motion.section
+        id="services"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInFromBottom}
+      >
+        <Services />
+      </motion.section>
+
+      {/* <motion.section
         id="counts"
         initial="hidden"
         whileInView="visible"
@@ -46,9 +56,9 @@ const Home = () => {
         variants={fadeInFromBottom}
       >
         <Counts />
-      </motion.section>
+      </motion.section> */}
 
-      <motion.section
+      {/* <motion.section
         id="skills"
         initial="hidden"
         whileInView="visible"
@@ -56,9 +66,9 @@ const Home = () => {
         variants={fadeInFromBottom}
       >
         <SkillsSection />
-      </motion.section>
+      </motion.section> */}
 
-      <motion.section
+      {/* <motion.section
         id="resume"
         initial="hidden"
         whileInView="visible"
@@ -66,7 +76,7 @@ const Home = () => {
         variants={fadeInFromBottom}
       >
         <Resume />
-      </motion.section>
+      </motion.section> */}
 
       <motion.section
         id="portfolio"
@@ -76,16 +86,6 @@ const Home = () => {
         variants={fadeInFromBottom}
       >
         <Portfolio />
-      </motion.section>
-
-      <motion.section
-        id="services"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInFromBottom}
-      >
-        <Services />
       </motion.section>
 
       <motion.section

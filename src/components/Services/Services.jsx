@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AiOutlineSun } from 'react-icons/ai';
-import { BsCalendar4Week, BsBinoculars, BsBarChart, BsCardChecklist, BsBriefcase } from 'react-icons/bs';
-import Loader from '../Loader/Loader';
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AiOutlineSun } from "react-icons/ai";
+import {
+  BsCalendar4Week,
+  BsBinoculars,
+  BsBarChart,
+  BsCardChecklist,
+  BsBriefcase,
+} from "react-icons/bs";
+import Loader from "../Loader/Loader";
 
 const Services = () => {
   const navigate = useNavigate();
@@ -20,70 +25,102 @@ const Services = () => {
   const servicesData = [
     {
       icon: <BsBriefcase />,
-      title: 'Lorem Ipsum',
-      description: 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident',
+      title: "Web Design",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore mag.",
+      percentage: 80,
     },
     {
       icon: <BsCardChecklist />,
-      title: 'Dolor Sitema',
-      description: 'Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata',
+      title: "Web Development",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore mag.",
+      percentage: 80,
     },
     {
       icon: <BsBarChart />,
-      title: 'Sed ut perspiciatis',
-      description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      title: "Graphic Design",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore mag.",
+      percentage: 80,
     },
     {
       icon: <BsBinoculars />,
-      title: 'Magni Dolores',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+      title: "Branding",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore mag.",
+      percentage: 80,
     },
     {
       icon: <AiOutlineSun />,
-      title: 'Nemo Enim',
-      description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque',
+      title: "SEO Optimization",
+      description:
+        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
+      percentage: 75,
     },
     {
       icon: <BsCalendar4Week />,
-      title: 'Eiusmod Tempor',
-      description: 'Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi',
+      title: "Marketing",
+      description:
+        "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi.",
+      percentage: 85,
     },
   ];
 
   return (
-    <section id="services" className="py-12 px-5 lg:px-6">
+    <section id="services" className="p-16 bg-black">
       <div className="container mx-auto">
-        <div className="text-left mb-8">
-          <h2 className="text-3xl font-bold mb-5">Services</h2>
-          <div className="border-2 border-blue-400 w-16 mb-5"></div>
-          <p className='mb-16'>
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
-          </p>
-        </div>
+        {/* Section Heading */}
+        
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 gap-12 p-20">
           {servicesData.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white cursor-pointer group flex items-start"
-              onClick={handleClick}
-            >
-              <div className="text-2xl bg-blue-400 border border-blue-400 rounded-full w-12 h-12 flex items-center justify-center text-white p-3 mr-5 group-hover:bg-white group-hover:text-blue-400">
-                {service.icon}
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold mb-3 group-hover:text-blue-400">
-                  {service.title}
-                </h4>
-                <p className='text-sm'>{service.description}</p>
-              </div>
-            </div>
+           <div
+  key={index}
+  className="cursor-pointer flex flex-col space-y-6 group" // added group
+  onClick={handleClick}
+>
+  {/* Icon + Title + Description */}
+  <div className="flex items-center space-x-4">
+    <div className="text-3xl text-blue-400 group-hover:text-white transition">
+      {service.icon}
+    </div>
+    <div>
+      <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition">
+        {service.title}
+      </h4>
+      <p className="text-gray-400">{service.description}</p>
+    </div>
+  </div>
+
+  {/* Progress bar */}
+  <div className="w-full">
+    <div className="h-1 bg-gray-700 rounded">
+      <div
+        className="h-1 bg-blue-400 rounded group-hover:bg-white transition-all"
+        style={{ width: `${service.percentage}%` }}
+      ></div>
+    </div>
+  </div>
+
+  {/* Circular Percentage */}
+<div
+  className="w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-lg"
+  style={{
+    background: `conic-gradient(#60a5fa ${service.percentage * 3.6}deg, #93c5fd 0deg)`,
+  }}
+>
+  {service.percentage}%
+</div>
+
+</div>
+
           ))}
         </div>
 
-        {loading && (
-              <Loader></Loader>
-        )}
+        {/* Loader */}
+        {loading && <Loader />}
       </div>
     </section>
   );
