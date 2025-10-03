@@ -108,10 +108,10 @@ const Blog = () => {
               onClick={() => navigate(`/blog/${item.id}`, { state: item })}
               className="bg-stone-900 shadow-md p-8 flex flex-col justify-center text-center relative cursor-pointer"
             >
-              <div className="absolute top-10 left-1/2 -translate-x-1/2">
+              <div className="absolute top-1 md:top-10 left-1/2 -translate-x-1/2">
                 <div className="">
-                    <ImBubble className="text-7xl relative text-blue-400"></ImBubble>
-                  <TfiQuoteLeft className="text-2xl absolute top-5 left-6" />
+                    <ImBubble className="text-5xl md:text-7xl relative text-blue-400"></ImBubble>
+                  <TfiQuoteLeft className="text-lg absolute top-3 left-4 md:left-6" />
                 </div>
               </div>
               <p className="text-lg text-white leading-relaxed mt-8 mb-6">
