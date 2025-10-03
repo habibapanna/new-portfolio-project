@@ -77,12 +77,12 @@ const Sidebar = () => {
                 href={link.href}
                 onClick={() => handleLinkClick(link.href)}
                 className={`p-2 rounded group flex items-center ${
-                  activeLink === link.href ? "text-white" : "hover:text-white"
+                  activeLink === link.href ? "text-white bg-blue-400" : "hover:text-white"
                 }`}
               >
                 <span
                   className={`mr-3 ${
-                    activeLink === link.href ? "text-blue-400" : "group-hover:text-blue-400"
+                    activeLink === link.href ? "text-white " : "group-hover:text-white "
                   }`}
                 >
                   {link.icon}

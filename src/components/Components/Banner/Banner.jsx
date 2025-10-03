@@ -36,6 +36,7 @@ const Banner = () => {
           <h1 className="text-6xl md:text-5xl font-extrabold tracking-wide">
             ALEX SMITH
           </h1>
+         <div className="border mx-auto border-white w-56"></div>
           <p className="w-2/4 mx-auto leading-loose">
 I'm a software developer with a passion for web design. I enjoy developing simple, clean and slick websites that provide real value to the end user.          </p>
           <button className="mt-5 px-6 py-3 rounded-full font-semibold cursor-pointer">

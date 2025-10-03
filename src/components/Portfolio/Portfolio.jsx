@@ -130,7 +130,7 @@ const Portfolio = () => {
       className="text-white text-2xl cursor-pointer hover:text-blue-400"
     />
     <span
-      className="absolute left-full ml-2 opacity-0 -translate-x-2 group-hover/icon:opacity-100 group-hover/icon:translate-x-0 transition-all bg-white text-black text-xs px-2 py-1 rounded"
+      className="absolute left-full ml-2 opacity-0 -translate-x-2 group-hover/icon:opacity-100 group-hover/icon:translate-x-0 transition-all bg-white text-black text-xs px-2 py-1"
     >
       More Details
     </span>
