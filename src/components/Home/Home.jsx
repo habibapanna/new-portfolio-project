@@ -9,6 +9,7 @@ import Contact from "../Contact/Contact";
 import Portfolio from "../Portfolio/Portfolio";
 import Resume from "../Resume/Resume";
 import Services from "../Services/Services";
+import Blog from "../Blog/Blog";
 
 const fadeInFromBottom = {
   hidden: { opacity: 0, y: 50 },
@@ -96,6 +97,15 @@ const Home = () => {
         variants={fadeInFromBottom}
       >
         <TestimonialsSection />
+      </motion.section>
+      <motion.section
+        id="blog"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeInFromBottom}
+      >
+       <Blog></Blog>
       </motion.section>
 
       <motion.section

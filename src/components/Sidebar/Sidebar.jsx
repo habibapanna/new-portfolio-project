@@ -46,7 +46,7 @@ const Sidebar = () => {
       <div className="fixed top-5 right-5 z-50 lg:hidden">
         <button
           onClick={toggleSidebar}
-          className="text-white text-3xl bg-blue-400 rounded-full p-2"
+          className="text-white text-3xl bg-blue-400 rounded-full cursor-pointer p-2"
         >
           {isOpen ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
         </button>

@@ -15,6 +15,9 @@ import Loader from './components/Loader/Loader';
 import { FaArrowUp } from 'react-icons/fa';
 import Details from './components/Details/Details';
 import ServiceDetails from './components/ServiceDetails/ServiceDetails';
+import { FaChevronUp } from "react-icons/fa";
+import Blog from './components/Blog/Blog';
+import BlogDetails from './components/BlogDetails/BlogDetails';
 
 const Layout = () => {
   const [loading, setLoading] = useState(true);
@@ -58,7 +61,7 @@ const Layout = () => {
           className="fixed bottom-6 right-6 p-3 bg-blue-400 text-white rounded-full shadow-lg hover:bg-blue-500 cursor-pointer"
           title="Scroll to Top"
         >
-          <FaArrowUp />
+          <FaChevronUp />
         </button>
       )}
     </div>
@@ -80,6 +83,14 @@ const router = createBrowserRouter([
       { path: 'contact', element: <Contact /> },
       { path: 'details', element: <Details></Details> },
       { path: 'service-details', element: <ServiceDetails></ServiceDetails> },
+       {
+    path: "/",
+    element: <Blog />,
+  },
+  {
+    path: "/blog/:id",
+    element: <BlogDetails />,
+  },
     ]
   },
 ]);
