@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { RxCross1 } from "react-icons/rx";
 import Loader from "../Loader/Loader";
+import Tooltip from "@mui/material/Tooltip";
 
 const portfolioData = [
   { id: 1, category: "App", name: "App 1", image: "https://i.postimg.cc/wv2WNnvN/abillion-Nf5f-Sq-Hm-i-Y-unsplash.jpg" },
@@ -106,42 +107,48 @@ const Portfolio = () => {
                     alt={item.category}
                     className="w-full md:h-[300px] h-[200px] lg:h-64 object-cover transform group-hover:scale-110 transition-transform duration-300 ease-in-out"
                   />
-                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 flex justify-center items-center space-x-4">
-                    <div className="flex flex-col items-center">
-                     <div className="flex gap-5 mt-10">
-  {/* ZoomIn with name tooltip on LEFT */}
-  <div className="relative flex items-center group/icon">
+                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+  {/* Puzzle Pieces */}
+  <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
+    {/* Top Left */}
+    <div className="bg-black/80 transform translate-x-[-100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+    {/* Top Right */}
+    <div className="bg-black/80 transform translate-x-[100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+    {/* Bottom Left */}
+    <div className="bg-black/80 transform translate-x-[-100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+    {/* Bottom Right */}
+    <div className="bg-black/80 transform translate-x-[100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+  </div>
+
+  {/* Center Content (Icons + Text) */}
+  <div className="relative z-10 flex flex-col items-center">
+  <div className="flex gap-5 mt-10">
+  {/* ZoomIn with Tooltip */}
+  <Tooltip title={item.name}>
     <ZoomIn
       className="text-white hover:text-blue-400 cursor-pointer"
       fontSize="large"
       onClick={() => openCarousel(item.category)}
     />
-    <span
-      className="absolute right-full mr-2 opacity-0 translate-x-2 group-hover/icon:opacity-100 group-hover/icon:translate-x-0 transition-all bg-white text-black text-xs px-2 py-1"
-    >
-      {item.name}
-    </span>
-  </div>
+  </Tooltip>
 
-  {/* ImLink with More Details tooltip on RIGHT */}
-  <div className="relative flex items-center group/icon">
+  {/* ImLink with Tooltip */}
+  <Tooltip title="More Details">
     <ImLink
       onClick={handleClick}
       className="text-white text-2xl cursor-pointer hover:text-blue-400"
     />
-    <span
-      className="absolute left-full ml-2 opacity-0 -translate-x-2 group-hover/icon:opacity-100 group-hover/icon:translate-x-0 transition-all bg-white text-black text-xs px-2 py-1"
-    >
-      More Details
-    </span>
+  </Tooltip>
+</div>
+
+
+    {/* Top Left Tag */}
+    {/* <span className="absolute top-4 left-4 bg-blue-400 text-white px-2 py-1 text-sm font-semibold">
+      {item.name}
+    </span> */}
   </div>
 </div>
 
-                    </div>
-                    <span className="absolute top-4 left-4 bg-blue-400 text-white px-2 py-1 text-sm font-semibold">
-                      {item.name}
-                    </span>
-                  </div>
                 </motion.div>
               ))}
             </AnimatePresence>
