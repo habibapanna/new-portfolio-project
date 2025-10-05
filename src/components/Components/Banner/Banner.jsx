@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaArrowRightLong } from "react-icons/fa6";
 import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
@@ -39,8 +40,8 @@ const Banner = () => {
          <div className="border mx-auto border-white w-56"></div>
           <p className="w-2/4 mx-auto leading-loose">
 I'm a software developer with a passion for web design. I enjoy developing simple, clean and slick websites that provide real value to the end user.          </p>
-          <button className="mt-5 px-6 py-3 rounded-full font-semibold cursor-pointer">
-            CONTACT ME →
+          <button className="mt-10 font-semibold cursor-pointer flex mx-auto items-center gap-2">
+            CONTACT ME <FaArrowRightLong className="text-blue-400" />
           </button>
         </div>
       </div>

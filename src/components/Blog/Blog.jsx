@@ -111,7 +111,7 @@ const Blog = () => {
               <div className="absolute top-1 md:top-10 left-1/2 -translate-x-1/2">
                 <div className="">
                     <ImBubble className="text-5xl md:text-7xl relative text-blue-400"></ImBubble>
-                  <TfiQuoteLeft className="text-lg absolute top-3 left-4 md:left-6" />
+                  <TfiQuoteLeft className="text-lg md:text-3xl absolute top-3 left-4 md:top-4 md:left-5" />
                 </div>
               </div>
               <p className="text-lg text-white leading-relaxed mt-8 mb-6">
