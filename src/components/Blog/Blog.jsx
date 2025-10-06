@@ -95,7 +95,7 @@ const Blog = () => {
                 <p className="text-gray-400 mb-4">{item.desc}</p>
                 <button
                   onClick={() => navigate(`/blog/${item.id}`, { state: item })}
-                  className="text-white font-semibold flex items-center gap-2 hover:underline cursor-pointer"
+                  className="text-white font-semibold flex items-center gap-2 hover:text-blue-400 cursor-pointer"
                 >
                   READ MORE
                   <FaArrowRightLong className="text-blue-400" />

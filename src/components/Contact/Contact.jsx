@@ -99,7 +99,7 @@ py-2 outline-none"
         </div>
 
         {/* RIGHT SIDE - MAP */}
-        <div className="lg:w-1/2 h-[400px] md:h-[998px] relative">
+        <div className="lg:w-1/2 h-[400px] md:h-[1046px] relative">
           {/* Map */}
           <iframe
             className="w-full h-full grayscale brightness-75"
