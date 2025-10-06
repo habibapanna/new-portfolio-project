@@ -67,7 +67,7 @@ const Blog = () => {
   ];
 
   return (
-    <section id="blog" className="bg-black py-12 px-4">
+    <section id="blog" className="bg-black py-16 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-5">
         {blogData.map((item) =>
           item.type === "post" ? (
@@ -95,7 +95,7 @@ const Blog = () => {
                 <p className="text-gray-400 mb-4">{item.desc}</p>
                 <button
                   onClick={() => navigate(`/blog/${item.id}`, { state: item })}
-                  className="text-white font-semibold flex items-center gap-2 hover:underline"
+                  className="text-white font-semibold flex items-center gap-2 hover:underline cursor-pointer"
                 >
                   READ MORE
                   <FaArrowRightLong className="text-blue-400" />

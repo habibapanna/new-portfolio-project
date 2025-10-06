@@ -74,7 +74,7 @@ const Services = () => {
         
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-12 p-20">
+        <div className="grid md:grid-cols-2 gap-12 py-16 md:py-0 md:p-20">
           {servicesData.map((service, index) => (
            <div
   key={index}
@@ -106,7 +106,7 @@ const Services = () => {
 
   {/* Circular Percentage */}
 <div
-  className="w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-lg"
+  className="w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-xl"
   style={{
     background: `conic-gradient(#60a5fa ${service.percentage * 3.6}deg, #93c5fd 0deg)`,
   }}

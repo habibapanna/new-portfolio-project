@@ -73,7 +73,7 @@ const Portfolio = () => {
         <div className="max-w-7xl mx-auto px-4">
 
           {/* Category Filter Buttons */}
-          <div className="text-lg font-semibold flex justify-left space-x-4 mb-8 gap-4">
+          <div className="text-lg font-semibold flex justify-left space-x-2 md:space-x-4 mb-8 gap-4">
             {categories.map(category => (
               <button
                 key={category}
@@ -90,7 +90,7 @@ const Portfolio = () => {
           </div>
 
           {/* Portfolio Grid with Animations */}
-          <motion.div layout className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div layout className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <AnimatePresence>
               {filteredData.map(item => (
                 <motion.div

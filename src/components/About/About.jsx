@@ -3,15 +3,15 @@ import { TfiQuoteLeft , TfiQuoteRight } from "react-icons/tfi";
 
 const About = () => {
     return (
-<div className="px-5 bg-black">
+<div className="px-2 md:px-5 bg-black">
 <div className="flex flex-col lg:flex-row pt-8 gap-5">
-    <div className="lg:w-1/2">
+    <div className="lg:w-1/2 hidden md:block">
         <img className="w-full h-full" src="https://i.postimg.cc/C5FLTWkv/image.png" alt="" />
     </div>
 
 <section id="about" className="lg:w-1/2">
-            <div className="container mx-auto text-left w-2/3 px-8">
-  <h2 className="text-2xl font-bold mb-5">Hi i’m Magdas Van</h2>
+            <div className="container mx-auto text-left w-2/3 md:px-8">
+  <h2 className="text-2xl font-bold mt-10 md:mt-0 mb-5">Hi i’m Magdas Van</h2>
   <h3 className="text-4xl font-semibold mb-6 lg:mt-0">I BELIEVE IN</h3>
 
   <div className="relative">

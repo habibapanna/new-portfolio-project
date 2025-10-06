@@ -5,11 +5,11 @@ import { SlLocationPin } from 'react-icons/sl';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-12 bg-black">
+    <section id="contact" className="py-16 bg-black">
       <div className="container mx-auto flex flex-col lg:flex-row">
 
         {/* LEFT SIDE */}
-        <div className="bg-stone-900 py-10 px-20 lg:w-1/2 h-full shadow-lg">
+        <div className="bg-stone-900 py-16 px-10 md:px-20 lg:w-1/2 h-full shadow-lg">
           {/* Heading */}
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
             If You Like Inovative Work For Your Own Site
@@ -99,7 +99,7 @@ py-2 outline-none"
         </div>
 
         {/* RIGHT SIDE - MAP */}
-        <div className="lg:w-1/2 h-[998px] relative">
+        <div className="lg:w-1/2 h-[400px] md:h-[998px] relative">
           {/* Map */}
           <iframe
             className="w-full h-full grayscale brightness-75"

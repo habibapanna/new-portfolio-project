@@ -16,6 +16,19 @@ const fadeInFromBottom = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
+const fadeInFromRight = {
+  hidden: { opacity: 0, x: 100 }, // start off-screen to the right
+  visible: {
+    opacity: 1,
+    x: 0, // slide to normal position
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+
 const Home = () => {
   return (
     <div>
@@ -98,15 +111,16 @@ const Home = () => {
       >
         <TestimonialsSection />
       </motion.section>
-      <motion.section
-        id="blog"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInFromBottom}
-      >
-       <Blog></Blog>
-      </motion.section>
+     <motion.section
+  id="blog"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeInFromRight}
+>
+  <Blog />
+</motion.section>
+
 
       <motion.section
         id="contact"

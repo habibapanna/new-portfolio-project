@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
   const currentTestimonials = testimonials.slice(start, start + itemsPerPage);
 
   return (
-    <section className="bg-black py-16 px-5 lg:px-6 overflow-hidden">
+    <section className="bg-black py-16 px-6 overflow-hidden">
       <div className="text-left mb-8">
         <h2 className="text-3xl font-bold mb-5 text-white">Testimonials</h2>
         <div className="border-2 border-blue-400 w-16 mb-5"></div>
