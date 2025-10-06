@@ -88,7 +88,7 @@ const Blog = () => {
               <div className="p-6">
                 <h2
                   onClick={() => navigate(`/blog/${item.id}`, { state: item })}
-                  className="text-xl font-bold mb-3 text-white leading-snug cursor-pointer"
+                  className="text-xl font-bold mb-3 text-white leading-snug cursor-pointer hover:text-blue-400"
                 >
                   {item.title}
                 </h2>
