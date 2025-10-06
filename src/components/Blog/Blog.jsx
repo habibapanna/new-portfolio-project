@@ -106,7 +106,7 @@ const Blog = () => {
             <div
               key={item.id}
               onClick={() => navigate(`/blog/${item.id}`, { state: item })}
-              className="bg-stone-900 shadow-md p-8 flex flex-col justify-center text-center relative cursor-pointer"
+              className="bg-stone-900 shadow-md p-8 flex flex-col justify-center text-center relative"
             >
               <div className="absolute top-1 md:top-10 left-1/2 -translate-x-1/2">
                 <div className="">
@@ -114,7 +114,7 @@ const Blog = () => {
                   <TfiQuoteLeft className="text-lg md:text-3xl absolute top-3 left-4 md:top-4 md:left-5" />
                 </div>
               </div>
-              <p className="text-lg text-white leading-relaxed mt-8 mb-6">
+              <p className="text-lg text-white leading-relaxed mt-8 mb-6 hover:text-blue-400 cursor-pointer">
                 {item.text}
               </p>
               <span className="text-sm text-gray-400 font-semibold">
