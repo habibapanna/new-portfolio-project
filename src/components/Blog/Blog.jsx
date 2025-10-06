@@ -114,7 +114,7 @@ const Blog = () => {
                   <TfiQuoteLeft className="text-lg md:text-3xl absolute top-3 left-4 md:top-4 md:left-5" />
                 </div>
               </div>
-              <p className="text-lg text-white leading-relaxed mt-8 mb-6 hover:text-blue-400 cursor-pointer">
+              <p className="text-lg text-white leading-relaxed mt-8 mb-6 hover:text-blue-400 cursor-pointer font-bold">
                 {item.text}
               </p>
               <span className="text-sm text-gray-400 font-semibold">
