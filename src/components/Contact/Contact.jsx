@@ -2,10 +2,38 @@ import { BsEnvelope } from 'react-icons/bs';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { LuPhone } from 'react-icons/lu';
 import { SlLocationPin } from 'react-icons/sl';
+import toast, { Toaster } from "react-hot-toast";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
+
 
 const Contact = () => {
+
+  const form = useRef();
+
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs.sendForm(
+    "service_tocvban",
+    "template_xto2bht",
+    form.current,
+    "RmvrQBL5wNi0oU3SW"
+  ).then(() => {
+    toast.success("Message sent successfully!");
+    form.current.reset();
+  }).catch((error) => {
+    toast.error("Failed to send message. Try again later.");
+    console.error(error);
+  });
+};
+
+
   return (
     <section id="contact" className="py-16 bg-black">
+      <Toaster position="top-right" reverseOrder={false}/>
       <div className="container mx-auto flex flex-col lg:flex-row">
 
         {/* LEFT SIDE */}
@@ -32,12 +60,14 @@ SO, Drop Us a Line
           </div>
 
           {/* FORM */}
-          <form className="space-y-3">
+          <form ref={form} onSubmit={sendEmail} className="space-y-3">
             <div>
               <label htmlFor="name" className="block text-gray-400 mb-1">Full Name</label>
               <input
                 type="text"
                 id="name"
+                name="name"
+                required
                 className="w-full bg-transparent border-0 border-b border-gray-600 
 focus:border-blue-400 focus:ring-0 text-white placeholder:text-gray-400 
 py-2 outline-none"
@@ -49,6 +79,8 @@ py-2 outline-none"
               <input
                 type="email"
                 id="email"
+                name="email"
+                required
                 className="w-full bg-transparent border-0 border-b border-gray-600 
 focus:border-blue-400 focus:ring-0 text-white placeholder:text-gray-400 
 py-2 outline-none"
@@ -60,6 +92,7 @@ py-2 outline-none"
               <input
                 type="text"
                 id="phone"
+                name="phone"
                 className="w-full bg-transparent border-0 border-b border-gray-600 
 focus:border-blue-400 focus:ring-0 text-white placeholder:text-gray-400 
 py-2 outline-none"
@@ -71,6 +104,7 @@ py-2 outline-none"
               <input
                 type="text"
                 id="subject"
+                name="subject"
                 className="w-full bg-transparent border-0 border-b border-gray-600 
 focus:border-blue-400 focus:ring-0 text-white placeholder:text-gray-400 
 py-2 outline-none"
@@ -81,7 +115,9 @@ py-2 outline-none"
               <label htmlFor="message" className="block text-gray-400 mb-1">Message</label>
               <textarea
                 id="message"
+                name="message"
                 rows="4"
+                required
                 className="w-full bg-transparent border-0 border-b border-gray-600 
 focus:border-blue-400 focus:ring-0 text-white placeholder:text-gray-400 
 py-2 outline-none"
