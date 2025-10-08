@@ -42,7 +42,7 @@ const Banner = () => {
           }}
         >
           <h2 className="text-2xl font-medium">HELLO, I'M</h2>
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-wide uppercase">
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-wid uppercase ">
             Sanwar Hosen Limon
           </h1>
           <div className="border mx-auto border-white w-56"></div>
