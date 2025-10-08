@@ -6,30 +6,46 @@ const ProfileSection = () => {
       {/* Profile Image */}
       <div className="rounded-full overflow-hidden w-32 h-32 border-8 border-gray-800">
         <img
-          src="https://i.postimg.cc/C5FLTWkv/image.png"
-          alt="Profile"
-          className="w-full h-full object-cover object-[50%]"
-        />
+  src="/myPhoto.jpg"
+  alt="Profile"
+  className="w-full h-full object-cover object-[50%]"
+/>
+
       </div>
 
       {/* Name */}
-      <h2 className="text-3xl font-semibold mt-4">Alex Smith</h2>
+      <h2 className="text-3xl font-semibold mt-4">Sanwar Limon</h2>
 
       {/* Social Icons */}
       <div className="flex space-x-2 mt-4">
-        <div className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 cursor-pointer">
+        <div
+          className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 cursor-pointer"
+          title="Twitter"
+        >
           <FaTwitter />
         </div>
-        <div className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 cursor-pointer">
+        <div
+          className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 cursor-pointer"
+          title="Facebook"
+        >
           <FaFacebookF />
         </div>
-        <div className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 cursor-pointer">
+        <div
+          className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 cursor-pointer"
+          title="Instagram"
+        >
           <FaInstagram />
         </div>
-        <div className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 cursor-pointer">
+        <div
+          className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 cursor-pointer"
+          title="Skype"
+        >
           <FaSkype />
         </div>
-        <div className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 cursor-pointer">
+        <div
+          className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 cursor-pointer"
+          title="LinkedIn"
+        >
           <FaLinkedinIn />
         </div>
       </div>

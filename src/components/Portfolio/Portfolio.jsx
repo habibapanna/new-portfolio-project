@@ -69,7 +69,7 @@ const Portfolio = () => {
   return (
     <div>
       {loading && <Loader />}
-      <section className="pb-12 px px-3 bg-black">
+      <section className="py-16 px px-3 bg-black">
         <div className="max-w-7xl mx-auto px-4">
 
           {/* Category Filter Buttons */}

@@ -111,7 +111,8 @@ const Home = () => {
       >
         <TestimonialsSection />
       </motion.section>
-     <motion.section
+
+     {/* <motion.section
   id="blog"
   initial="hidden"
   whileInView="visible"
@@ -119,7 +120,7 @@ const Home = () => {
   variants={fadeInFromRight}
 >
   <Blog />
-</motion.section>
+</motion.section> */}
 
 
       <motion.section
