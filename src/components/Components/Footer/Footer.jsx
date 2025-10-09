@@ -6,7 +6,7 @@ const Footer = () => {
             <footer className="footer footer-center bg-black text-base-content p-10">
                 <aside>
                     <p>© Copyright iPortfolio. All Rights Reserved.</p>
-                    <p>
+                    {/* <p>
                         Designed by{' '}
                         <a
                             href="https://bootstrapmade.com"
@@ -25,7 +25,7 @@ const Footer = () => {
                         >
                             ThemeWagon
                         </a>
-                    </p>
+                    </p> */}
                 </aside>
             </footer>
         </div>

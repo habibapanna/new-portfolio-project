@@ -17,7 +17,7 @@ const ProfileSection = () => {
       <h2 className="text-3xl font-semibold mt-4">Sanwar Limon</h2>
 
       {/* Social Icons */}
-      <div className="flex space-x-2 mt-4">
+      {/* <div className="flex space-x-2 mt-4">
         <div
           className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 cursor-pointer"
           title="Twitter"
@@ -48,7 +48,7 @@ const ProfileSection = () => {
         >
           <FaLinkedinIn />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -70,7 +70,7 @@ const Sidebar = () => {
               { href: "#services", icon: <BsHddStack className="text-xl" />, label: "Services" },
               { href: "#portfolio", icon: <GrGallery className="text-xl" />, label: "Portfolio" },
               // { href: "#blog", icon: <TbLogs className="text-xl" />, label: "Blog" },
-              { href: "#contact", icon: <BsEnvelope className="text-xl" />, label: "Contact" },
+              // { href: "#contact", icon: <BsEnvelope className="text-xl" />, label: "Contact" },
             ].map((link) => (
               <a
                 key={link.href}

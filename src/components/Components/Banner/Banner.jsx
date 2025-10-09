@@ -53,12 +53,12 @@ const Banner = () => {
           </p>
 
           {/* 👇 Scroll-to-Contact Button */}
-          <button
+          {/* <button
             onClick={handleScrollToContact}
             className="mt-10 font-semibold cursor-pointer flex mx-auto items-center gap-2"
           >
             CONTACT ME <FaArrowRightLong className="text-blue-400" />
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
