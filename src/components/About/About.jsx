@@ -3,8 +3,8 @@ import { TfiQuoteLeft , TfiQuoteRight } from "react-icons/tfi";
 
 const About = () => {
     return (
-<div className="px-2 md:px-5 bg-black">
-<div className="flex flex-col lg:flex-row pt-8 gap-5">
+<div className=" bg-black">
+<div className="flex flex-col lg:flex-row gap-5">
     <div className="lg:w-1/2 hidden md:block">
         <img
   src="/myPhoto.jpg"
