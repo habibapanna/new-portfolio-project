@@ -13,6 +13,7 @@ import Loader from "../Loader/Loader";
 const Services = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
 
   const handleClick = () => {
     setLoading(true);
@@ -22,105 +23,127 @@ const Services = () => {
     }, 1000); // Simulate loading time
   };
 
+  // Handle custom cursor position and visibility
+  const handleMouseMove = (e) => {
+    setCursor({ x: e.clientX, y: e.clientY, visible: true });
+  };
+
+  const handleMouseLeave = () => {
+    setCursor((prev) => ({ ...prev, visible: false }));
+  };
+
   const servicesData = [
     {
       icon: <BsBriefcase />,
       title: "Web Design",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore mag.",
-      percentage: 80,
+        "Crafting responsive, visually stunning, and user-centered website designs that bring brands to life online.",
+      percentage: 90,
     },
     {
       icon: <BsCardChecklist />,
       title: "Web Development",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore mag.",
-      percentage: 80,
+        "Building powerful and scalable web applications using React, Node.js, and MongoDB with clean, maintainable code.",
+      percentage: 95,
     },
     {
       icon: <BsBarChart />,
       title: "Graphic Design",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore mag.",
-      percentage: 80,
+        "Designing captivating visuals, from social media posts to full branding packages, using Adobe Illustrator & Photoshop.",
+      percentage: 85,
     },
     {
       icon: <BsBinoculars />,
-      title: "Branding",
+      title: "UI/UX Design",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore mag.",
-      percentage: 80,
+        "Designing engaging and intuitive digital experiences through research-driven layouts and modern interface trends.",
+      percentage: 88,
     },
     {
       icon: <AiOutlineSun />,
       title: "SEO Optimization",
       description:
-        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.",
-      percentage: 75,
+        "Improving website visibility on search engines through keyword optimization, backlinks, and performance tuning.",
+      percentage: 80,
     },
     {
       icon: <BsCalendar4Week />,
       title: "Marketing",
       description:
-        "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi.",
+        "Creating data-driven digital marketing strategies to grow engagement and conversion across multiple platforms.",
       percentage: 85,
     },
   ];
 
   return (
-    <section id="services" className="py-16 bg-black">
+    <section id="services" className="py-16 bg-black relative overflow-hidden">
       <div className="container mx-auto">
-        {/* Section Heading */}
-        
-
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 gap-12 p-16 md:px-28">
           {servicesData.map((service, index) => (
-           <div
-  key={index}
-  className="cursor-pointer flex flex-col space-y-6 group" // added group
-  onClick={handleClick}
->
-  {/* Icon + Title + Description */}
-  <div className="flex items-center space-x-4">
-    <div className="text-3xl text-blue-400 group-hover:text-white transition">
-      {service.icon}
-    </div>
-    <div>
-      <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition">
-        {service.title}
-      </h4>
-      <p className="text-gray-400">{service.description}</p>
-    </div>
-  </div>
+            <div
+              key={index}
+              className="cursor-pointer flex flex-col space-y-6 group relative"
+              onClick={handleClick}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              {/* Icon + Title + Description */}
+              <div className="flex items-center space-x-4">
+                <div className="text-3xl text-blue-400 group-hover:text-white transition">
+                  {service.icon}
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition">
+                    {service.title}
+                  </h4>
+                  <p className="text-gray-400">{service.description}</p>
+                </div>
+              </div>
 
-  {/* Progress bar */}
-  <div className="w-full">
-    <div className="h-1 bg-gray-700 rounded">
-      <div
-        className="h-1 bg-blue-400 rounded group-hover:bg-white transition-all"
-        style={{ width: `${service.percentage}%` }}
-      ></div>
-    </div>
-  </div>
+              {/* Progress bar */}
+              <div className="w-full">
+                <div className="h-1 bg-gray-700 rounded">
+                  <div
+                    className="h-1 bg-blue-400 rounded group-hover:bg-white transition-all"
+                    style={{ width: `${service.percentage}%` }}
+                  ></div>
+                </div>
+              </div>
 
-  {/* Circular Percentage */}
-<div
-  className="w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-xl"
-  style={{
-    background: `conic-gradient(#60a5fa ${service.percentage * 3.6}deg, #93c5fd 0deg)`,
-  }}
->
-  {service.percentage}%
-</div>
-
-</div>
-
+              {/* Circular Percentage */}
+              <div
+                className="w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-xl"
+                style={{
+                  background: `conic-gradient(#60a5fa ${service.percentage * 3.6}deg, #93c5fd 0deg)`,
+                }}
+              >
+                {service.percentage}%
+              </div>
+            </div>
           ))}
         </div>
 
         {/* Loader */}
         {loading && <Loader />}
+      </div>
+
+      {/* Hover Cursor Effect */}
+      <div
+        className={`fixed pointer-events-none flex items-center justify-center rounded-full text-center text-black font-semibold bg-white shadow-lg transition-all duration-150 ${
+          cursor.visible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        }`}
+        style={{
+          left: cursor.x - 40,
+          top: cursor.y - 40,
+          width: "80px",
+          height: "80px",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        View Details
       </div>
     </section>
   );
