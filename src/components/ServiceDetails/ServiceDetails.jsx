@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Loader = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-black">
+    <div className="flex justify-center items-center min-h-screen bg-white">
       <CgSpinnerTwoAlt className="text-7xl text-blue-400 animate-spin" />
     </div>
   );
@@ -50,24 +50,24 @@ const ServiceDetails = () => {
   return loading ? (
     <Loader />
   ) : (
-    <div className="bg-black">
+    <div className="bg-white">
       {/* Navbar */}
       <motion.div
-        className="navbar bg-black py-4"
+        className="navbar bg-white py-4"
         initial="hidden"
         animate="visible"
         variants={fadeInVariants}
       >
         <div className="flex flex-col lg:flex-row w-full lg:justify-between gap-2 px-2 py-2">
           <div>
-            <a className="text-2xl text-white font-bold">Service Details</a>
+            <a className="text-2xl text-black font-bold">Service Details</a>
           </div>
           <div>
             <ul className="flex flex-row gap-2">
               <li>
                 <button
                   onClick={handleNavigateHome}
-                  className="text-white hover:bg-blue-500 cursor-pointer rounded bg-blue-400 px-2"
+                  className="text-white hover:bg-blue-500 cursor-pointer bg-blue-400 px-2"
                 >
                   ← Back to Home
                 </button>
@@ -92,15 +92,15 @@ const ServiceDetails = () => {
       >
         {/* Sidebar */}
         <motion.div className="lg:w-3/5" variants={fadeInVariants}>
-          <div className="bg-white border border-gray-300 p-6">
+          <div className="bg-black border border-gray-300 p-6">
             <ul className="space-y-6">
               {services.map((service, index) => (
                 <li
                   key={index}
-                  className={`cursor-pointer hover:text-blue-500 pl-4 border-l-3 hover:border-blue-400 ${
+                  className={`cursor-pointer hover:text-blue-400 pl-4 border-l-3 hover:border-blue-400 ${
                     activeService === service
-                      ? "border-blue-500 text-black font-bold"
-                      : "border-gray-300 text-gray-600"
+                      ? "border-blue-400 text-blue-400 font-bold"
+                      : "border-gray-300 text-white"
                   }`}
                   onClick={() => handleServiceClick(service)}
                 >
@@ -111,8 +111,8 @@ const ServiceDetails = () => {
           </div>
 
           <div className="mt-5">
-            <h1 className="text-xl font-bold mb-2 text-white">Empowering Brands Through Digital Solutions</h1>
-            <p className="mb-3 text-gray-300">
+            <h1 className="text-xl font-bold mb-2 text-black">Empowering Brands Through Digital Solutions</h1>
+            <p className="mb-3 text-gray-800">
               From design to deployment, our services are built to help businesses grow,
               engage audiences, and stand out in the digital world.
             </p>
@@ -120,7 +120,7 @@ const ServiceDetails = () => {
         </motion.div>
 
         {/* Right Content */}
-        <motion.div className="w-full text-white" variants={fadeInVariants}>
+        <motion.div className="w-full text-black" variants={fadeInVariants}>
           <div>
             <img
               src="https://i.postimg.cc/pr8LP0Zr/image.png"
@@ -213,16 +213,16 @@ const ServiceDetails = () => {
                 <h2 className="text-3xl font-bold mb-4 text-blue-400">
                   {service} Details
                 </h2>
-                <p className="mb-6 text-gray-300">{content.desc}</p>
+                <p className="mb-6 text-gray-800">{content.desc}</p>
                 <ul className="space-y-4">
                   {content.points.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-center text-gray-200">
-                      <BsCheckCircle className="text-blue-500 mr-2 text-xl" />
+                    <li key={itemIndex} className="flex items-center text-gray-700">
+                      <BsCheckCircle className="text-blue-400 mr-2 text-xl" />
                       {item}
                     </li>
                   ))}
                 </ul>
-                <p className="mt-6 text-gray-300">{content.extra}</p>
+                <p className="mt-6 text-gray-800">{content.extra}</p>
               </motion.div>
             );
           })}

@@ -40,6 +40,7 @@ const TestimonialsSection = () => {
   const [page, setPage] = useState(0);
   const [openSlider, setOpenSlider] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0); // 1 = next, -1 = prev
   const itemsPerPage = 3;
   const totalPages = Math.ceil(testimonials.length / itemsPerPage);
 
@@ -64,22 +65,24 @@ const TestimonialsSection = () => {
   };
 
   const handleNext = () => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   const handlePrev = () => {
+    setDirection(-1);
     setCurrentIndex((prev) =>
       prev === 0 ? testimonials.length - 1 : prev - 1
     );
   };
 
   return (
-    <section className="bg-black py-16 px-6 overflow-hidden relative">
+    <section className="bg-blue-50 py-16 px-6 overflow-hidden relative">
       {/* Section Header */}
       <div className="text-left mb-8">
-        <h2 className="text-3xl font-bold mb-5 text-white">Testimonials</h2>
+        <h2 className="text-3xl font-bold mb-5 text-black">Testimonials</h2>
         <div className="border-2 border-blue-400 w-16 mb-5"></div>
-        <p className="mb-16 text-gray-300">
+        <p className="mb-16 text-gray-800">
           Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
         </p>
       </div>
@@ -101,8 +104,8 @@ const TestimonialsSection = () => {
                 className="flex justify-center"
                 onClick={() => handleOpenSlider(index)}
               >
-                <div className="bg-stone-900 roun relative p-5 shadow-lg w-full max-w-sm cursor-pointer hover:scale-105 transition-transform duration-300">
-                  <p className="italic text-sm font-light mb-6 text-center text-gray-200">
+                <div className="bg-white roun relative p-5 shadow-lg w-full max-w-sm cursor-pointer hover:scale-105 transition-transform duration-300">
+                  <p className="italic text-sm font-light mb-6 text-center text-black">
                     <FaQuoteLeft className="text-blue-400 mb-2 inline-block mr-2" />
                     {t.text}
                     <FaQuoteRight className="text-blue-400 inline-block ml-2" />
@@ -121,7 +124,7 @@ const TestimonialsSection = () => {
                       height: "0",
                       borderLeft: "35px solid transparent",
                       borderRight: "35px solid transparent",
-                      borderTop: "35px solid #1c1917",
+                      borderTop: "35px solid #ffffff",
                     }}
                   ></div>
                 </div>
@@ -135,7 +138,7 @@ const TestimonialsSection = () => {
       <AnimatePresence>
         {openSlider && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
+            className="fixed inset-0 bg-white bg-opacity-90 z-80 flex items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -143,23 +146,23 @@ const TestimonialsSection = () => {
             {/* Close Button */}
             <button
               onClick={handleCloseSlider}
-              className="absolute top-5 right-5 text-white text-3xl md:text-5xl hover:text-blue-400 cursor-pointer z-50"
+              className="absolute top-5 right-5 text-blue-400 text-3xl md:text-5xl hover:text-blue-500 cursor-pointer z-50"
             >
               <IoClose />
             </button>
 
-            {/* Prev Button (Responsive) */}
+            {/* Prev Button */}
             <button
               onClick={handlePrev}
-              className="absolute left-3 sm:left-8 text-white md:text-4xl sm:text-5xl hover:text-blue-400 cursor-pointer z-50 bg-stone-800 bg-opacity-60 p-2 rounded-full"
+              className="absolute left-3 sm:left-8 text-white md:text-4xl sm:text-5xl hover:text-blue-400 cursor-pointer z-50 hover:bg-white bg-blue-400 border border-blue-400 bg-opacity-60 p-2 rounded-full"
             >
               <IoArrowBack />
             </button>
 
-            {/* Next Button (Responsive) */}
+            {/* Next Button */}
             <button
               onClick={handleNext}
-              className="absolute right-3 sm:right-8 text-white md:text-4xl sm:text-5xl hover:text-blue-400 cursor-pointer z-50 bg-stone-800 bg-opacity-60 p-2 rounded-full"
+              className="absolute right-3 sm:right-8 text-white md:text-4xl sm:text-5xl hover:text-blue-400 cursor-pointer z-50 border border-blue-400 hover:bg-white bg-blue-400 bg-opacity-60 p-2 rounded-full"
             >
               <IoArrowForward />
             </button>
@@ -167,9 +170,9 @@ const TestimonialsSection = () => {
             {/* Testimonial Slide */}
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, x: 200 }}
+              initial={{ opacity: 0, x: direction > 0 ? 200 : -200 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -200 }}
+              exit={{ opacity: 0, x: direction > 0 ? -200 : 200 }}
               transition={{ duration: 0.7 }}
               className="bg-stone-900 max-w-lg sm:max-w-2xl mx-4 sm:mx-6 roun p-6 sm:p-8 shadow-lg text-center relative"
             >

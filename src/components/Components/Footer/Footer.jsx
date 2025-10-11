@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="relative w-full overflow-hidden bg-black">
+    <div className="relative w-full overflow-hidden bg-white">
       {/* --- Waves --- */}
       <div className="absolute bottom-0 left-0 w-full h-[80px] overflow-hidden">
         <style>
@@ -75,14 +75,14 @@ const Footer = () => {
           >
             <path
               d="M0,80 C100,40 200,120 300,80 C400,40 500,120 600,80 C700,40 800,120 900,80 C1000,40 1100,120 1200,80 L1200,120 L0,120 Z"
-              fill="black"
+              fill="white"
             />
           </svg>
         </div>
       </div>
 
       {/* --- Footer Content --- */}
-      <footer className="relative z-10 text-white text-center pt-5">
+      <footer className="relative z-10 text-gray-800 text-center pt-5">
         <p>© Copyright iPortfolio. All Rights Reserved.</p>
       </footer>
     </div>

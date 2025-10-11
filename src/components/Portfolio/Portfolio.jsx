@@ -1,5 +1,5 @@
 import { ZoomIn } from "@mui/icons-material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ImLink } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
@@ -8,7 +8,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { RxCross1 } from "react-icons/rx";
 import Loader from "../Loader/Loader";
-import Tooltip from "@mui/material/Tooltip";
 
 const portfolioData = [
   { id: 1, category: "App", name: "App 1", image: "https://i.postimg.cc/wv2WNnvN/abillion-Nf5f-Sq-Hm-i-Y-unsplash.jpg" },
@@ -32,12 +31,23 @@ const Portfolio = () => {
   const [isCarouselOpen, setIsCarouselOpen] = useState(false);
   const [carouselImages, setCarouselImages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
   const navigate = useNavigate();
 
+  // Filtering data
   const filteredData =
     activeCategory === "All"
       ? portfolioData
       : portfolioData.filter(item => item.category === activeCategory);
+
+  // Cursor effect
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setCursor((prev) => ({ ...prev, x: e.clientX, y: e.clientY }));
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const handleClick = () => {
     setLoading(true);
@@ -69,9 +79,8 @@ const Portfolio = () => {
   return (
     <div>
       {loading && <Loader />}
-      <section className="md:py-16 px-3 bg-black">
-        <div className="max-w-7xl mx-auto px-4">
-
+      <section className="py-16 px-6 bg-white relative">
+        <div className="mx-auto">
           {/* Category Filter Buttons */}
           <div className="text-lg font-semibold flex justify-left space-x-2 md:space-x-4 mb-8 gap-4">
             {categories.map(category => (
@@ -81,7 +90,7 @@ const Portfolio = () => {
                 className={`${
                   activeCategory === category
                     ? "text-blue-400 "
-                    : "text-white cursor-pointer"
+                    : "text-black cursor-pointer"
                 } hover:text-blue-400`}
               >
                 {category}
@@ -101,55 +110,33 @@ const Portfolio = () => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.5 }}
                   className="group relative overflow-hidden"
+                  onMouseEnter={() => setCursor((prev) => ({ ...prev, visible: true }))}
+                  onMouseLeave={() => setCursor((prev) => ({ ...prev, visible: false }))}
                 >
                   <img
                     src={item.image}
                     alt={item.category}
                     className="w-full md:h-[300px] h-[200px] lg:h-64 object-cover transform group-hover:scale-110 transition-transform duration-300 ease-in-out"
                   />
-                 <div
-                 onClick={handleClick} className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-  {/* Puzzle Pieces */}
-  <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
-    {/* Top Left */}
-    <div className="bg-black/80 transform translate-x-[-100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-    {/* Top Right */}
-    <div className="bg-black/80 transform translate-x-[100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-    {/* Bottom Left */}
-    <div className="bg-black/80 transform translate-x-[-100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-    {/* Bottom Right */}
-    <div className="bg-black/80 transform translate-x-[100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-  </div>
 
-  {/* Center Content (Icons + Text) */}
-  <div className="relative z-10 flex flex-col items-center">
-  <div className="">
-  {/* ZoomIn with Tooltip */}
-  {/* <Tooltip title={item.name}>
-    <ZoomIn
-      className="text-white hover:text-blue-400 cursor-pointer"
-      fontSize="large"
-      onClick={() => openCarousel(item.category)}
-    />
-  </Tooltip> */}
+                  {/* Hover Overlay + Link */}
+                  <div
+                    onClick={handleClick}
+                    className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-50 transition-opacity duration-300 cursor-pointer"
+                  >
+                    {/* Puzzle Animation */}
+                    <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
+                      <div className="bg-black/50 transform translate-x-[-100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+                      <div className="bg-black/50 transform translate-x-[100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+                      <div className="bg-black/50 transform translate-x-[-100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+                      <div className="bg-black/50 transform translate-x-[100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+                    </div>
 
-  {/* ImLink with Tooltip */}
-  <Tooltip title="View Project">
-    <ImLink
-      onClick={handleClick}
-      className="text-white text-2xl cursor-pointer hover:text-blue-400"
-    />
-  </Tooltip>
-</div>
-
-
-    {/* Top Left Tag */}
-    {/* <span className="absolute top-4 left-4 bg-blue-400 text-white px-2 py-1 text-sm font-semibold">
-      {item.name}
-    </span> */}
-  </div>
-</div>
-
+                    {/* Center Icon */}
+                    {/* <div className="relative z-10 flex flex-col items-center">
+                      <ImLink className="text-white text-3xl cursor-pointer hover:text-blue-400" />
+                    </div> */}
+                  </div>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -164,9 +151,8 @@ const Portfolio = () => {
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="fixed inset-0 bg-black/80 z-50 flex justify-center items-center"
+              className="fixed inset-0 bg-black/50 z-50 flex justify-center items-center"
             >
-              {/* Cross Icon at Top Right */}
               <button
                 onClick={closeCarousel}
                 className="fixed top-5 right-5 z-50"
@@ -200,6 +186,23 @@ const Portfolio = () => {
             </motion.div>
           </AnimatePresence>
         )}
+
+        {/* Hover Cursor Effect */}
+        <div
+          className={`fixed pointer-events-none flex items-center justify-center rounded-full text-center text-black font-semibold bg-white shadow-lg transition-all duration-150 ${
+            cursor.visible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+          }`}
+          style={{
+            left: cursor.x - 40,
+            top: cursor.y - 40,
+            width: "80px",
+            height: "80px",
+            transform: "translate(-50%, -50%)",
+            zIndex: 9999,
+          }}
+        >
+          View Details
+        </div>
       </section>
     </div>
   );

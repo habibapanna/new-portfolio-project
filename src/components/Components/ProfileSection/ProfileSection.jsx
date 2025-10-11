@@ -2,9 +2,9 @@ import { FaFacebookF, FaInstagram, FaSkype, FaLinkedinIn, FaTwitter } from "reac
 
 const ProfileSection = () => {
   return (
-    <div className="bg-bla flex flex-col justify-center items-center text-white mb-5">
+    <div className="bg-bla flex flex-col justify-center items-center text-black">
       {/* Profile Image */}
-      <div className="rounded-full overflow-hidden w-32 h-32 border-8 border-gray-800">
+      <div className="rounded-full overflow-hidden w-32 h-32 border-8 border-gray-200">
         <img
   src="/myPhoto.jpg"
   alt="Profile"
@@ -14,7 +14,7 @@ const ProfileSection = () => {
       </div>
 
       {/* Name */}
-      <h2 className="text-3xl font-semibold mt-4">Sanwar Limon</h2>
+      <h2 className="text-2xl text-center font-semibold mt-4 upper">Sanwar Hossen Limon</h2>
 
       {/* Social Icons */}
       {/* <div className="flex space-x-2 mt-4">

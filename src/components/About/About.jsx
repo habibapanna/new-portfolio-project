@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div id="about" className="bg-black text-white overflow-hidden relative">
+    <div id="about" className="bg-white text-black overflow-hidden relative">
       <div className="flex flex-col lg:flex-row gap-5 items-center">
         {/* --- Left Image Section --- */}
         <motion.div
@@ -14,9 +14,9 @@ const About = () => {
           viewport={{ once: true }}
         >
           <img
-            src="/myPhoto.jpg"
+            src="/myPhoto2.png"
             alt="Profile"
-            className="w-full h-full object-cover object-[50%] rounded-r-[40px] shadow-[0_0_25px_rgba(59,130,246,0.4)]"
+            className="w-full h-full object-cover"
           />
         </motion.div>
 
@@ -31,12 +31,12 @@ const About = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              Hi, I’m <span className="text-blue-400">Sanwar Limon</span>
+              Hi, I’m <span className="text-blue-400">Sanwar</span>
             </motion.h2>
 
             {/* BELIEVE Section with glowing underline */}
             <motion.h3
-              className="text-3xl md:text-4xl font-extrabold mb-4 text-white bg-clip-text"
+              className="text-3xl md:text-4xl font-extrabold mb-4 text-black bg-clip-text"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -64,7 +64,7 @@ const About = () => {
               </motion.span>
 
               <motion.p
-                className="text-lg md:text-2xl leading-relaxed font-light text-gray-300"
+                className="text-lg md:text-2xl leading-relaxed font-light text-gray-800"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}

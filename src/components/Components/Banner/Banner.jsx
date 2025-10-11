@@ -3,6 +3,8 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
+
+
 const Banner = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [particles, setParticles] = useState([]);
@@ -34,12 +36,16 @@ const Banner = () => {
 
   return (
     <div
-      className="relative min-h-screen bg-cover bg-center bg-black overflow-hidden"
-      style={{
-        backgroundImage: 'url(https://i.postimg.cc/j5RrLy22/image.png)',
-      }}
-      onMouseMove={handleMouseMove}
-    >
+  className="relative min-h-screen bg-center bg-gray-100 overflow-hidden"
+  style={{
+    backgroundImage: "url('/myPhoto1.png')",
+    backgroundSize: "contain", // ✅ shows full image
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+  }}
+  onMouseMove={handleMouseMove}
+>
+
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
 
@@ -122,7 +128,7 @@ const Banner = () => {
 
           {/* Paragraph */}
           <motion.p
-            className="w-3/4 md:w-2/4 mx-auto leading-loose text-gray-300"
+            className="w-3/4 md:w-2/4 mx-auto leading-loose text-gray-200"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}

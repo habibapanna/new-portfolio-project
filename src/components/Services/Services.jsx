@@ -95,12 +95,12 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="py-8 md:py-16 bg-black relative overflow-hidden"
+      className="py-16 bg-neutral-100 relative overflow-hidden px-6"
     >
-      <div className="container mx-auto">
+      <div className="mx-auto">
         {/* Services Grid */}
         <motion.div
-          className="grid md:grid-cols-2 gap-12 p-16 md:px-28"
+          className="grid md:grid-cols-2 gap-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -119,22 +119,22 @@ const Services = () => {
             >
               {/* Icon + Title + Description */}
               <div className="flex items-center space-x-4">
-                <div className="text-3xl text-blue-400 group-hover:text-white transition-colors duration-300">
+                <div className="text-3xl text-gray-400 group-hover:text-blue-400 transition-colors duration-300">
                   {service.icon}
                 </div>
                 <div>
-                  <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
+                  <h4 className="text-xl font-semibold text-black mb-2 group-hover:text-blue-400 transition-colors duration-300">
                     {service.title}
                   </h4>
-                  <p className="text-gray-400">{service.description}</p>
+                  <p className="text-gray-800">{service.description}</p>
                 </div>
               </div>
 
               {/* Progress bar */}
               <div className="w-full">
-                <div className="h-1 bg-gray-700 rounded">
+                <div className="h-1 bg-gray-300 rounded">
                   <div
-                    className="h-1 bg-blue-400 rounded group-hover:bg-white transition-all duration-500"
+                    className="h-1 bg-blue-400 rounded group-hover:bg-gray-300 transition-all duration-500"
                     style={{ width: `${service.percentage}%` }}
                   ></div>
                 </div>
@@ -159,7 +159,7 @@ const Services = () => {
 
       {/* Hover Cursor Effect */}
       <div
-        className={`fixed pointer-events-none flex items-center justify-center rounded-full text-center text-black font-semibold bg-white shadow-lg transition-all duration-150 ${
+        className={`fixed pointer-events-none flex items-center justify-center rounded-full text-center bg-black font-semibold text-white shadow-lg transition-all duration-150 ${
           cursor.visible ? "opacity-100 scale-100" : "opacity-0 scale-0"
         }`}
         style={{

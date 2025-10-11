@@ -95,23 +95,42 @@ const Sidebar = () => {
         initial={{ x: -300, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 left-0 z-[60] h-full w-72 bg-black shadow-xl transform ${
+        className={`fixed top-0 left-0 z-[60] h-full w-72 bg-white shadow-xl transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
         {/* Header Section (Desktop Only) */}
-        <div className="hidden md:flex flex-col mt-10 relative">
+        <div className="hidden md:flex flex-col mt-12 relative">
           {/* Top Row */}
           <div className="flex justify-between items-center">
-            <motion.div
-              className="text-white text-xl font-semibold ml-12"
-              whileHover={{ scale: 1.1 }}
-            >
-              HYPNO
-            </motion.div>
+         <div className="text-2xl font-semibold uppercase text-center ml-6 flex justify-center items-center">
+  <span>L</span>
+  <span>I</span>
+  <motion.span
+    className="text-blue-400 inline-block"
+    animate={{
+      y: [0, -60, -60, 0, -10, 0],   // jump up, stay, come down with bounce
+      rotateY: [0, 0, 360, 0, 0, 0], // flip horizontally while at the top
+    }}
+    transition={{
+      duration: 8, // full cycle duration
+      times: [0, 0.25, 0.625, 0.8, 0.9, 1], // timing keyframes
+      ease: "easeInOut",
+      repeat: Infinity,
+    }}
+    style={{ transformOrigin: "center" }}
+  >
+    M
+  </motion.span>
+  <span>O</span>
+  <span>N</span>
+</div>
+
+
+
 
             <motion.div
-              className="cursor-pointer bg-stone-900 p-4 text-white"
+              className="cursor-pointer bg-stone-100 p-4 text-white"
               onClick={() => setMenuListOpen(!menuListOpen)}
               whileHover={{ rotate: 90 }}
               transition={{ duration: 0.3 }}
@@ -128,7 +147,7 @@ const Sidebar = () => {
           <AnimatePresence>
             {menuListOpen && (
               <motion.div
-                className="absolute top-13 right-0 w-28 bg-stone-900 shadow-lg overflow-hidden z-[90]"
+                className="absolute top-13 right-0 w-28 bg-stone-100 shadow-lg overflow-hidden z-[90]"
                 initial={{ opacity: 0, y: -15, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
@@ -143,7 +162,7 @@ const Sidebar = () => {
                         ${
                           activeLink === link.href
                             ? "text-white bg-blue-400 shadow-md"
-                            : "hover:text-white hover:bg-blue-400/20 text-gray-300"
+                            : "hover:text-gray-800 hover:bg-blue-400/20 text-gray-800"
                         }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -170,7 +189,7 @@ const Sidebar = () => {
                   ${
                     activeLink === link.href
                       ? "text-white bg-blue-400 shadow-md"
-                      : "hover:text-white hover:bg-blue-400/20 text-gray-300"
+                      : "hover:text-gray-800 hover:bg-blue-400/20 text-gray-800"
                   }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -213,7 +232,7 @@ const Sidebar = () => {
           </div>
 
           <motion.span
-            className="text-white font-semibold ml-3"
+            className="text-black font-semibold ml-3"
             animate={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: -20 }}
             key={activeLink}
