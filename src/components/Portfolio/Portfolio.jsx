@@ -69,7 +69,7 @@ const Portfolio = () => {
   return (
     <div>
       {loading && <Loader />}
-      <section className="pb-16 px px-3 bg-black">
+      <section className="md:py-16 px-3 bg-black">
         <div className="max-w-7xl mx-auto px-4">
 
           {/* Category Filter Buttons */}
@@ -107,7 +107,8 @@ const Portfolio = () => {
                     alt={item.category}
                     className="w-full md:h-[300px] h-[200px] lg:h-64 object-cover transform group-hover:scale-110 transition-transform duration-300 ease-in-out"
                   />
-                 <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                 <div
+                 onClick={handleClick} className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
   {/* Puzzle Pieces */}
   <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
     {/* Top Left */}
@@ -122,18 +123,18 @@ const Portfolio = () => {
 
   {/* Center Content (Icons + Text) */}
   <div className="relative z-10 flex flex-col items-center">
-  <div className="flex gap-5 mt-10">
+  <div className="">
   {/* ZoomIn with Tooltip */}
-  <Tooltip title={item.name}>
+  {/* <Tooltip title={item.name}>
     <ZoomIn
       className="text-white hover:text-blue-400 cursor-pointer"
       fontSize="large"
       onClick={() => openCarousel(item.category)}
     />
-  </Tooltip>
+  </Tooltip> */}
 
   {/* ImLink with Tooltip */}
-  <Tooltip title="More Details">
+  <Tooltip title="View Project">
     <ImLink
       onClick={handleClick}
       className="text-white text-2xl cursor-pointer hover:text-blue-400"

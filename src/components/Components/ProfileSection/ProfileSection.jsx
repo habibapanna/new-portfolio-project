@@ -2,7 +2,7 @@ import { FaFacebookF, FaInstagram, FaSkype, FaLinkedinIn, FaTwitter } from "reac
 
 const ProfileSection = () => {
   return (
-    <div className="bg-black flex flex-col justify-center items-center text-white mb-5">
+    <div className="bg-bla flex flex-col justify-center items-center text-white mb-5">
       {/* Profile Image */}
       <div className="rounded-full overflow-hidden w-32 h-32 border-8 border-gray-800">
         <img

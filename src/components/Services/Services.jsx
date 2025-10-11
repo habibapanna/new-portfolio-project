@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { AiOutlineSun } from "react-icons/ai";
 import {
   BsCalendar4Week,
@@ -20,10 +21,9 @@ const Services = () => {
     setTimeout(() => {
       setLoading(false);
       navigate("service-details");
-    }, 1000); // Simulate loading time
+    }, 1000);
   };
 
-  // Handle custom cursor position and visibility
   const handleMouseMove = (e) => {
     setCursor({ x: e.clientX, y: e.clientY, visible: true });
   };
@@ -77,26 +77,53 @@ const Services = () => {
     },
   ];
 
+  // ✨ Fade-in + Hover Zoom Animations
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.25, // Each appears with a delay
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   return (
-    <section id="services" className="py-16 bg-black relative overflow-hidden">
+    <section
+      id="services"
+      className="py-8 md:py-16 bg-black relative overflow-hidden"
+    >
       <div className="container mx-auto">
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-12 p-16 md:px-28">
+        <motion.div
+          className="grid md:grid-cols-2 gap-12 p-16 md:px-28"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {servicesData.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="cursor-pointer flex flex-col space-y-6 group relative"
+              className="cursor-pointer flex flex-col space-y-6 group relative  p-6 rounded-2xl  "
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }} // ✨ smooth zoom on hover
+              transition={{ type: "spring", stiffness: 200, damping: 15 }}
               onClick={handleClick}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
             >
               {/* Icon + Title + Description */}
               <div className="flex items-center space-x-4">
-                <div className="text-3xl text-blue-400 group-hover:text-white transition">
+                <div className="text-3xl text-blue-400 group-hover:text-white transition-colors duration-300">
                   {service.icon}
                 </div>
                 <div>
-                  <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition">
+                  <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
                     {service.title}
                   </h4>
                   <p className="text-gray-400">{service.description}</p>
@@ -107,7 +134,7 @@ const Services = () => {
               <div className="w-full">
                 <div className="h-1 bg-gray-700 rounded">
                   <div
-                    className="h-1 bg-blue-400 rounded group-hover:bg-white transition-all"
+                    className="h-1 bg-blue-400 rounded group-hover:bg-white transition-all duration-500"
                     style={{ width: `${service.percentage}%` }}
                   ></div>
                 </div>
@@ -122,9 +149,9 @@ const Services = () => {
               >
                 {service.percentage}%
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Loader */}
         {loading && <Loader />}

@@ -32,7 +32,60 @@ const fadeInFromRight = {
 const Home = () => {
   return (
     <div>
-      <motion.section
+
+
+<section id="banner">
+        <Banner />
+      </section>
+
+      <section id="about">
+        <About />
+      </section>
+
+      <section id="services">
+        <Services />
+      </section>
+
+      {/* <section id="counts">
+        <Counts />
+      </section> */}
+
+      {/* <section id="skills">
+        <SkillsSection />
+      </section> */}
+
+      {/* <section id="resume">
+        <Resume />
+      </section> */}
+
+      <section id="portfolio">
+        <Portfolio />
+      </section>
+
+      <section id="testimonials">
+        <TestimonialsSection />
+      </section>
+
+      {/* <section id="blog">
+        <Blog />
+      </section> */}
+
+      {/* <section id="contact">
+        <Contact />
+      </section> */}
+
+      <Footer />
+
+
+
+
+
+
+
+
+
+
+      {/* <motion.section
         id="banner"
         initial="hidden"
         whileInView="visible"
@@ -40,9 +93,9 @@ const Home = () => {
         variants={fadeInFromBottom}
       >
         <Banner />
-      </motion.section>
+      </motion.section> */}
 
-      <motion.section
+      {/* <motion.section
         id="about"
         initial="hidden"
         whileInView="visible"
@@ -50,9 +103,9 @@ const Home = () => {
         variants={fadeInFromBottom}
       >
         <About />
-      </motion.section>
+      </motion.section> */}
 
-         <motion.section
+         {/* <motion.section
         id="services"
         initial="hidden"
         whileInView="visible"
@@ -60,7 +113,7 @@ const Home = () => {
         variants={fadeInFromBottom}
       >
         <Services />
-      </motion.section>
+      </motion.section> */}
 
       {/* <motion.section
         id="counts"
@@ -92,7 +145,7 @@ const Home = () => {
         <Resume />
       </motion.section> */}
 
-      <motion.section
+      {/* <motion.section
         id="portfolio"
         initial="hidden"
         whileInView="visible"
@@ -100,9 +153,9 @@ const Home = () => {
         variants={fadeInFromBottom}
       >
         <Portfolio />
-      </motion.section>
+      </motion.section> */}
 
-      <motion.section
+      {/* <motion.section
         id="testimonials"
         initial="hidden"
         whileInView="visible"
@@ -110,7 +163,7 @@ const Home = () => {
         variants={fadeInFromBottom}
       >
         <TestimonialsSection />
-      </motion.section>
+      </motion.section> */}
 
      {/* <motion.section
   id="blog"
@@ -133,7 +186,7 @@ const Home = () => {
         <Contact />
       </motion.section> */}
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

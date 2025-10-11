@@ -51,15 +51,15 @@ const Details = () => {
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInFromBottom}
       >
-<div className="flex flex-col gap-2 lg:flex-row w-full lg:justify-between py-2 px-2 ">
+<div className="flex flex-col gap-2 lg:flex-row w-full lg:justify-between py-2 px-2 bg-black">
 <div className="">
           <a className="text-2xl text-white font-bold">Portfolio Details</a>
         </div>
         <div className="">
           <ul className="flex flex-row gap-2 px-1">
             <li>
-              <button onClick={handleClick} className="text-white cursor-pointer hover:text-blue-400">
-                Home
+              <button onClick={handleClick} className="text-white hover:bg-blue-500 cursor-pointer rounded bg-blue-400 px-2">
+                ← Back to Home
               </button>
             </li>
             <li>

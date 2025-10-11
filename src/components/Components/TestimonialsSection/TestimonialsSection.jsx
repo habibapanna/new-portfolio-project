@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import { IoClose, IoArrowForward, IoArrowBack } from "react-icons/io5";
 
 const testimonials = [
   {
@@ -37,21 +38,44 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   const [page, setPage] = useState(0);
+  const [openSlider, setOpenSlider] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 3;
   const totalPages = Math.ceil(testimonials.length / itemsPerPage);
 
+  // Auto-slide for small testimonial grid
   useEffect(() => {
     const interval = setInterval(() => {
       setPage((prev) => (prev + 1) % totalPages);
-    }, 5000); // Wait 5 seconds
+    }, 5000);
     return () => clearInterval(interval);
   }, [totalPages]);
 
   const start = page * itemsPerPage;
   const currentTestimonials = testimonials.slice(start, start + itemsPerPage);
 
+  const handleOpenSlider = (index) => {
+    setCurrentIndex(index + start);
+    setOpenSlider(true);
+  };
+
+  const handleCloseSlider = () => {
+    setOpenSlider(false);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    );
+  };
+
   return (
-    <section className="bg-black py-16 px-6 overflow-hidden">
+    <section className="bg-black py-16 px-6 overflow-hidden relative">
+      {/* Section Header */}
       <div className="text-left mb-8">
         <h2 className="text-3xl font-bold mb-5 text-white">Testimonials</h2>
         <div className="border-2 border-blue-400 w-16 mb-5"></div>
@@ -60,7 +84,8 @@ const TestimonialsSection = () => {
         </p>
       </div>
 
-      <div className="relative w-full">
+      {/* Testimonial Cards */}
+      <div className="relative w-full mb-16">
         <AnimatePresence mode="wait">
           <motion.div
             key={page}
@@ -71,8 +96,12 @@ const TestimonialsSection = () => {
             className="grid grid-cols-1 lg:grid-cols-3 gap-8"
           >
             {currentTestimonials.map((t, index) => (
-              <div key={index} className="flex justify-center">
-                <div className="bg-stone-900 rounded-lg lg:h-[200px] relative p-5 shadow-lg w-full max-w-sm">
+              <div
+                key={index}
+                className="flex justify-center"
+                onClick={() => handleOpenSlider(index)}
+              >
+                <div className="bg-stone-900 roun relative p-5 shadow-lg w-full max-w-sm cursor-pointer hover:scale-105 transition-transform duration-300">
                   <p className="italic text-sm font-light mb-6 text-center text-gray-200">
                     <FaQuoteLeft className="text-blue-400 mb-2 inline-block mr-2" />
                     {t.text}
@@ -80,10 +109,8 @@ const TestimonialsSection = () => {
                   </p>
                   <p className="font-semibold text-white text-right">{t.name}</p>
                   <p className="text-sm text-gray-400 text-right">{t.role}</p>
-                   <div className="">
-                  
-                </div>
 
+                  {/* Triangle design */}
                   <div
                     style={{
                       position: "absolute",
@@ -98,13 +125,69 @@ const TestimonialsSection = () => {
                     }}
                   ></div>
                 </div>
-
-               
               </div>
             ))}
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* 🔵 Fullscreen Slider Modal */}
+      <AnimatePresence>
+        {openSlider && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* Close Button */}
+            <button
+              onClick={handleCloseSlider}
+              className="absolute top-5 right-5 text-white text-3xl md:text-5xl hover:text-blue-400 cursor-pointer z-50"
+            >
+              <IoClose />
+            </button>
+
+            {/* Prev Button (Responsive) */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-3 sm:left-8 text-white md:text-4xl sm:text-5xl hover:text-blue-400 cursor-pointer z-50 bg-stone-800 bg-opacity-60 p-2 rounded-full"
+            >
+              <IoArrowBack />
+            </button>
+
+            {/* Next Button (Responsive) */}
+            <button
+              onClick={handleNext}
+              className="absolute right-3 sm:right-8 text-white md:text-4xl sm:text-5xl hover:text-blue-400 cursor-pointer z-50 bg-stone-800 bg-opacity-60 p-2 rounded-full"
+            >
+              <IoArrowForward />
+            </button>
+
+            {/* Testimonial Slide */}
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 200 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -200 }}
+              transition={{ duration: 0.7 }}
+              className="bg-stone-900 max-w-lg sm:max-w-2xl mx-4 sm:mx-6 roun p-6 sm:p-8 shadow-lg text-center relative"
+            >
+              <p className="italic text-base sm:text-lg text-gray-200 mb-6 leading-relaxed">
+                <FaQuoteLeft className="text-blue-400 inline-block mr-2" />
+                {testimonials[currentIndex].text}
+                <FaQuoteRight className="text-blue-400 inline-block ml-2" />
+              </p>
+              <h3 className="text-white font-semibold text-lg sm:text-xl">
+                {testimonials[currentIndex].name}
+              </h3>
+              <p className="text-gray-400 text-sm sm:text-base">
+                {testimonials[currentIndex].role}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
