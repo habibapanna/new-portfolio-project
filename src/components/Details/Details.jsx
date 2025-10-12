@@ -58,7 +58,7 @@ const Details = () => {
         <div className="">
           <ul className="flex flex-row gap-2 px-1">
             <li>
-              <button onClick={handleClick} className="text-white hover:bg-blue-500 cursor-pointer rounde bg-pink-500 px-2">
+              <button onClick={handleClick} className="text-white hover:bg-blue-500 cursor-pointer rounde bg-blue-800 px-2">
                 ← Back to Home
               </button>
             </li>
@@ -66,7 +66,7 @@ const Details = () => {
               <p className="text-gray-800">/</p>
             </li>
             <li>
-              <p className="text-pink-500">Portfolio Details</p>
+              <p className="text-blue-800">Portfolio Details</p>
             </li>
           </ul>
         </div>
@@ -120,7 +120,7 @@ const Details = () => {
               <li><strong>Category:</strong> Web Design</li>
               <li><strong>Client:</strong> ASU Company</li>
               <li><strong>Project Date:</strong> 01 March, 2020</li>
-              <li><strong>Project URL:</strong> <a href="https://www.example.com" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:underline">www.examp.com</a></li>
+              <li><strong>Project URL:</strong> <a href="https://www.example.com" target="_blank" rel="noopener noreferrer" className="text-blue-800 hover:underline">www.examp.com</a></li>
             </ul>
           </div>
 

@@ -119,11 +119,11 @@ const Services = () => {
             >
               {/* Icon + Title + Description */}
               <div className="flex items-center space-x-4">
-                <div className="text-3xl text-gray-400 group-hover:text-pink-500 transition-colors duration-300">
+                <div className="text-3xl text-gray-400 group-hover:text-blue-800 transition-colors duration-300">
                   {service.icon}
                 </div>
                 <div>
-                  <h4 className="text-xl font-semibold text-black mb-2 group-hover:text-pink-500 transition-colors duration-300">
+                  <h4 className="text-xl font-semibold text-black mb-2 group-hover:text-blue-800 transition-colors duration-300">
                     {service.title}
                   </h4>
                   <p className="text-gray-800">{service.description}</p>
@@ -134,7 +134,7 @@ const Services = () => {
               <div className="w-full">
                 <div className="h-1 bg-gray-300 rounded">
                   <div
-                    className="h-1 bg-pink-500 rounded group-hover:bg-gray-300 transition-all duration-500"
+                    className="h-1 bg-blue-800 rounded group-hover:bg-gray-300 transition-all duration-500"
                     style={{ width: `${service.percentage}%` }}
                   ></div>
                 </div>
@@ -143,9 +143,10 @@ const Services = () => {
               {/* Circular Percentage */}
               <div
                 className="w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-xl"
-               style={{
-  background: `conic-gradient(#ec4899 ${service.percentage * 3.6}deg, #f9a8d4 0deg)`,
+              style={{
+  background: `conic-gradient(#1e40af ${service.percentage * 3.6}deg, #3b82f6 0deg)`,
 }}
+
 
               >
                 {service.percentage}%

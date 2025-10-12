@@ -53,7 +53,7 @@ const SkillsSection = () => {
                 </div>
                 <div className="w-full bg-gray-200 h-2.5">
                   <div
-                    className="bg-pink-500 h-2.5 transition-all duration-1000 ease-in-out"
+                    className="bg-blue-800 h-2.5 transition-all duration-1000 ease-in-out"
                     style={{
                       width: animate ? `${skill.percentage}%` : "0%",
                     }}

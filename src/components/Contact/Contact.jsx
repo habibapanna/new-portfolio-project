@@ -50,11 +50,11 @@ SO, Drop Us a Line
           {/* Info Section */}
           <div className="mb-6 space-y-3 text-gray-300">
             <div className="flex items-center gap-3">
-              <SlLocationPin className="text-pink-500 text-lg" />
+              <SlLocationPin className="text-blue-800 text-lg" />
               <span>Lulabbi city hippo, Road 12/1 Jerk community, Japan</span>
             </div>
             <div className="flex items-center gap-3">
-              <LuPhone className="text-pink-500 text-lg" />
+              <LuPhone className="text-blue-800 text-lg" />
               <span>00012345</span>
             </div>
           </div>
@@ -126,9 +126,9 @@ py-2 outline-none"
 <div className="flex justify-end">
     <button
       type="submit"
-      className="mt-5 font-semibold cursor-pointer flex items-center gap-2 text-white hover:text-pink-500 transition-colors"
+      className="mt-5 font-semibold cursor-pointer flex items-center gap-2 text-white hover:text-blue-800 transition-colors"
     >
-      CONTACT ME <FaArrowRightLong className="text-pink-500" />
+      CONTACT ME <FaArrowRightLong className="text-blue-800" />
     </button>
   </div>
           </form>

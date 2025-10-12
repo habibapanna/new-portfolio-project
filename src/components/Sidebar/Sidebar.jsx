@@ -75,7 +75,7 @@ const Sidebar = () => {
       {/* --- Top Progress Bar --- */}
       <div className="fixed top-0 left-0 w-full h-1 z-50">
         <div
-          className="h-1 bg-pink-500 transition-all duration-500 ease-in-out"
+          className="h-1 bg-blue-800 transition-all duration-500 ease-in-out"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -84,7 +84,7 @@ const Sidebar = () => {
       <div className="fixed top-5 right-5 z-50 lg:hidden">
         <button
           onClick={toggleSidebar}
-          className="text-white text-3xl bg-pink-500 rounded-full p-2 shadow-lg hover:scale-110 transition-transform cursor-pointer"
+          className="text-white text-3xl bg-blue-800 rounded-full p-2 shadow-lg hover:scale-110 transition-transform cursor-pointer"
         >
           {isOpen ? <AiOutlineClose size={20} /> : <TfiMenuAlt size={20} />}
         </button>
@@ -107,7 +107,7 @@ const Sidebar = () => {
   <span>L</span>
   <span>I</span>
   <motion.span
-    className="text-pink-500 inline-block"
+    className="text-blue-800 inline-block"
     animate={{
       y: [0, -60, -60, 0, -10, 0],   // jump up, stay, come down with bounce
       rotateY: [0, 0, 360, 0, 0, 0], // flip horizontally while at the top
@@ -136,9 +136,9 @@ const Sidebar = () => {
               transition={{ duration: 0.3 }}
             >
               {menuListOpen ? (
-                <AiOutlineClose size={22} className="text-pink-500" />
+                <AiOutlineClose size={22} className="text-blue-800" />
               ) : (
-                <TfiMenuAlt size={25} className="text-pink-500" />
+                <TfiMenuAlt size={25} className="text-blue-800" />
               )}
             </motion.div>
           </div>
@@ -161,8 +161,8 @@ const Sidebar = () => {
                       className={`w-full text-left py-2 px-1 flex items-center gap-2 transition-all duration-300 cursor-pointer
                         ${
                           activeLink === link.href
-                            ? "text-white bg-pink-500 shadow-md"
-                            : "hover:text-gray-800 hover:bg-pink-500/20 text-gray-800"
+                            ? "text-white bg-blue-800 shadow-md"
+                            : "hover:text-gray-800 hover:bg-blue-800/20 text-gray-800"
                         }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -188,8 +188,8 @@ const Sidebar = () => {
                 className={`w-full text-left py-2 px-3 rounded-md flex items-center gap-3 transition-all duration-300 cursor-pointer
                   ${
                     activeLink === link.href
-                      ? "text-white bg-pink-500 shadow-md"
-                      : "hover:text-gray-800 hover:bg-pink-500/20 text-gray-800"
+                      ? "text-white bg-blue-800 shadow-md"
+                      : "hover:text-gray-800 hover:bg-blue-800/20 text-gray-800"
                   }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -205,7 +205,7 @@ const Sidebar = () => {
         <div className="hidden lg:flex items-center justify-start absolute left-0 top-1/2 transform -translate-y-1/2 z-[70]">
           <div className="relative w-20 h-20 flex items-center justify-center">
             <motion.div
-              className="absolute w-8 h-8 rounded-full bg-pink-500"
+              className="absolute w-8 h-8 rounded-full bg-blue-800"
               layoutId="active-circle"
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />
@@ -242,7 +242,7 @@ const Sidebar = () => {
           </motion.span>
 
           <motion.span
-  className="absolute left-45 w-48 h-[1px] bg-pink-500 z-[70]"
+  className="absolute left-45 w-48 h-[1px] bg-blue-800 z-[70]"
   animate={
     showSpread
       ? {

@@ -49,7 +49,7 @@ const Banner = () => {
       {particles.map((p, index) => (
         <motion.span
           key={index}
-          className="absolute rounded-full bg-pink-500/40 blur-[3px]"
+          className="absolute rounded-full bg-blue-800/40 blur-[3px]"
           style={{
             width: p.size,
             height: p.size,

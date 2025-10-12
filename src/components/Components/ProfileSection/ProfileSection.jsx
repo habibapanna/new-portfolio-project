@@ -19,31 +19,31 @@ const ProfileSection = () => {
       {/* Social Icons */}
       {/* <div className="flex space-x-2 mt-4">
         <div
-          className="bg-gray-800 p-3 rounded-full hover:bg-pink-500 cursor-pointer"
+          className="bg-gray-800 p-3 rounded-full hover:bg-blue-800 cursor-pointer"
           title="Twitter"
         >
           <FaTwitter />
         </div>
         <div
-          className="bg-gray-800 p-3 rounded-full hover:bg-pink-500 cursor-pointer"
+          className="bg-gray-800 p-3 rounded-full hover:bg-blue-800 cursor-pointer"
           title="Facebook"
         >
           <FaFacebookF />
         </div>
         <div
-          className="bg-gray-800 p-3 rounded-full hover:bg-pink-500 cursor-pointer"
+          className="bg-gray-800 p-3 rounded-full hover:bg-blue-800 cursor-pointer"
           title="Instagram"
         >
           <FaInstagram />
         </div>
         <div
-          className="bg-gray-800 p-3 rounded-full hover:bg-pink-500 cursor-pointer"
+          className="bg-gray-800 p-3 rounded-full hover:bg-blue-800 cursor-pointer"
           title="Skype"
         >
           <FaSkype />
         </div>
         <div
-          className="bg-gray-800 p-3 rounded-full hover:bg-pink-500 cursor-pointer"
+          className="bg-gray-800 p-3 rounded-full hover:bg-blue-800 cursor-pointer"
           title="LinkedIn"
         >
           <FaLinkedinIn />
