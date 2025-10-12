@@ -31,7 +31,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              Hi, I’m <span className="text-blue-400">Sanwar</span>
+              Hi, I’m <span className="text-pink-500">Sanwar</span>
             </motion.h2>
 
             {/* BELIEVE Section with glowing underline */}
@@ -46,7 +46,7 @@ const About = () => {
             </motion.h3>
 
             <motion.div
-              className="h-[3px] bg-gradient-to-r to-blue-400 rounded-full w-0"
+              className="h-[3px] bg-gradient-to-r to-pink-400 rounded-full w-0"
               whileInView={{ width: "100%" }}
               transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
               viewport={{ once: true }}
@@ -56,7 +56,7 @@ const About = () => {
             <div className="relative mt-8">
               {/* Floating Quote Icons */}
               <motion.span
-                className="absolute -left-8 -top-4 text-3xl text-blue-500"
+                className="absolute -left-8 -top-4 text-3xl text-pink-500"
                 animate={{ y: [0, -5, 0] }}
                 transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               >
@@ -76,7 +76,7 @@ const About = () => {
               </motion.p>
 
               <motion.span
-                className="absolute -right-0 -bottom-4 text-3xl text-blue-500"
+                className="absolute -right-0 -bottom-4 text-3xl text-pink-500"
                 animate={{ y: [0, 5, 0] }}
                 transition={{
                   repeat: Infinity,

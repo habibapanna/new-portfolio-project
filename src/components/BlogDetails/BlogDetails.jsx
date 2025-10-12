@@ -40,7 +40,7 @@ const BlogDetails = () => {
         {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
-          className="mt-6 bg-blue-400 px-5 py-2 rounded-lg hover:bg-blue-500 cursor-pointer"
+          className="mt-6 bg-pink-500 px-5 py-2 rounded-lg hover:bg-blue-500 cursor-pointer"
         >
           ← Back to Blogs
         </button>

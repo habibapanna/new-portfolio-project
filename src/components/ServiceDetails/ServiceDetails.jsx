@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const Loader = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-white">
-      <CgSpinnerTwoAlt className="text-7xl text-blue-400 animate-spin" />
+      <CgSpinnerTwoAlt className="text-7xl text-pink-500 animate-spin" />
     </div>
   );
 };
@@ -67,7 +67,7 @@ const ServiceDetails = () => {
               <li>
                 <button
                   onClick={handleNavigateHome}
-                  className="text-white hover:bg-blue-500 cursor-pointer bg-blue-400 px-2"
+                  className="text-white hover:bg-blue-500 cursor-pointer bg-pink-500 px-2"
                 >
                   ← Back to Home
                 </button>
@@ -76,7 +76,7 @@ const ServiceDetails = () => {
                 <p className="text-gray-500">/</p>
               </li>
               <li>
-                <p className="text-blue-400">Service Details</p>
+                <p className="text-pink-500">Service Details</p>
               </li>
             </ul>
           </div>
@@ -97,9 +97,9 @@ const ServiceDetails = () => {
               {services.map((service, index) => (
                 <li
                   key={index}
-                  className={`cursor-pointer hover:text-blue-400 pl-4 border-l-3 hover:border-blue-400 ${
+                  className={`cursor-pointer hover:text-pink-500 pl-4 border-l-3 hover:border-blue-400 ${
                     activeService === service
-                      ? "border-blue-400 text-blue-400 font-bold"
+                      ? "border-blue-400 text-pink-500 font-bold"
                       : "border-gray-300 text-white"
                   }`}
                   onClick={() => handleServiceClick(service)}
@@ -210,14 +210,14 @@ const ServiceDetails = () => {
                 animate="visible"
                 variants={fadeInVariants}
               >
-                <h2 className="text-3xl font-bold mb-4 text-blue-400">
+                <h2 className="text-3xl font-bold mb-4 text-pink-500">
                   {service} Details
                 </h2>
                 <p className="mb-6 text-gray-800">{content.desc}</p>
                 <ul className="space-y-4">
                   {content.points.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex items-center text-gray-700">
-                      <BsCheckCircle className="text-blue-400 mr-2 text-xl" />
+                      <BsCheckCircle className="text-pink-500 mr-2 text-xl" />
                       {item}
                     </li>
                   ))}

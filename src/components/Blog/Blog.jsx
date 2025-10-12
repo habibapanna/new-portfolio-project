@@ -88,17 +88,17 @@ const Blog = () => {
               <div className="p-6">
                 <h2
                   onClick={() => navigate(`/blog/${item.id}`, { state: item })}
-                  className="text-xl font-bold mb-3 text-white leading-snug cursor-pointer hover:text-blue-400"
+                  className="text-xl font-bold mb-3 text-white leading-snug cursor-pointer hover:text-pink-500"
                 >
                   {item.title}
                 </h2>
                 <p className="text-gray-400 mb-4">{item.desc}</p>
                 <button
                   onClick={() => navigate(`/blog/${item.id}`, { state: item })}
-                  className="text-white font-semibold flex items-center gap-2 hover:text-blue-400 cursor-pointer"
+                  className="text-white font-semibold flex items-center gap-2 hover:text-pink-500 cursor-pointer"
                 >
                   READ MORE
-                  <FaArrowRightLong className="text-blue-400" />
+                  <FaArrowRightLong className="text-pink-500" />
                 </button>
               </div>
             </div>
@@ -110,11 +110,11 @@ const Blog = () => {
             >
               <div className="absolute top-1 md:top-10 left-1/2 -translate-x-1/2">
                 <div className="">
-                    <ImBubble className="text-5xl md:text-7xl relative text-blue-400"></ImBubble>
+                    <ImBubble className="text-5xl md:text-7xl relative text-pink-500"></ImBubble>
                   <TfiQuoteLeft className="text-lg md:text-3xl absolute top-3 left-4 md:top-4 md:left-5" />
                 </div>
               </div>
-              <p className="text-lg text-white leading-relaxed mt-8 mb-6 hover:text-blue-400 cursor-pointer font-bold">
+              <p className="text-lg text-white leading-relaxed mt-8 mb-6 hover:text-pink-500 cursor-pointer font-bold">
                 {item.text}
               </p>
               <span className="text-sm text-gray-400 font-semibold">

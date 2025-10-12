@@ -60,7 +60,7 @@ const Counts = () => {
         {/* Happy Clients */}
         <div className="flex flex-row gap-5 lg:w-1/4 mb-10">
           <div>
-            <BsEmojiSmile className=" text-5xl text-blue-400" />
+            <BsEmojiSmile className=" text-5xl text-pink-500" />
           </div>
           <div className="text-left">
             <span className="text-5xl font-bold">{happyClients}</span>
@@ -73,7 +73,7 @@ const Counts = () => {
         {/* Projects */}
         <div className="flex flex-row gap-5 lg:w-1/4 mb-10">
           <div>
-            <GoProjectRoadmap className="text-5xl text-blue-400" />
+            <GoProjectRoadmap className="text-5xl text-pink-500" />
           </div>
           <div className="text-left">
             <span className="text-5xl font-bold">{projects}</span>
@@ -87,7 +87,7 @@ const Counts = () => {
         {/* Hours of Support */}
         <div className="flex flex-row gap-5 lg:w-1/4 mb-10">
           <div>
-            <SlEarphonesAlt className="text-5xl text-blue-400" />
+            <SlEarphonesAlt className="text-5xl text-pink-500" />
           </div>
           <div className="text-left">
             <span className="text-5xl font-bold">{hoursOfSupport}</span>
@@ -101,7 +101,7 @@ const Counts = () => {
         {/* Hard Workers */}
         <div className="flex flex-row gap-5 lg:w-1/4 mb-10">
           <div>
-            <HiOutlineUsers className="text-5xl text-blue-400" />
+            <HiOutlineUsers className="text-5xl text-pink-500" />
           </div>
           <div className="text-left">
             <span className="text-5xl font-bold">{hardWorkers}</span>

@@ -77,11 +77,11 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="bg-blue-50 py-16 px-6 overflow-hidden relative">
+    <section className="bg-pink-50 py-16 px-6 overflow-hidden relative">
       {/* Section Header */}
       <div className="text-left mb-8">
         <h2 className="text-3xl font-bold mb-5 text-black">Testimonials</h2>
-        <div className="border-2 border-blue-400 w-16 mb-5"></div>
+        <div className="border-2 border-pink-500 w-16 mb-5"></div>
         <p className="mb-16 text-gray-800">
           Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
         </p>
@@ -104,11 +104,11 @@ const TestimonialsSection = () => {
                 className="flex justify-center"
                 onClick={() => handleOpenSlider(index)}
               >
-                <div className="bg-white roun relative p-5 shadow-lg w-full max-w-sm cursor-pointer hover:scale-105 transition-transform duration-300">
+                <div className="bg-white roun relative p-5 shadow-xl w-full max-w-sm cursor-pointer hover:scale-105 transition-transform duration-300">
                   <p className="italic text-sm font-light mb-6 text-center text-black">
-                    <FaQuoteLeft className="text-blue-400 mb-2 inline-block mr-2" />
+                    <FaQuoteLeft className="text-pink-500 mb-2 inline-block mr-2" />
                     {t.text}
-                    <FaQuoteRight className="text-blue-400 inline-block ml-2" />
+                    <FaQuoteRight className="text-pink-500 inline-block ml-2" />
                   </p>
                   <p className="font-semibold text-white text-right">{t.name}</p>
                   <p className="text-sm text-gray-400 text-right">{t.role}</p>
@@ -146,7 +146,7 @@ const TestimonialsSection = () => {
             {/* Close Button */}
             <button
               onClick={handleCloseSlider}
-              className="absolute top-5 right-5 text-blue-400 text-3xl md:text-5xl hover:text-blue-500 cursor-pointer z-50"
+              className="absolute top-5 right-5 text-pink-500 text-3xl md:text-5xl hover:text-pink-500 cursor-pointer z-50"
             >
               <IoClose />
             </button>
@@ -154,7 +154,7 @@ const TestimonialsSection = () => {
             {/* Prev Button */}
             <button
               onClick={handlePrev}
-              className="absolute left-3 sm:left-8 text-white md:text-4xl sm:text-5xl hover:text-blue-400 cursor-pointer z-50 hover:bg-white bg-blue-400 border border-blue-400 bg-opacity-60 p-2 rounded-full"
+              className="absolute left-3 sm:left-8 text-white md:text-4xl sm:text-5xl hover:text-pink-500 cursor-pointer z-50 hover:bg-white bg-pink-500 border border-blue-400 bg-opacity-60 p-2 rounded-full"
             >
               <IoArrowBack />
             </button>
@@ -162,7 +162,7 @@ const TestimonialsSection = () => {
             {/* Next Button */}
             <button
               onClick={handleNext}
-              className="absolute right-3 sm:right-8 text-white md:text-4xl sm:text-5xl hover:text-blue-400 cursor-pointer z-50 border border-blue-400 hover:bg-white bg-blue-400 bg-opacity-60 p-2 rounded-full"
+              className="absolute right-3 sm:right-8 text-white md:text-4xl sm:text-5xl hover:text-pink-500 cursor-pointer z-50 border border-blue-400 hover:bg-white bg-pink-500 bg-opacity-60 p-2 rounded-full"
             >
               <IoArrowForward />
             </button>
@@ -177,9 +177,9 @@ const TestimonialsSection = () => {
               className="bg-stone-900 max-w-lg sm:max-w-2xl mx-4 sm:mx-6 roun p-6 sm:p-8 shadow-lg text-center relative"
             >
               <p className="italic text-base sm:text-lg text-gray-200 mb-6 leading-relaxed">
-                <FaQuoteLeft className="text-blue-400 inline-block mr-2" />
+                <FaQuoteLeft className="text-pink-500 inline-block mr-2" />
                 {testimonials[currentIndex].text}
-                <FaQuoteRight className="text-blue-400 inline-block ml-2" />
+                <FaQuoteRight className="text-pink-500 inline-block ml-2" />
               </p>
               <h3 className="text-white font-semibold text-lg sm:text-xl">
                 {testimonials[currentIndex].name}

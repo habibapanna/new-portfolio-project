@@ -32,7 +32,7 @@ const Footer = () => {
           `}
         </style>
 
-        {/* Back Wave */}
+        {/* Back Wave (light pink) */}
         <div className="absolute bottom-0 w-[200%] h-full">
           <svg
             className="wave-back w-[180%] h-full"
@@ -40,16 +40,16 @@ const Footer = () => {
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="none"
           >
-            {/* Tighter wave: more peaks in same width */}
+            {/* light pink */}
             <path
               d="M0,60 C150,20 300,100 450,60 C600,20 750,100 900,60 C1050,20 1200,100 1350,60 L1350,120 L0,120 Z"
-              fill="#60a5fa"
+              fill="#f9a8d4"
               opacity="1.0"
             />
           </svg>
         </div>
 
-        {/* Middle Wave */}
+        {/* Middle Wave (pink-500) */}
         <div className="absolute bottom-0 w-[200%] h-full">
           <svg
             className="wave-middle w-[180%] h-full"
@@ -57,15 +57,16 @@ const Footer = () => {
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="none"
           >
+            {/* pink-500 */}
             <path
               d="M0,70 C120,30 240,110 360,70 C480,30 600,110 720,70 C840,30 960,110 1080,70 L1080,120 L0,120 Z"
-              fill="#3b82f6"
+              fill="#ec4899"
               opacity="1.0"
             />
           </svg>
         </div>
 
-        {/* Front Wave */}
+        {/* Front Wave (white) */}
         <div className="absolute bottom-0 w-[200%] h-full">
           <svg
             className="wave-front w-[150%] h-full"

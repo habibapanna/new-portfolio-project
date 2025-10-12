@@ -58,7 +58,7 @@ const Layout = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 p-3 bg-blue-400 text-white rounded-full shadow-lg hover:bg-blue-500 hover:cursor-pointer"
+          className="fixed bottom-6 right-6 p-3 bg-pink-500 text-white rounded-full shadow-lg hover:bg-blue-500 hover:cursor-pointer"
           title="Scroll to Top"
         >
           <FaChevronUp />

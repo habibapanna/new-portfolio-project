@@ -89,9 +89,9 @@ const Portfolio = () => {
                 onClick={() => setActiveCategory(category)}
                 className={`${
                   activeCategory === category
-                    ? "text-blue-400 "
+                    ? "text-pink-500 "
                     : "text-black cursor-pointer"
-                } hover:text-blue-400`}
+                } hover:text-pink-500`}
               >
                 {category}
               </button>
@@ -134,7 +134,7 @@ const Portfolio = () => {
 
                     {/* Center Icon */}
                     {/* <div className="relative z-10 flex flex-col items-center">
-                      <ImLink className="text-white text-3xl cursor-pointer hover:text-blue-400" />
+                      <ImLink className="text-white text-3xl cursor-pointer hover:text-pink-500" />
                     </div> */}
                   </div>
                 </motion.div>
