@@ -84,7 +84,7 @@ const Portfolio = () => {
 <div className="text-left mb-8">
   <h2 className="text-3xl font-bold mb-5 text-black">Portfolio</h2>
   <div className="border-2 border-blue-800 w-16 mb-5"></div>
-  <p className="mb-4 text-gray-800 text-justify">
+  <p className="mb-16 text-gray-800 text-justify">
     Welcome to my personal portfolio! Here, you’ll find a curated collection of my projects, showcasing my skills in front-end development, design, and creative problem-solving. Each project reflects my passion for building engaging and user-friendly digital experiences.From responsive websites and interactive web applications to visually appealing UI/UX designs, my work demonstrates a blend of technical expertise and creative thinking. I strive to deliver solutions that not only meet requirements but also provide delightful user experiences.
   </p>
 </div>
