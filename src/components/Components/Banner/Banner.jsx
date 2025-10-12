@@ -128,7 +128,7 @@ const Banner = () => {
 
           {/* Paragraph */}
           <motion.p
-            className="w-3/4 md:w-2/4 mx-auto leading-loose text-gray-200"
+            className="w-3/4 md:w-2/4 mx-auto leading-loose text-gray-50"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
