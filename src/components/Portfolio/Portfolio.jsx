@@ -10,21 +10,21 @@ import { RxCross1 } from "react-icons/rx";
 import Loader from "../Loader/Loader";
 
 const portfolioData = [
-  { id: 1, category: "App", name: "App 1", image: "https://i.postimg.cc/wv2WNnvN/abillion-Nf5f-Sq-Hm-i-Y-unsplash.jpg" },
-  { id: 2, category: "Product", name: "Product 1", image: "https://i.postimg.cc/rmx24v0x/pexels-laryssa-suaid-798122-1667071.jpg" },
-  { id: 3, category: "Branding", name: "Branding 1", image: "https://i.postimg.cc/D0KBtFMR/pexels-karolina-grabowska-4194864.jpg" },
-  { id: 4, category: "Books", name: "Books 1", image: "https://i.postimg.cc/5NQ2PJVf/pexels-pixabay-256450.jpg" },
+  { id: 1, category: "Wordpress Website", name: "App 1", image: "https://i.postimg.cc/wv2WNnvN/abillion-Nf5f-Sq-Hm-i-Y-unsplash.jpg" },
+  { id: 2, category: "Business Website", name: "Product 1", image: "https://i.postimg.cc/rmx24v0x/pexels-laryssa-suaid-798122-1667071.jpg" },
+  { id: 3, category: "Ecommerce Website", name: "Branding 1", image: "https://i.postimg.cc/D0KBtFMR/pexels-karolina-grabowska-4194864.jpg" },
+  { id: 4, category: "Portfolio Website", name: "Books 1", image: "https://i.postimg.cc/5NQ2PJVf/pexels-pixabay-256450.jpg" },
   { id: 5, category: "App", name: "App 2", image: "https://i.postimg.cc/nhm02Xrp/balazs-ketyi-L0nipfx-Ry4-unsplash.jpg" },
-  { id: 6, category: "Product", name: "Product 2", image: "https://i.postimg.cc/Lsqp9qmy/pexels-craytive-2720447.jpg" },
-  { id: 7, category: "Branding", name: "Branding 2", image: "https://i.postimg.cc/FHnGh06y/daniel-korpai-Qh-F3-YGs-Dr-Yk-unsplash.jpg" },
-  { id: 8, category: "Books", name: "Books 2", image: "https://i.postimg.cc/DZz21k6k/pexels-thought-catalog-317580-904620.jpg" },
-  { id: 9, category: "App", name: "App 3", image: "https://i.postimg.cc/vmz72fsF/pexels-pixabay-33488.jpg" },
-  { id: 10, category: "Product", name: "Product 3", image: "https://i.postimg.cc/4xxG0LqR/pexels-suzyhazelwood-2537930.jpg" },
-  { id: 11, category: "Branding", name: "Branding 3", image: "https://i.postimg.cc/HsN7x3pk/pexels-ekaterina-bolovtsova-6192127.jpg" },
-  { id: 12, category: "Books", name: "Books 3", image: "https://i.postimg.cc/Y2sSf9TX/sincerely-media-CXYPfveiuis-unsplash.jpg" },
+  { id: 6, category: "Portfolio Website", name: "Product 2", image: "https://i.postimg.cc/Lsqp9qmy/pexels-craytive-2720447.jpg" },
+  { id: 7, category: "Wordpress Website", name: "Branding 2", image: "https://i.postimg.cc/FHnGh06y/daniel-korpai-Qh-F3-YGs-Dr-Yk-unsplash.jpg" },
+  { id: 8, category: "Ecommerce Website", name: "Books 2", image: "https://i.postimg.cc/DZz21k6k/pexels-thought-catalog-317580-904620.jpg" },
+  { id: 9, category: "Ecommerce Website", name: "App 3", image: "https://i.postimg.cc/vmz72fsF/pexels-pixabay-33488.jpg" },
+  { id: 10, category: "Portfolio Website", name: "Product 3", image: "https://i.postimg.cc/4xxG0LqR/pexels-suzyhazelwood-2537930.jpg" },
+  { id: 11, category: "Business Website", name: "Branding 3", image: "https://i.postimg.cc/HsN7x3pk/pexels-ekaterina-bolovtsova-6192127.jpg" },
+  { id: 12, category: "Business Website", name: "Books 3", image: "https://i.postimg.cc/Y2sSf9TX/sincerely-media-CXYPfveiuis-unsplash.jpg" },
 ];
 
-const categories = ["All", "App", "Product", "Branding", "Books"];
+const categories = ["All","Business Website", "Ecommerce Website", "Portfolio Website", "Wordpress Website"];
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -79,10 +79,20 @@ const Portfolio = () => {
   return (
     <div>
       {loading && <Loader />}
-      <section className="py-16 px-6 bg-white relative">
+      <section className="py-16 px-6 bg-white relative min-h-screen">
+         {/* Section Header */}
+<div className="text-left mb-8">
+  <h2 className="text-3xl font-bold mb-5 text-black">Portfolio</h2>
+  <div className="border-2 border-blue-800 w-16 mb-5"></div>
+  <p className="mb-4 text-gray-800 text-justify">
+    Welcome to my personal portfolio! Here, you’ll find a curated collection of my projects, showcasing my skills in front-end development, design, and creative problem-solving. Each project reflects my passion for building engaging and user-friendly digital experiences.From responsive websites and interactive web applications to visually appealing UI/UX designs, my work demonstrates a blend of technical expertise and creative thinking. I strive to deliver solutions that not only meet requirements but also provide delightful user experiences.
+  </p>
+</div>
+
+
         <div className="mx-auto">
           {/* Category Filter Buttons */}
-          <div className="text-lg font-semibold flex justify-left space-x-2 md:space-x-4 mb-8 gap-4">
+          <div className="md:text-lg font-semibold flex justify-left space-x-2 md:space-x-4 mb-8 gap-4">
             {categories.map(category => (
               <button
                 key={category}
@@ -201,7 +211,7 @@ const Portfolio = () => {
             zIndex: 9999,
           }}
         >
-          View Details
+          View Project
         </div>
       </section>
     </div>

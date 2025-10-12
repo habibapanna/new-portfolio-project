@@ -77,89 +77,75 @@ const Services = () => {
     },
   ];
 
-  // ✨ Fade-in + Hover Zoom Animations
-  const containerVariants = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.25, // Each appears with a delay
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-  };
-
   return (
     <section
       id="services"
       className="py-16 bg-neutral-100 relative overflow-hidden px-6"
     >
-      <div className="mx-auto">
-        {/* Services Grid */}
-        <motion.div
-          className="grid md:grid-cols-2 gap-12"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          {servicesData.map((service, index) => (
+      {/* Section Header */}
+      <div className="text-left mb-8">
+  <h2 className="text-3xl font-bold mb-5 text-black">My Services</h2>
+  <div className="border-2 border-blue-800 w-16 mb-5"></div>
+  <p className="mb-16 text-gray-800 text-justify">
+    I offer a wide range of services designed to bring your digital ideas to life and help your business or personal projects succeed online. My expertise lies in creating responsive, modern, and engaging websites that deliver a seamless user experience across all devices. My core services include front-end development, responsive web design, UI/UX design, and building interactive web applications. I focus on clean, maintainable code and intuitive design to ensure your users enjoy a smooth and memorable experience.
+  </p>
+</div>
+
+
+      <div className="mx-auto grid md:grid-cols-2 gap-12">
+        {servicesData.map((service, index) => (
+          <motion.div
+            key={index}
+            className="cursor-pointer flex flex-col space-y-6 group relative p-6 rounded-2xl"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            onClick={handleClick}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* Icon + Title + Description */}
+            <div className="flex items-center space-x-4">
+              <div className="text-3xl text-gray-400 group-hover:text-blue-800 transition-colors duration-300">
+                {service.icon}
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold text-black mb-2 group-hover:text-blue-800 transition-colors duration-300">
+                  {service.title}
+                </h4>
+                <p className="text-gray-800">{service.description}</p>
+              </div>
+            </div>
+
+            {/* Linear Progress Bar */}
+            <div className="w-full h-1 bg-gray-300 rounded">
+              <motion.div
+                className="h-1 bg-blue-800 rounded"
+                initial={{ width: 0 }}
+                animate={{ width: `${service.percentage}%` }}
+                transition={{ duration: 2, ease: "easeInOut" }} // slow 2s animation
+              ></motion.div>
+            </div>
+
+            {/* Circular Progress */}
             <motion.div
-              key={index}
-              className="cursor-pointer flex flex-col space-y-6 group relative  p-6 rounded-2xl  "
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }} // ✨ smooth zoom on hover
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
-              onClick={handleClick}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-            >
-              {/* Icon + Title + Description */}
-              <div className="flex items-center space-x-4">
-                <div className="text-3xl text-gray-400 group-hover:text-blue-800 transition-colors duration-300">
-                  {service.icon}
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold text-black mb-2 group-hover:text-blue-800 transition-colors duration-300">
-                    {service.title}
-                  </h4>
-                  <p className="text-gray-800">{service.description}</p>
-                </div>
-              </div>
-
-              {/* Progress bar */}
-              <div className="w-full">
-                <div className="h-1 bg-gray-300 rounded">
-                  <div
-                    className="h-1 bg-blue-800 rounded group-hover:bg-gray-300 transition-all duration-500"
-                    style={{ width: `${service.percentage}%` }}
-                  ></div>
-                </div>
-              </div>
-
-              {/* Circular Percentage */}
-              <div
-                className="w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-xl"
+              className="w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-xl"
+              initial={{ rotate: 0 }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 2, repeat: 0 }}
               style={{
-  background: `conic-gradient(#1e40af ${service.percentage * 3.6}deg, #3b82f6 0deg)`,
-}}
-
-
-              >
-                {service.percentage}%
-              </div>
+                background: `conic-gradient(#1e40af ${service.percentage * 3.6}deg, #3b82f6 0deg)`,
+              }}
+            >
+              {service.percentage}%
             </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Loader */}
-        {loading && <Loader />}
+          </motion.div>
+        ))}
       </div>
 
-      {/* Hover Cursor Effect */}
+      {/* Loader */}
+      {loading && <Loader />}
+
+      {/* Hover Cursor */}
       <div
         className={`fixed pointer-events-none flex items-center justify-center rounded-full text-center bg-black font-semibold text-white shadow-lg transition-all duration-150 ${
           cursor.visible ? "opacity-100 scale-100" : "opacity-0 scale-0"

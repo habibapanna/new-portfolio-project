@@ -7,6 +7,7 @@ import { BsHddStack } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 import { TfiMenuAlt } from "react-icons/tfi";
 import ProfileSection from "../Components/ProfileSection/ProfileSection";
+import FooterWaves from "../Components/FooterWaves/FooterWaves";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -260,7 +261,9 @@ const Sidebar = () => {
 />
 
         </div>
+        <FooterWaves></FooterWaves>
       </motion.div>
+      
     </>
   );
 };

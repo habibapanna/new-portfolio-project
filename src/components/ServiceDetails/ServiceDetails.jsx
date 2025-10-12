@@ -3,11 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsCheckCircle } from "react-icons/bs";
 import { CgSpinnerTwoAlt } from "react-icons/cg";
 import { motion } from "framer-motion";
+import { ImSpinner9 } from "react-icons/im";
 
 const Loader = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-white">
-      <CgSpinnerTwoAlt className="text-7xl text-blue-800 animate-spin" />
+      <ImSpinner9 className="text-7xl text-blue-800 animate-spin" />
     </div>
   );
 };

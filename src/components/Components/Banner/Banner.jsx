@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
@@ -12,13 +11,6 @@ const Banner = () => {
     const x = (e.clientX / innerWidth - 0.5) * 30;
     const y = (e.clientY / innerHeight - 0.5) * 30;
     setOffset({ x, y });
-  };
-
-  const handleScrollToContact = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
   };
 
   useEffect(() => {
@@ -36,16 +28,16 @@ const Banner = () => {
       className="relative min-h-screen bg-center overflow-hidden"
       style={{
         backgroundImage: "url('/myPhoto1.png')",
-        backgroundSize: "cover", // fills entire area
+        backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
       }}
       onMouseMove={handleMouseMove}
     >
-      {/* ✨ Slight dark overlay */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50"></div>
 
-      {/* Floating glowing particles */}
+      {/* Floating particles */}
       {particles.map((p, index) => (
         <motion.span
           key={index}
@@ -66,10 +58,10 @@ const Banner = () => {
         />
       ))}
 
-      {/* Content Section */}
+      {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center text-center">
         <motion.div
-          className="text-white space-y-6 z-10 transition-transform duration-200 ease-out"
+          className="text-white space-y-6 z-10 transition-transform duration-200 ease-out pt-32 md:pt-40"
           style={{
             transform: `translate(${offset.x}px, ${offset.y}px)`,
           }}
@@ -87,31 +79,25 @@ const Banner = () => {
             HELLO, I'M
           </motion.h2>
 
-          {/* Name with glowing sweep */}
-          <motion.h1
-            className="relative inline-block text-3xl md:text-5xl font-extrabold uppercase"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            <span className="relative text-white tracking-wider">
-              Sanwar Hosen Limon
-              <motion.span
-                className="absolute top-0 left-0 h-full w-full bg-gradient-to-r from-transparent via-white/60 to-transparent"
-                initial={{ x: "-100%" }}
-                animate={{ x: ["-100%", "100%"] }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 3,
-                  ease: "linear",
-                  delay: 1,
-                }}
-                style={{
-                  mixBlendMode: "overlay",
-                }}
-              />
-            </span>
-          </motion.h1>
+          {/* Name with typewriter */}
+          {/* Name with continuous typewriter */}
+<motion.h1
+  className="text-3xl md:text-5xl font-extrabold uppercase"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.5 }}
+>
+  <Typewriter
+    words={["Sanwar Hosen Limon"]}
+    loop={true}            // keeps typing continuously
+    cursor
+    cursorStyle="|"
+    typeSpeed={120}
+    deleteSpeed={50}
+    delaySpeed={2000}      // delay before typing again
+  />
+</motion.h1>
+
 
           {/* Underline */}
           <motion.div

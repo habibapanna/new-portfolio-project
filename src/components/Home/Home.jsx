@@ -10,6 +10,7 @@ import Portfolio from "../Portfolio/Portfolio";
 import Resume from "../Resume/Resume";
 import Services from "../Services/Services";
 import Blog from "../Blog/Blog";
+import Clients from "../Components/Clients/Clients";
 
 const fadeInFromBottom = {
   hidden: { opacity: 0, y: 50 },
@@ -60,6 +61,9 @@ const Home = () => {
 
       <section id="portfolio">
         <Portfolio />
+      </section>
+      <section id="portfolio">
+        <Clients />
       </section>
 
       <section id="testimonials">
