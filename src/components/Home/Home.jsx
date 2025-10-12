@@ -11,6 +11,7 @@ import Resume from "../Resume/Resume";
 import Services from "../Services/Services";
 import Blog from "../Blog/Blog";
 import Clients from "../Components/Clients/Clients";
+import Slider from "../Components/Slider/Slider";
 
 const fadeInFromBottom = {
   hidden: { opacity: 0, y: 50 },
@@ -37,6 +38,9 @@ const Home = () => {
 
 <section id="banner">
         <Banner />
+      </section>
+<section id="banner">
+        <Slider />
       </section>
 
       <section id="about">
