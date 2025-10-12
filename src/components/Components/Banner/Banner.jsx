@@ -3,8 +3,6 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
-
-
 const Banner = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [particles, setParticles] = useState([]);
@@ -23,7 +21,6 @@ const Banner = () => {
     }
   };
 
-  // Create glowing floating particles
   useEffect(() => {
     const newParticles = Array.from({ length: 12 }).map(() => ({
       left: Math.random() * 100,
@@ -36,18 +33,17 @@ const Banner = () => {
 
   return (
     <div
-  className="relative min-h-screen bg-center bg-gray-100 overflow-hidden"
-  style={{
-    backgroundImage: "url('/myPhoto1.png')",
-    backgroundSize: "contain", // ✅ shows full image
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-  }}
-  onMouseMove={handleMouseMove}
->
-
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      className="relative min-h-screen bg-center overflow-hidden"
+      style={{
+        backgroundImage: "url('/myPhoto1.png')",
+        backgroundSize: "cover", // fills entire area
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+      onMouseMove={handleMouseMove}
+    >
+      {/* ✨ Slight dark overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
 
       {/* Floating glowing particles */}
       {particles.map((p, index) => (
@@ -100,7 +96,6 @@ const Banner = () => {
           >
             <span className="relative text-white tracking-wider">
               Sanwar Hosen Limon
-              {/* Light sweep animation */}
               <motion.span
                 className="absolute top-0 left-0 h-full w-full bg-gradient-to-r from-transparent via-white/60 to-transparent"
                 initial={{ x: "-100%" }}
@@ -137,21 +132,6 @@ const Banner = () => {
             developing simple, clean and slick websites that provide real value
             to the end user.
           </motion.p>
-
-          {/* Contact Button */}
-          {/* <motion.button
-            onClick={handleScrollToContact}
-            className="mt-10 font-semibold cursor-pointer flex mx-auto items-center gap-2 text-white border border-blue-400 px-6 py-3 rounded-full hover:bg-blue-500/20 transition-all"
-            whileHover={{
-              scale: 1.1,
-              textShadow: "0px 0px 8px rgba(59,130,246,0.8)",
-              boxShadow: "0px 0px 12px rgba(59,130,246,0.4)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 200 }}
-          >
-            CONTACT ME <FaArrowRightLong className="text-blue-400" />
-          </motion.button> */}
         </motion.div>
       </div>
     </div>

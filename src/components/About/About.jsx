@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 const About = () => {
   return (
     <div id="about" className="bg-white text-black overflow-hidden relative">
-      <div className="flex flex-col lg:flex-row gap-5 items-center">
-        {/* --- Left Image Section --- */}
+      <div className="flex flex-col lg:flex-row items-stretch min-h-screen">
+        {/* --- Left Full Image Section --- */}
         <motion.div
-          className="lg:w-1/2 hidden md:block relative"
+          className="lg:w-1/2 w-full relative"
           initial={{ opacity: 0, scale: 0.95, filter: "grayscale(100%)" }}
           whileInView={{ opacity: 1, scale: 1, filter: "grayscale(0%)" }}
           transition={{ duration: 1.2, ease: "easeOut" }}
@@ -16,13 +16,13 @@ const About = () => {
           <img
             src="/myPhoto2.png"
             alt="Profile"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center absolute inset-0"
           />
         </motion.div>
 
         {/* --- Right Content Section --- */}
-        <section className="lg:w-1/2 relative">
-          <div className="container mx-auto text-left w-2/3 p-5 md:p-10">
+        <section className="lg:w-1/2 flex items-center justify-center p-8 md:p-12 relative z-10 bg-white">
+          <div className="w-full md:w-3/4">
             {/* Greeting */}
             <motion.h2
               className="text-2xl md:text-3xl font-bold mb-5 tracking-wide"
@@ -78,7 +78,12 @@ const About = () => {
               <motion.span
                 className="absolute -right-0 -bottom-4 text-3xl text-blue-500"
                 animate={{ y: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", delay: 1 }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 2,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
               >
                 <TfiQuoteRight />
               </motion.span>
