@@ -81,15 +81,90 @@ const Sidebar = () => {
         />
       </div>
 
-      {/* --- Mobile Toggle Button --- */}
-      <div className="fixed top-5 right-5 z-50 lg:hidden">
-        <button
-          onClick={toggleSidebar}
-          className="text-white text-3xl bg-blue-800 rounded-full p-2 shadow-lg hover:scale-110 transition-transform cursor-pointer"
-        >
-          {isOpen ? <AiOutlineClose size={20} /> : <TfiMenuAlt size={20} />}
-        </button>
-      </div>
+      {/* --- Mobile Navbar (Responsive + Animated Circle) --- */}
+<div className="fixed top-0 left-0 w-full flex justify-between items-center px-5 py-3 bg-white shadow-md z-50 lg:hidden">
+  {/* Logo Section */}
+  <div className="flex items-center gap-2">
+    <div className="text-2xl font-bold tracking-wider text-black">
+      <span>L</span>
+      <span>I</span>
+      <motion.span
+        className="text-blue-800 inline-block"
+        animate={{
+          y: [0, -15, -15, 0, -4, 0], // reduced jumping height
+          rotateY: [0, 0, 360, 0, 0, 0],
+        }}
+        transition={{
+          duration: 6,
+          times: [0, 0.25, 0.625, 0.8, 0.9, 1],
+          ease: "easeInOut",
+          repeat: Infinity,
+        }}
+        style={{ transformOrigin: "center" }}
+      >
+        M
+      </motion.span>
+      <span>O</span>
+      <span>N</span>
+    </div>
+  </div>
+
+  {/* Active Section Indicator (Circle + Section Name) */}
+  <div className="flex items-center gap-3">
+    <div className="relative w-8 h-8 flex items-center justify-center">
+      {/* Main Blue Circle */}
+      <motion.div
+        className="absolute w-8 h-8 rounded-full bg-blue-800"
+        layoutId="active-circle-mobile"
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      />
+
+      {/* Spreading Rings (same logic as desktop) */}
+      <motion.div
+        className="absolute w-8 h-8 rounded-full border-2 border-blue-400 opacity-40"
+        animate={
+          showSpread
+            ? { scale: [1, 2.8], opacity: [0.5, 0] }
+            : { scale: 0, opacity: 0 }
+        }
+        transition={{ duration: 0.9, ease: "easeOut" }}
+      />
+      <motion.div
+        className="absolute w-8 h-8 rounded-full border-2 border-blue-400 opacity-25"
+        animate={
+          showSpread
+            ? { scale: [1, 3.5], opacity: [0.3, 0] }
+            : { scale: 0, opacity: 0 }
+        }
+        transition={{ duration: 1, ease: "easeOut" }}
+      />
+    </div>
+
+    {/* Section Name (Dynamic) */}
+    <motion.span
+      className="text-gray-800 font-semibold text-sm"
+      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, x: -15 }}
+      key={activeLink}
+      transition={{ duration: 0.4 }}
+    >
+      {links.find((l) => l.href === activeLink)?.label}
+    </motion.span>
+  </div>
+
+  {/* Menu Button */}
+  <button
+    onClick={toggleSidebar}
+    className="p-2 cursor-pointer bg-stone-100 shadow-sm hover:scale-110 transition-transform"
+  >
+    {isOpen ? (
+      <AiOutlineClose size={22} className="text-blue-800" />
+    ) : (
+      <TfiMenuAlt size={22} className="text-blue-800" />
+    )}
+  </button>
+</div>
+
 
       {/* --- Sidebar --- */}
       <motion.div

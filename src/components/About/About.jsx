@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const About = () => {
   return (
     <div id="about" className="bg-white text-black overflow-hidden relative">
-      <div className="flex flex-col lg:flex-row items-stretch min-h-screen">
+      <div className="flex flex-col lg:flex-row items-stretch md:min-h-screen ">
         {/* --- Left Full Image Section --- */}
         <motion.div
           className="lg:w-1/2 w-full relative"
@@ -21,7 +21,7 @@ const About = () => {
         </motion.div>
 
         {/* --- Right Content Section --- */}
-        <section className="lg:w-1/2 flex items-center justify-center p-8 md:p-12 relative z-10 bg-white">
+        <section className="md:w-1/2 flex items-center justify-center p-12 relative z-10 bg-white">
           <div className="w-full md:w-3/4">
             {/* Greeting */}
             <motion.h2
@@ -76,7 +76,7 @@ const About = () => {
               </motion.p>
 
               <motion.span
-                className="absolute -right-0 -bottom-4 text-3xl text-blue-800"
+                className="absolute -right-6 md:-right-0 -bottom-4 text-3xl text-blue-800"
                 animate={{ y: [0, 5, 0] }}
                 transition={{
                   repeat: Infinity,

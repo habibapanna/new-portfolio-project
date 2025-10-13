@@ -92,21 +92,25 @@ const Portfolio = () => {
 
         <div className="mx-auto">
           {/* Category Filter Buttons */}
-          <div className="md:text-lg font-semibold flex justify-left space-x-2 md:space-x-4 mb-8 gap-4">
-            {categories.map(category => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`${
-                  activeCategory === category
-                    ? "text-blue-800 "
-                    : "text-black cursor-pointer"
-                } hover:text-blue-800`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+         {/* Category Filter Buttons (Responsive Scroll) */}
+<div
+  className="md:text-lg font-semibold flex justify-start gap-4 mb-8 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-blue-800 scrollbar-track-gray-200 px-1 sm:px-2"
+>
+  {categories.map(category => (
+    <button
+      key={category}
+      onClick={() => setActiveCategory(category)}
+      className={`${
+        activeCategory === category
+          ? "text-blue-800 border-b-2 border-blue-800"
+          : "text-black"
+      } hover:text-blue-800 px-2 sm:px-3 py-1 text-sm sm:text-base transition-colors`}
+    >
+      {category}
+    </button>
+  ))}
+</div>
+
 
           {/* Portfolio Grid with Animations */}
           <motion.div layout className="grid grid-cols-1 lg:grid-cols-3 gap-6">
