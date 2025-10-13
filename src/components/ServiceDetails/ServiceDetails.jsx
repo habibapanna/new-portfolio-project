@@ -112,12 +112,28 @@ const ServiceDetails = () => {
           </div>
 
           <div className="mt-5">
-            <h1 className="text-xl font-bold mb-2 text-black">Empowering Brands Through Digital Solutions</h1>
-            <p className="mb-3 text-gray-800">
-              From design to deployment, our services are built to help businesses grow,
-              engage audiences, and stand out in the digital world.
-            </p>
-          </div>
+  <h1 className="text-xl font-bold mb-2 text-black">
+    Empowering Brands Through Digital Solutions
+  </h1>
+  <p className="mb-3 text-gray-800">
+    From design to deployment, our services are crafted to help businesses grow, 
+    engage audiences, and build lasting digital impressions. Whether you’re launching 
+    a new brand or scaling an existing one, we deliver customized strategies that blend 
+    creativity with cutting-edge technology.
+  </p>
+  <p className="mb-3 text-gray-800">
+    We specialize in building modern, user-focused websites, visually compelling graphics, 
+    and performance-driven applications that align with your goals. Every project is 
+    approached with a focus on innovation, functionality, and seamless user experience — 
+    helping brands communicate their story effectively across all digital touchpoints.
+  </p>
+  <p className="text-gray-800">
+    With expertise in web development, UI/UX design, SEO, and digital marketing, we aim 
+    to transform ideas into impactful digital solutions that attract, engage, and retain 
+    audiences. Let’s create something extraordinary together.
+  </p>
+</div>
+
         </motion.div>
 
         {/* Right Content */}
