@@ -32,50 +32,51 @@ const Services = () => {
     setCursor((prev) => ({ ...prev, visible: false }));
   };
 
-  const servicesData = [
-    {
-      icon: <BsBriefcase />,
-      title: "Web Design",
-      description:
-        "Crafting responsive, visually stunning, and user-centered website designs that bring brands to life online.",
-      percentage: 90,
-    },
-    {
-      icon: <BsCardChecklist />,
-      title: "Web Development",
-      description:
-        "Building powerful and scalable web applications using React, Node.js, and MongoDB with clean, maintainable code.",
-      percentage: 95,
-    },
-    {
-      icon: <BsBarChart />,
-      title: "Graphic Design",
-      description:
-        "Designing captivating visuals, from social media posts to full branding packages, using Adobe Illustrator & Photoshop.",
-      percentage: 85,
-    },
-    {
-      icon: <BsBinoculars />,
-      title: "UI/UX Design",
-      description:
-        "Designing engaging and intuitive digital experiences through research-driven layouts and modern interface trends.",
-      percentage: 88,
-    },
-    {
-      icon: <AiOutlineSun />,
-      title: "SEO Optimization",
-      description:
-        "Improving website visibility on search engines through keyword optimization, backlinks, and performance tuning.",
-      percentage: 80,
-    },
-    {
-      icon: <BsCalendar4Week />,
-      title: "Marketing",
-      description:
-        "Creating data-driven digital marketing strategies to grow engagement and conversion across multiple platforms.",
-      percentage: 85,
-    },
-  ];
+const servicesData = [
+  {
+    icon: <BsBriefcase />,
+    title: "Web Design",
+    description:
+      "Crafting responsive, visually stunning, and user-centered website layouts that blend aesthetics with functionality. I focus on creating modern designs that adapt seamlessly across all devices, ensuring a smooth and engaging user experience that strengthens brand identity.",
+    percentage: 90,
+  },
+  {
+    icon: <BsCardChecklist />,
+    title: "Web Development",
+    description:
+      "Developing high-performance, scalable, and secure web applications using React, Node.js, Express, and MongoDB. I emphasize writing clean, reusable code and building feature-rich websites that deliver smooth interactivity and excellent performance across browsers.",
+    percentage: 95,
+  },
+  {
+    icon: <BsBarChart />,
+    title: "Graphic Design",
+    description:
+      "Designing creative, visually appealing graphics that align with your brand’s identity and message. From logos, posters, and banners to complete visual branding systems — I use tools like Adobe Illustrator and Photoshop to turn ideas into eye-catching designs.",
+    percentage: 85,
+  },
+  {
+    icon: <BsBinoculars />,
+    title: "UI/UX Design",
+    description:
+      "Building intuitive user interfaces backed by user research and interaction design principles. I create engaging prototypes, wireframes, and layouts that focus on clarity, accessibility, and user delight, following modern design systems and usability standards.",
+    percentage: 88,
+  },
+  {
+    icon: <AiOutlineSun />,
+    title: "SEO Optimization",
+    description:
+      "Boosting website visibility and ranking by applying both on-page and off-page SEO strategies. From keyword research and meta optimization to improving site speed and structure — I ensure your site reaches the right audience and performs effectively on search engines.",
+    percentage: 80,
+  },
+  {
+    icon: <BsCalendar4Week />,
+    title: "Digital Marketing",
+    description:
+      "Planning and executing data-driven marketing campaigns across social media, email, and web channels. I focus on audience targeting, engagement analysis, and conversion tracking to maximize your online reach and brand presence effectively.",
+    percentage: 85,
+  },
+];
+
 
   return (
     <section
@@ -112,7 +113,7 @@ const Services = () => {
                 <h4 className="text-xl font-semibold text-black mb-2 group-hover:text-blue-800 transition-colors duration-300">
                   {service.title}
                 </h4>
-                <p className="text-gray-800">{service.description}</p>
+                <p className="text-gray-800 text-justify">{service.description}</p>
               </div>
             </div>
 
