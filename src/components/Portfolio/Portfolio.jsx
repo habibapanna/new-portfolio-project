@@ -10,21 +10,38 @@ import { RxCross1 } from "react-icons/rx";
 import Loader from "../Loader/Loader";
 
 const portfolioData = [
-  { id: 1, category: "Wordpress Website", name: "App 1", image: "https://i.postimg.cc/wv2WNnvN/abillion-Nf5f-Sq-Hm-i-Y-unsplash.jpg" },
-  { id: 2, category: "Business Website", name: "Product 1", image: "https://i.postimg.cc/rmx24v0x/pexels-laryssa-suaid-798122-1667071.jpg" },
-  { id: 3, category: "Ecommerce Website", name: "Branding 1", image: "https://i.postimg.cc/D0KBtFMR/pexels-karolina-grabowska-4194864.jpg" },
-  { id: 4, category: "Portfolio Website", name: "Books 1", image: "https://i.postimg.cc/5NQ2PJVf/pexels-pixabay-256450.jpg" },
-  { id: 5, category: "App", name: "App 2", image: "https://i.postimg.cc/nhm02Xrp/balazs-ketyi-L0nipfx-Ry4-unsplash.jpg" },
-  { id: 6, category: "Portfolio Website", name: "Product 2", image: "https://i.postimg.cc/Lsqp9qmy/pexels-craytive-2720447.jpg" },
-  { id: 7, category: "Wordpress Website", name: "Branding 2", image: "https://i.postimg.cc/FHnGh06y/daniel-korpai-Qh-F3-YGs-Dr-Yk-unsplash.jpg" },
-  { id: 8, category: "Ecommerce Website", name: "Books 2", image: "https://i.postimg.cc/DZz21k6k/pexels-thought-catalog-317580-904620.jpg" },
-  { id: 9, category: "Ecommerce Website", name: "App 3", image: "https://i.postimg.cc/vmz72fsF/pexels-pixabay-33488.jpg" },
-  { id: 10, category: "Portfolio Website", name: "Product 3", image: "https://i.postimg.cc/4xxG0LqR/pexels-suzyhazelwood-2537930.jpg" },
-  { id: 11, category: "Business Website", name: "Branding 3", image: "https://i.postimg.cc/HsN7x3pk/pexels-ekaterina-bolovtsova-6192127.jpg" },
-  { id: 12, category: "Business Website", name: "Books 3", image: "https://i.postimg.cc/Y2sSf9TX/sincerely-media-CXYPfveiuis-unsplash.jpg" },
+  // 🧹 Cleaning Website (2)
+  { id: 1, category: "Cleaning Website", name: "Cleaning Site 1", image: "/cleaning1.webp" },
+  { id: 2, category: "Cleaning Website", name: "Cleaning Site 2", image: "/cleaning2.webp" },
+
+  // 💼 Business Website (9)
+  { id: 3, category: "Business Website", name: "Business Site 1", image: "/business1.webp" },
+  { id: 4, category: "Business Website", name: "Business Site 2", image: "/business2.webp" },
+  { id: 5, category: "Business Website", name: "Business Site 3", image: "/business3.webp" },
+  { id: 6, category: "Business Website", name: "Business Site 4", image: "/business4.webp" },
+  { id: 7, category: "Business Website", name: "Business Site 5", image: "/business5.webp" },
+  { id: 8, category: "Business Website", name: "Business Site 6", image: "/business6.webp" },
+  { id: 9, category: "Business Website", name: "Business Site 7", image: "/business7.webp" },
+  { id: 10, category: "Business Website", name: "Business Site 8", image: "/business8.webp" },
+  { id: 11, category: "Business Website", name: "Business Site 9", image: "/business9.webp" },
+
+  // 🛒 Ecommerce Website (8)
+  { id: 12, category: "Ecommerce Website", name: "Ecommerce Site 1", image: "/ecommerce1.webp" },
+  { id: 13, category: "Ecommerce Website", name: "Ecommerce Site 2", image: "/ecommerce2.webp" },
+  { id: 14, category: "Ecommerce Website", name: "Ecommerce Site 3", image: "/ecommerce3.webp" },
+  { id: 15, category: "Ecommerce Website", name: "Ecommerce Site 4", image: "/ecommerce4.webp" },
+  { id: 16, category: "Ecommerce Website", name: "Ecommerce Site 5", image: "/ecommerce5.webp" },
+  { id: 17, category: "Ecommerce Website", name: "Ecommerce Site 6", image: "/ecommerce6.webp" },
+  { id: 18, category: "Ecommerce Website", name: "Ecommerce Site 7", image: "/ecommerce7.webp" },
+  { id: 19, category: "Car Website", name: "Car Site 7", image: "/car1.webp" },
+
+  // 🏠 Real State Website (2)
+  { id: 20, category: "Real State Website", name: "Real State Site 1", image: "/realState1.webp" },
+  { id: 21, category: "Real State Website", name: "Real State Site 2", image: "/realState2.webp" },
 ];
 
-const categories = ["All","Business Website", "Ecommerce Website", "Portfolio Website", "Wordpress Website"];
+
+const categories = ["All","Business Website", "Ecommerce Website", "Real State Website", "Cleaning Website" , "Car Website"];
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -94,7 +111,7 @@ const Portfolio = () => {
           {/* Category Filter Buttons */}
          {/* Category Filter Buttons (Responsive Scroll) */}
 <div
-  className="md:text-lg font-semibold flex justify-start gap-4 mb-8 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-blue-800 scrollbar-track-gray-200 px-1 sm:px-2"
+  className="md:text-lg font-semibold flex justify-start gap-4 mb-8 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-blue-800 scrollbar-track-gray-200 px-1 sm:px-2 "
 >
   {categories.map(category => (
     <button
@@ -104,7 +121,7 @@ const Portfolio = () => {
         activeCategory === category
           ? "text-blue-800 border-b-2 border-blue-800"
           : "text-black"
-      } hover:text-blue-800 px-2 sm:px-3 py-1 text-sm sm:text-base transition-colors`}
+      } hover:text-blue-800 px-2 sm:px-3 py-1 text-sm sm:text-base cursor-pointer transition-colors`}
     >
       {category}
     </button>
