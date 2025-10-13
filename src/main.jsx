@@ -5,6 +5,7 @@ import {
   RouterProvider,
   useNavigate,
   Outlet,
+  Link,
 } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import "./index.css";
@@ -94,7 +95,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     errorElement: (
-      <h1 className="text-5xl font-bold text-red-500">Page not found</h1>
+      <h1 className="text-5xl font-bold text-red-500">Page is not found <Link className="text-blue-800 hover:underline" to="/">Go Back to Home</Link></h1>
     ),
     children: [
       { path: "/", element: <Home /> },
@@ -104,7 +105,7 @@ const router = createBrowserRouter([
       { path: "services", element: <Services /> },
       { path: "dropdown", element: <Dropdown /> },
       { path: "contact", element: <Contact /> },
-      { path: "details", element: <Details /> },
+      { path: "details/:id", element: <Details /> },
       { path: "service-details", element: <ServiceDetails /> },
       { path: "blog", element: <Blog /> },
       { path: "blog/:id", element: <BlogDetails /> },

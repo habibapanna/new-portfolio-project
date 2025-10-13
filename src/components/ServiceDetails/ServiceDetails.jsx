@@ -86,7 +86,7 @@ const ServiceDetails = () => {
 
       {/* Main Content */}
       <motion.div
-        className="flex flex-col lg:flex-row max-w-4xl mx-auto py-5 lg:py-10 gap-8 px-5 lg:px-0"
+        className="flex flex-col lg:flex-row mx-auto py-5 lg:py-10 gap-8 px-5"
         initial="hidden"
         animate="visible"
         variants={fadeInVariants}

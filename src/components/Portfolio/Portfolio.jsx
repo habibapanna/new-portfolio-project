@@ -66,13 +66,14 @@ const Portfolio = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const handleClick = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      navigate("/details");
-    }, 1000);
-  };
+ const handleClick = (id) => {
+  setLoading(true);
+  setTimeout(() => {
+    setLoading(false);
+    navigate(`/details/${id}`);
+  }, 1000);
+};
+
 
   const openCarousel = category => {
     const images = portfolioData
@@ -152,22 +153,17 @@ const Portfolio = () => {
 
                   {/* Hover Overlay + Link */}
                   <div
-                    onClick={handleClick}
-                    className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-50 transition-opacity duration-300 cursor-pointer"
-                  >
-                    {/* Puzzle Animation */}
-                    <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
-                      <div className="bg-black/50 transform translate-x-[-100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-                      <div className="bg-black/50 transform translate-x-[100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-                      <div className="bg-black/50 transform translate-x-[-100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-                      <div className="bg-black/50 transform translate-x-[100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-                    </div>
+  onClick={() => handleClick(item.id)}
+  className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-50 transition-opacity duration-300 cursor-pointer"
+>
+  <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
+    <div className="bg-black/50 transform translate-x-[-100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+    <div className="bg-black/50 transform translate-x-[100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+    <div className="bg-black/50 transform translate-x-[-100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+    <div className="bg-black/50 transform translate-x-[100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+  </div>
+</div>
 
-                    {/* Center Icon */}
-                    {/* <div className="relative z-10 flex flex-col items-center">
-                      <ImLink className="text-white text-3xl cursor-pointer hover:text-blue-800" />
-                    </div> */}
-                  </div>
                 </motion.div>
               ))}
             </AnimatePresence>
