@@ -8,6 +8,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { RxCross1 } from "react-icons/rx";
 import Loader from "../Loader/Loader";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useRef } from "react";
+
 
 const portfolioData = [
   // 🧹 Cleaning Website (2)
@@ -50,6 +53,8 @@ const Portfolio = () => {
   const [loading, setLoading] = useState(false);
   const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
   const navigate = useNavigate();
+  const scrollRef = useRef(null);
+
 
   // Filtering data
   const filteredData =
@@ -97,7 +102,7 @@ const Portfolio = () => {
   return (
     <div>
       {loading && <Loader />}
-      <section className="py-16 px-6 bg-white relative min-h-screen">
+      <section className="py-16 px-6 bg-white relative">
          {/* Section Header */}
 <div className="text-left mb-8">
   <h2 className="text-3xl font-bold mb-5 text-black">Portfolio</h2>
@@ -111,63 +116,95 @@ const Portfolio = () => {
         <div className="mx-auto">
           {/* Category Filter Buttons */}
          {/* Category Filter Buttons (Responsive Scroll) */}
-<div
-  className="md:text-lg font-semibold flex justify-start gap-4 mb-8 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-blue-800 scrollbar-track-gray-200 px-1 sm:px-2 "
->
-  {categories.map(category => (
-    <button
-      key={category}
-      onClick={() => setActiveCategory(category)}
-      className={`${
-        activeCategory === category
-          ? "text-blue-800 border-b-2 border-blue-800"
-          : "text-black"
-      } hover:text-blue-800 px-2 sm:px-3 py-1 text-sm sm:text-base cursor-pointer transition-colors`}
-    >
-      {category}
-    </button>
-  ))}
+{/* Category Filter Buttons (Smooth Scroll with Arrows on Small Screens) */}
+<div className="relative mb-8">
+  {/* Left Arrow */}
+  <button
+    onClick={() => (scrollRef.current.scrollLeft -= 150)}
+    className="absolute left-0 top-1/2 -translate-y-1/2 text-white shadow-md rounded-full p-1 cursor-pointer bg-blue-800 md:hidden z-10"
+  >
+    <FaChevronLeft />
+  </button>
+
+  {/* Scrollable Category Buttons */}
+  <div
+    ref={scrollRef}
+    className="md:text-lg font-semibold flex justify-start gap-4 overflow-x-auto whitespace-nowrap scroll-smooth px-6 sm:px-8 no-scrollbar"
+  >
+    {categories.map(category => (
+      <button
+        key={category}
+        onClick={() => setActiveCategory(category)}
+        className={`${
+          activeCategory === category
+            ? "text-blue-800 border-b-2 border-blue-800"
+            : "text-black"
+        } hover:text-blue-800 px-2 sm:px-3 py-1 text-sm sm:text-base cursor-pointer transition-colors`}
+      >
+        {category}
+      </button>
+    ))}
+  </div>
+
+  {/* Right Arrow */}
+  <button
+    onClick={() => (scrollRef.current.scrollLeft += 150)}
+    className="absolute right-0 top-1/2 -translate-y-1/2 text-white shadow-md rounded-full p-1 bg-blue-800 cursor-pointer md:hidden z-10"
+  >
+    <FaChevronRight />
+  </button>
 </div>
 
 
           {/* Portfolio Grid with Animations */}
-          <motion.div layout className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <AnimatePresence>
-              {filteredData.map(item => (
-                <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5 }}
-                  className="group relative overflow-hidden"
-                  onMouseEnter={() => setCursor((prev) => ({ ...prev, visible: true }))}
-                  onMouseLeave={() => setCursor((prev) => ({ ...prev, visible: false }))}
-                >
-                  <img
-                    src={item.image}
-                    alt={item.category}
-                    className="w-full md:h-[300px] h-[200px] lg:h-64 object-cover transform group-hover:scale-110 transition-transform duration-300 ease-in-out"
-                  />
+          {/* Portfolio Grid with Animations */}
+<motion.div layout className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+  <AnimatePresence>
+    {filteredData.slice(0, 9).map(item => (   // ✅ only first 9
+      <motion.div
+        key={item.id}
+        layout
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.9 }}
+        transition={{ duration: 0.5 }}
+        className="group relative overflow-hidden"
+        onMouseEnter={() => setCursor((prev) => ({ ...prev, visible: true }))}
+        onMouseLeave={() => setCursor((prev) => ({ ...prev, visible: false }))}
+      >
+        <img
+          src={item.image}
+          alt={item.category}
+          className="w-full md:h-[300px] h-[200px] lg:h-48 object-cover transform group-hover:scale-110 transition-transform duration-300 ease-in-out"
+        />
 
-                  {/* Hover Overlay + Link */}
-                  <div
-  onClick={() => handleClick(item.id)}
-  className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-50 transition-opacity duration-300 cursor-pointer"
->
-  <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
-    <div className="bg-black/50 transform translate-x-[-100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-    <div className="bg-black/50 transform translate-x-[100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-    <div className="bg-black/50 transform translate-x-[-100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-    <div className="bg-black/50 transform translate-x-[100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
-  </div>
+        {/* Hover Overlay + Link */}
+        <div
+          onClick={() => handleClick(item.id)}
+          className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-50 transition-opacity duration-300 cursor-pointer"
+        >
+          <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
+            <div className="bg-black/50 transform translate-x-[-100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+            <div className="bg-black/50 transform translate-x-[100%] translate-y-[-100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+            <div className="bg-black/50 transform translate-x-[-100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+            <div className="bg-black/50 transform translate-x-[100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+          </div>
+        </div>
+      </motion.div>
+    ))}
+  </AnimatePresence>
+</motion.div>
+
+{/* ✅ “See More Projects” button */}
+<div className="flex justify-center mt-10">
+  <button
+    onClick={() => navigate("/all")}
+    className="bg-blue-800 hover:bg-blue-900 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 cursor-pointer"
+  >
+    See More Projects →
+  </button>
 </div>
 
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
         </div>
 
         {/* Image Carousel */}
@@ -236,3 +273,5 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+export { portfolioData };
+

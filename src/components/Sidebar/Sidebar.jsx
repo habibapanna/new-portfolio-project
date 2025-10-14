@@ -8,6 +8,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { TfiMenuAlt } from "react-icons/tfi";
 import ProfileSection from "../Components/ProfileSection/ProfileSection";
 import FooterWaves from "../Components/FooterWaves/FooterWaves";
+import { FaRegComments, FaUsers } from "react-icons/fa";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,11 +66,14 @@ const Sidebar = () => {
   }, []);
 
   const links = [
-    { href: "#banner", icon: <RiHome2Line />, label: "Home" },
-    { href: "#about", icon: <HiOutlineUser />, label: "About" },
-    { href: "#services", icon: <BsHddStack />, label: "Services" },
-    { href: "#portfolio", icon: <GrGallery />, label: "Portfolio" },
-  ];
+  { href: "#banner", icon: <RiHome2Line />, label: "Home" },
+  { href: "#about", icon: <HiOutlineUser />, label: "About" },
+  { href: "#services", icon: <BsHddStack />, label: "Services" },
+  { href: "#portfolio", icon: <GrGallery />, label: "Portfolio" },
+  { href: "#testimonials", icon: <FaRegComments />, label: "Testimonials" },
+  { href: "#clients", icon: <FaUsers />, label: "Clients" },
+];
+  
 
   return (
     <>
@@ -254,9 +258,9 @@ const Sidebar = () => {
         </div>
 
         {/* Profile + Menu (Mobile Only) */}
-        <div className="md:hidden flex flex-col items-center mt-10">
+        <div className="md:hidden flex flex-col items-center mt-16">
           <ProfileSection />
-          <div className="w-full mt-6 px-6">
+          <div className="w-full mt-8 px-6">
             {links.map((link) => (
               <motion.button
                 key={link.href}

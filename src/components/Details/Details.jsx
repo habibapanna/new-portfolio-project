@@ -266,7 +266,7 @@ const Details = () => {
         <h2 className="text-2xl font-bold text-red-600">Project not found!</h2>
         <button
           onClick={handleBack}
-          className="mt-4 bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer"
+          className="mt-4 bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900 cursor-pointer"
         >
           Back to Home
         </button>

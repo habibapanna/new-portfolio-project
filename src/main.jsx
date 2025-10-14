@@ -23,6 +23,8 @@ import Blog from "./components/Blog/Blog";
 import BlogDetails from "./components/BlogDetails/BlogDetails";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import { FaArrowDownLong } from "react-icons/fa6";
+import AllPortfolio from "./components/AllPortfolio/AllPortfolio";
+
 
 const Layout = () => {
   const [loading, setLoading] = useState(true);
@@ -109,6 +111,10 @@ const router = createBrowserRouter([
       { path: "service-details", element: <ServiceDetails /> },
       { path: "blog", element: <Blog /> },
       { path: "blog/:id", element: <BlogDetails /> },
+      {
+    path: "/all",
+    element: <AllPortfolio />, // ✅ new page
+  },
     ],
   },
 ]);

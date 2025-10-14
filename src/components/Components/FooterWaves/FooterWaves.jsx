@@ -3,7 +3,7 @@ import React from "react";
 
 const FooterWaves = () => {
   return (
-    <div className="fixed bottom-0 left-0 w-full h-[80px] z-40 overflow-hidden">
+    <div className="fixed bottom-0 left-0 w-full h-[30px] z-40 overflow-hidden">
       <style>
         {`
           @keyframes wave1 {

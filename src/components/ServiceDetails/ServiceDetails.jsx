@@ -68,7 +68,7 @@ const ServiceDetails = () => {
               <li>
                 <button
                   onClick={handleNavigateHome}
-                  className="text-white hover:bg-blue-500 cursor-pointer bg-blue-800 px-2"
+                  className="text-white hover:bg-blue-900 cursor-pointer bg-blue-800 px-2"
                 >
                   ← Back to Home
                 </button>

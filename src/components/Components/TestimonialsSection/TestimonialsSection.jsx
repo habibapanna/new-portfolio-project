@@ -24,11 +24,26 @@ const TestimonialsSection = () => {
   const [page, setPage] = useState(0);
   const [openSlider, setOpenSlider] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // 1 = next, -1 = prev
-  const itemsPerPage = 3;
+  const [direction, setDirection] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
+
+  // ✅ Responsive: change itemsPerPage based on screen size
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      if (window.innerWidth < 768) {
+        setItemsPerPage(1); // show 1 image for small screens
+      } else {
+        setItemsPerPage(3); // show 3 for large screens
+      }
+    };
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
+    return () => window.removeEventListener("resize", updateItemsPerPage);
+  }, []);
+
   const totalPages = Math.ceil(testimonialImages.length / itemsPerPage);
 
-  // Auto-slide for grid
+  // Auto-slide
   useEffect(() => {
     const interval = setInterval(() => {
       setPage((prev) => (prev + 1) % totalPages);
@@ -60,17 +75,18 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="bg-blue-50 py-16 px-6 overflow-hidden relative min-h-screen">
+    <section
+      id="testimonials"
+      className="bg-blue-50 py-16 px-6 overflow-hidden relative"
+    >
       {/* Section Header */}
-<div className="text-left mb-8">
-  <h2 className="text-3xl font-bold mb-3 text-black">Testimonials</h2>
-  <div className="border-2 border-blue-800 w-16 mb-5"></div>
-  <p className="text-gray-800 mb-16 text-justify">
-    Our clients are at the heart of everything we do. We take pride in delivering exceptional results, building strong relationships, and providing services that exceed expectations.Here, you can read genuine feedback from our valued clients and partners. Their stories highlight our commitment to quality, creativity, and reliability in every project we undertake. We believe that their experiences reflect the trust and confidence placed in our work, and we continuously strive to make every collaboration a success.
-  </p>
-</div>
-
-
+      <div className="text-left mb-8">
+        <h2 className="text-3xl font-bold mb-3 text-black">Testimonials</h2>
+        <div className="border-2 border-blue-800 w-16 mb-5"></div>
+        <p className="text-gray-800 mb-16 text-justify">
+          Our clients are at the heart of everything we do. We take pride in delivering exceptional results, building strong relationships, and providing services that exceed expectations.Here, you can read genuine feedback from our valued clients and partners. Their stories highlight our commitment to quality, creativity, and reliability in every project we undertake. We believe that their experiences reflect the trust and confidence placed in our work, and we continuously strive to make every collaboration a success.
+        </p>
+      </div>
 
       {/* Grid of Images */}
       <div className="relative w-full">
@@ -81,7 +97,11 @@ const TestimonialsSection = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -300 }}
             transition={{ duration: 1 }}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+            className={`grid gap-8 ${
+              itemsPerPage === 1
+                ? "grid-cols-1"
+                : "grid-cols-1 lg:grid-cols-3"
+            }`}
           >
             {currentTestimonials.map((img, index) => (
               <div
@@ -143,7 +163,7 @@ const TestimonialsSection = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: direction > 0 ? -200 : 200 }}
               transition={{ duration: 0.7 }}
-              className="max-w-full max-h-[80vh]  shadow-2xl object-contain"
+              className="max-w-full max-h-[80vh] shadow-2xl object-contain"
             />
           </motion.div>
         )}
