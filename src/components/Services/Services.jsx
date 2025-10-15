@@ -125,15 +125,23 @@ const servicesData = [
         </div>
       </div>
 
-      {/* Linear Progress Bar */}
-      <div className="w-full h-1 bg-gray-300 rounded mt-4">
-        <motion.div
-          className="h-1 bg-blue-800 rounded"
-          initial={{ width: 0 }}
-          animate={{ width: inView ? `${service.percentage}%` : 0 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-        ></motion.div>
-      </div>
+     {/* Linear Progress Bar */}
+<div className="w-full h-1 bg-gray-300 rounded mt-4 relative">
+  <motion.div
+    className="h-1 bg-blue-800 rounded"
+    initial={{ width: 0 }}
+    animate={{ width: inView ? `${service.percentage}%` : 0 }}
+    transition={{ duration: 2, ease: "easeInOut" }}
+  ></motion.div>
+
+  {/* Blue circle at the end */}
+  <motion.div
+    className="w-4 h-4 bg-blue-800 rounded-full absolute top-1/2 -translate-y-1/2"
+    initial={{ left: 0 }}
+    animate={{ left: inView ? `calc(${service.percentage}% - 8px)` : 0 }}
+    transition={{ duration: 2, ease: "easeInOut" }}
+  ></motion.div>
+</div>
 
       {/* Circular Progress */}
       <motion.div
