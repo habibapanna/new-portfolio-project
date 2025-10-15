@@ -1,6 +1,30 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoClose, IoArrowForward, IoArrowBack } from "react-icons/io5";
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// Custom Arrow Components
+const NextArrow = ({ onClick }) => (
+  <button
+    onClick={onClick}
+    className="absolute top-1/2 right-[-45px] transform -translate-y-1/2 bg-blue-800 text-white p-2 rounded-full shadow-md hover:bg-blue-700 z-10 cursor-pointer"
+  >
+    <IoArrowForward className="text-xl" />
+  </button>
+);
+
+const PrevArrow = ({ onClick }) => (
+  <button
+    onClick={onClick}
+    className="absolute top-1/2 left-[-45px] transform -translate-y-1/2 bg-blue-800 text-white p-2 rounded-full shadow-md hover:bg-blue-700 z-10 cursor-pointer"
+  >
+    <IoArrowBack className="text-xl" />
+  </button>
+);
+
 
 const testimonialImages = [
   "/test1.png",
@@ -21,58 +45,57 @@ const testimonialImages = [
 ];
 
 const TestimonialsSection = () => {
-  const [page, setPage] = useState(0);
   const [openSlider, setOpenSlider] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(3);
-
-  // ✅ Responsive: change itemsPerPage based on screen size
-  useEffect(() => {
-    const updateItemsPerPage = () => {
-      if (window.innerWidth < 768) {
-        setItemsPerPage(1); // show 1 image for small screens
-      } else {
-        setItemsPerPage(3); // show 3 for large screens
-      }
-    };
-    updateItemsPerPage();
-    window.addEventListener("resize", updateItemsPerPage);
-    return () => window.removeEventListener("resize", updateItemsPerPage);
-  }, []);
-
-  const totalPages = Math.ceil(testimonialImages.length / itemsPerPage);
-
-  // Auto-slide
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPage((prev) => (prev + 1) % totalPages);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [totalPages]);
-
-  const start = page * itemsPerPage;
-  const currentTestimonials = testimonialImages.slice(
-    start,
-    start + itemsPerPage
-  );
 
   const handleOpenSlider = (index) => {
-    setCurrentIndex(index + start);
+    setCurrentIndex(index);
     setOpenSlider(true);
   };
 
   const handleCloseSlider = () => setOpenSlider(false);
+
   const handleNext = () => {
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % testimonialImages.length);
   };
+
   const handlePrev = () => {
     setDirection(-1);
     setCurrentIndex((prev) =>
       prev === 0 ? testimonialImages.length - 1 : prev - 1
     );
   };
+
+  // Slick carousel settings
+  const sliderSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
+
 
   return (
     <section
@@ -84,41 +107,34 @@ const TestimonialsSection = () => {
         <h2 className="text-3xl font-bold mb-3 text-black">Testimonials</h2>
         <div className="border-2 border-blue-800 w-16 mb-5"></div>
         <p className="text-gray-800 mb-16 text-justify">
-          Our clients are at the heart of everything we do. We take pride in delivering exceptional results, building strong relationships, and providing services that exceed expectations.Here, you can read genuine feedback from our valued clients and partners. Their stories highlight our commitment to quality, creativity, and reliability in every project we undertake. We believe that their experiences reflect the trust and confidence placed in our work, and we continuously strive to make every collaboration a success.
+          Our clients are at the heart of everything we do. We take pride in
+          delivering exceptional results, building strong relationships, and
+          providing services that exceed expectations. Here, you can read
+          genuine feedback from our valued clients and partners. Their stories
+          highlight our commitment to quality, creativity, and reliability in
+          every project we undertake. We believe that their experiences reflect
+          the trust and confidence placed in our work, and we continuously
+          strive to make every collaboration a success.
         </p>
       </div>
 
-      {/* Grid of Images */}
-      <div className="relative w-full">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={page}
-            initial={{ opacity: 0, x: 300 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -300 }}
-            transition={{ duration: 1 }}
-            className={`grid gap-8 ${
-              itemsPerPage === 1
-                ? "grid-cols-1"
-                : "grid-cols-1 lg:grid-cols-3"
-            }`}
-          >
-            {currentTestimonials.map((img, index) => (
-              <div
-                key={index}
-                className="flex justify-center cursor-pointer"
-                onClick={() => handleOpenSlider(index)}
-              >
-                <motion.img
-                  src={img}
-                  alt={`Testimonial ${index + start + 1}`}
-                  className="w-full max-w-sm shadow-2xl hover:scale-105 transition-transform duration-300"
-                  whileHover={{ scale: 1.05 }}
-                />
-              </div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+      {/* Slider Carousel */}
+      <div className="relative w-full mx-auto px-8  ">
+        <Slider {...sliderSettings}>
+          {testimonialImages.map((img, index) => (
+            <div
+              key={index}
+              className="px-2 cursor-pointer flex justify-center"
+              onClick={() => handleOpenSlider(index)}
+            >
+              <img
+                src={img}
+                alt={`Testimonial ${index + 1}`}
+                className="w-full shadow-lg shadow-blue-100 hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          ))}
+        </Slider>
       </div>
 
       {/* Fullscreen Slider */}

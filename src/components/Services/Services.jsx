@@ -81,7 +81,7 @@ const servicesData = [
   return (
     <section
       id="services"
-      className="py-16 bg-neutral-100 relative overflow-hidden px-6"
+      className="py-16 bg-neutral-50 relative overflow-hidden px-6"
     >
       {/* Section Header */}
       <div className="text-left mb-8">

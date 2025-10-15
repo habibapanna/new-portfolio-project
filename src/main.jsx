@@ -61,9 +61,9 @@ const Layout = () => {
   }
 
   return (
-    <div className="relative lg:flex">
+    <div className="relative lg:flex mx-auto">
       <Sidebar />
-      <div className="flex-1 min-h-screen ml-0 lg:ml-72 relative">
+      <div className="flex-1 min-h-screen ml-0 lg:ml-72 relative overflow-hidden">
         <Outlet />
       </div>
 

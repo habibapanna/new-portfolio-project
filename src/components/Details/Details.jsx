@@ -290,7 +290,7 @@ const Details = () => {
             <li>
               <button
                 onClick={handleBack}
-                className="text-white bg-blue-800 px-3 py-1 hover:bg-blue-500 cursor-pointer"
+                className="text-white bg-blue-800 px-3 py-1 hover:bg-blue-900 cursor-pointer"
               >
                 ← Back to Home
               </button>
