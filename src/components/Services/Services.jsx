@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AiOutlineSun } from "react-icons/ai";
@@ -10,11 +10,18 @@ import {
   BsBriefcase,
 } from "react-icons/bs";
 import Loader from "../Loader/Loader";
+import { useInView } from "react-intersection-observer"; // 👈 install with `npm i react-intersection-observer`
 
 const Services = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
+
+  // Intersection Observer to detect when section is visible
+  const { ref: sectionRef, inView } = useInView({
+    threshold: 0.3, // trigger when 30% of the section is visible
+    triggerOnce: false, // repeat every time user scrolls to it
+  });
 
   const handleClick = () => {
     setLoading(true);
@@ -37,42 +44,42 @@ const servicesData = [
     icon: <BsBriefcase />,
     title: "Web Design",
     description:
-      "Crafting responsive, visually stunning, and user-centered website layouts that blend aesthetics with functionality. I focus on creating modern designs that adapt seamlessly across all devices, ensuring a smooth and engaging user experience that strengthens brand identity.",
+      "Crafting responsive, visually stunning, and user-centered website layouts that balance aesthetics with functionality. I focus on typography, color schemes, and layouts that enhance user experience while representing your brand identity effectively. Every design is optimized for accessibility and cross-device compatibility.",
     percentage: 90,
   },
   {
     icon: <BsCardChecklist />,
     title: "Web Development",
     description:
-      "Developing high-performance, scalable, and secure web applications using React, Node.js, Express, and MongoDB. I emphasize writing clean, reusable code and building feature-rich websites that deliver smooth interactivity and excellent performance across browsers.",
+      "Developing high-performance, scalable, and secure web applications using modern technologies such as React, Node.js, Express, and MongoDB. I write clean, maintainable code and implement best practices for performance, SEO, and security. Each website is tested rigorously for responsiveness, speed, and cross-browser compatibility.",
     percentage: 95,
   },
   {
     icon: <BsBarChart />,
     title: "Graphic Design",
     description:
-      "Designing creative, visually appealing graphics that align with your brand’s identity and message. From logos, posters, and banners to complete visual branding systems — I use tools like Adobe Illustrator and Photoshop to turn ideas into eye-catching designs.",
+      "Designing creative and visually appealing graphics including logos, posters, banners, social media content, and branding materials. I ensure that all designs communicate your brand’s message clearly while standing out in a competitive marketplace. Tools like Adobe Illustrator, Photoshop, and Figma are used to bring ideas to life.",
     percentage: 85,
   },
   {
     icon: <BsBinoculars />,
     title: "UI/UX Design",
     description:
-      "Building intuitive user interfaces backed by user research and interaction design principles. I create engaging prototypes, wireframes, and layouts that focus on clarity, accessibility, and user delight, following modern design systems and usability standards.",
+      "Building intuitive, user-friendly interfaces backed by research and usability principles. I create wireframes, prototypes, and interactive designs that prioritize clarity, accessibility, and engagement. Every UI/UX design is focused on reducing friction and enhancing the overall user journey.",
     percentage: 88,
   },
   {
     icon: <AiOutlineSun />,
     title: "SEO Optimization",
     description:
-      "Boosting website visibility and ranking by applying both on-page and off-page SEO strategies. From keyword research and meta optimization to improving site speed and structure — I ensure your site reaches the right audience and performs effectively on search engines.",
+      "Improving website visibility and search engine ranking through on-page and off-page SEO strategies. This includes keyword research, meta tag optimization, content structuring, link building, and site performance improvements. The goal is to increase organic traffic and improve your website’s reach to the right audience.",
     percentage: 80,
   },
   {
     icon: <BsCalendar4Week />,
     title: "Digital Marketing",
     description:
-      "Planning and executing data-driven marketing campaigns across social media, email, and web channels. I focus on audience targeting, engagement analysis, and conversion tracking to maximize your online reach and brand presence effectively.",
+      "Planning and executing data-driven digital marketing campaigns across social media, email, and web platforms. I focus on audience targeting, engagement analysis, content strategy, and conversion tracking to maximize your online presence and achieve measurable results. Campaigns are tailored to your brand goals and metrics.",
     percentage: 85,
   },
 ];
@@ -81,67 +88,71 @@ const servicesData = [
   return (
     <section
       id="services"
+      ref={sectionRef} // 👈 attach observer here
       className="py-16 bg-neutral-50 relative overflow-hidden px-6"
     >
       {/* Section Header */}
       <div className="text-left mb-8">
-  <h2 className="text-3xl font-bold mb-5 text-black">My Services</h2>
-  <div className="border-2 border-blue-800 w-16 mb-5"></div>
-  <p className="mb-16 text-gray-800 text-justify">
-    I offer a wide range of services designed to bring your digital ideas to life and help your business or personal projects succeed online. My expertise lies in creating responsive, modern, and engaging websites that deliver a seamless user experience across all devices. My core services include front-end development, responsive web design, UI/UX design, and building interactive web applications. I focus on clean, maintainable code and intuitive design to ensure your users enjoy a smooth and memorable experience.
-  </p>
+        <h2 className="text-3xl font-bold mb-5 text-black">My Services</h2>
+        <div className="border-2 border-blue-800 w-16 mb-5"></div>
+        <p className="mb-16 text-gray-800 text-justify">
+         I offer a wide range of services designed to bring your digital ideas to life and help your business or personal projects succeed online. My expertise lies in creating responsive, modern, and engaging websites that deliver a seamless user experience across all devices. My core services include front-end development, responsive web design, UI/UX design, and building interactive web applications. I focus on clean, maintainable code and intuitive design to ensure your users enjoy a smooth and memorable experience.
+        </p>
+      </div>
+
+      {/* Services Grid */}
+      <div className="mx-auto grid md:grid-cols-2 gap-12">
+  {servicesData.map((service, index) => (
+    <motion.div
+      key={index}
+      className="cursor-pointer flex flex-col justify-between space-y-6 group relative p-6 rounded-2xl"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 200, damping: 15 }}
+      onClick={handleClick}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Icon + Title + Description */}
+      <div className="flex-1 flex items-start space-x-4">
+        <div className="text-3xl text-gray-400 group-hover:text-blue-800 transition-colors duration-300">
+          {service.icon}
+        </div>
+        <div>
+          <h4 className="text-xl font-semibold text-black mb-2 group-hover:text-blue-800 transition-colors duration-300">
+            {service.title}
+          </h4>
+          <p className="text-gray-800 text-justify">{service.description}</p>
+        </div>
+      </div>
+
+      {/* Linear Progress Bar */}
+      <div className="w-full h-1 bg-gray-300 rounded mt-4">
+        <motion.div
+          className="h-1 bg-blue-800 rounded"
+          initial={{ width: 0 }}
+          animate={{ width: inView ? `${service.percentage}%` : 0 }}
+          transition={{ duration: 2, ease: "easeInOut" }}
+        ></motion.div>
+      </div>
+
+      {/* Circular Progress */}
+      <motion.div
+        className="w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-xl mt-4"
+        initial={{ rotate: 0 }}
+        animate={{ rotate: inView ? 360 : 0 }}
+        transition={{ duration: 2 }}
+        style={{
+          background: `conic-gradient(#1e40af ${
+            inView ? service.percentage * 3.6 : 0
+          }deg, #3b82f6 0deg)`,
+        }}
+      >
+        {service.percentage}%
+      </motion.div>
+    </motion.div>
+  ))}
 </div>
 
-
-      <div className="mx-auto grid md:grid-cols-2 gap-12">
-        {servicesData.map((service, index) => (
-          <motion.div
-            key={index}
-            className="cursor-pointer flex flex-col space-y-6 group relative p-6 rounded-2xl"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            onClick={handleClick}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-          >
-            {/* Icon + Title + Description */}
-            <div className="flex items-center space-x-4">
-              <div className="text-3xl text-gray-400 group-hover:text-blue-800 transition-colors duration-300">
-                {service.icon}
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold text-black mb-2 group-hover:text-blue-800 transition-colors duration-300">
-                  {service.title}
-                </h4>
-                <p className="text-gray-800 text-justify">{service.description}</p>
-              </div>
-            </div>
-
-            {/* Linear Progress Bar */}
-            <div className="w-full h-1 bg-gray-300 rounded">
-              <motion.div
-                className="h-1 bg-blue-800 rounded"
-                initial={{ width: 0 }}
-                animate={{ width: `${service.percentage}%` }}
-                transition={{ duration: 2, ease: "easeInOut" }} // slow 2s animation
-              ></motion.div>
-            </div>
-
-            {/* Circular Progress */}
-            <motion.div
-              className="w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-xl"
-              initial={{ rotate: 0 }}
-              animate={{ rotate: 360 }}
-              transition={{ duration: 2, repeat: 0 }}
-              style={{
-                background: `conic-gradient(#1e40af ${service.percentage * 3.6}deg, #3b82f6 0deg)`,
-              }}
-            >
-              {service.percentage}%
-            </motion.div>
-          </motion.div>
-        ))}
-      </div>
 
       {/* Loader */}
       {loading && <Loader />}

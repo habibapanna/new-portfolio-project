@@ -78,9 +78,9 @@ const Sidebar = () => {
   return (
     <>
       {/* --- Top Progress Bar --- */}
-      <div className="fixed top-0 left-0 w-full h-1 z-50">
+      <div className="fixed top-0 left-0 w-full h-[2px] z-50">
         <div
-          className="h-1 bg-blue-800 transition-all duration-500 ease-in-out"
+          className="h-[2px] bg-blue-400 transition-all duration-500 ease-in-out"
           style={{ width: `${progress}%` }}
         />
       </div>
