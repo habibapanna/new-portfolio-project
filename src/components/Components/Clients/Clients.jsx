@@ -4,6 +4,7 @@ import { IoClose, IoArrowForward, IoArrowBack } from "react-icons/io5";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Fade } from "react-awesome-reveal";
 
 const clientImages = Array.from({ length: 20 }, (_, i) => `/client${i + 1}.png`);
 
@@ -58,9 +59,10 @@ const Clients = () => {
     <section id="clients" className="py-16 px-4 md:px-8 overflow-hidden c">
       {/* Header */}
       <div className="text-left mb-8 mx-auto">
-        <h2 className="text-3xl font-bold mb-3 text-black">My Clients</h2>
-        <div className="border-2 border-blue-800 w-16 mb-5"></div>
-        <p className="text-gray-800 mb-16 text-justify">
+        <Fade direction="down"><h2 className="text-3xl font-bold mb-3 text-black">My Clients</h2>
+                <div className="border-2 border-blue-800 w-16 mb-5"></div></Fade>
+        <Fade direction="up">
+          <p className="text-gray-800 mb-16 text-justify">
           Our clients are at the heart of everything we do. We take pride in
           delivering exceptional results, building strong relationships, and
           providing services that exceed expectations. Here, you can read
@@ -70,6 +72,7 @@ const Clients = () => {
           the trust and confidence placed in our work, and we continuously
           strive to make every collaboration a success.
         </p>
+        </Fade>
       </div>
 
       {/* Slick Carousel */}

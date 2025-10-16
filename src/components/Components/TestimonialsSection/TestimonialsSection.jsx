@@ -5,6 +5,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Fade } from "react-awesome-reveal";
 
 // Custom Arrow Components
 const NextArrow = ({ onClick }) => (
@@ -104,9 +105,9 @@ const TestimonialsSection = () => {
     >
       {/* Section Header */}
       <div className="text-left mb-8">
-        <h2 className="text-3xl font-bold mb-3 text-black">Testimonials</h2>
-        <div className="border-2 border-blue-800 w-16 mb-5"></div>
-        <p className="text-gray-800 mb-16 text-justify">
+        <Fade direction="down"><h2 className="text-3xl font-bold mb-3 text-black">Testimonials</h2>
+        <div className="border-2 border-blue-800 w-16 mb-5"></div></Fade>
+       <Fade direction="up"> <p className="text-gray-800 mb-16 text-justify">
           Our clients are at the heart of everything we do. We take pride in
           delivering exceptional results, building strong relationships, and
           providing services that exceed expectations. Here, you can read
@@ -115,7 +116,7 @@ const TestimonialsSection = () => {
           every project we undertake. We believe that their experiences reflect
           the trust and confidence placed in our work, and we continuously
           strive to make every collaboration a success.
-        </p>
+        </p></Fade>
       </div>
 
       {/* Slider Carousel */}

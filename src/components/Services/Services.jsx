@@ -11,6 +11,7 @@ import {
 } from "react-icons/bs";
 import Loader from "../Loader/Loader";
 import { useInView } from "react-intersection-observer"; // 👈 install with `npm i react-intersection-observer`
+import { Fade } from "react-awesome-reveal";
 
 const Services = () => {
   const navigate = useNavigate();
@@ -92,9 +93,10 @@ const Services = () => {
     >
       {/* Section Header */}
       <div className="text-left mb-8">
-        <h2 className="text-3xl font-bold mb-5 text-black">My Services</h2>
-        <div className="border-2 border-blue-800 w-16 mb-5"></div>
-        <p className="mb-16 text-gray-800 text-justify">
+        <Fade direction="up"><h2 className="text-3xl font-bold mb-3 text-black">Services</h2>
+                <div className="border-2 border-blue-800 w-16 mb-5"></div></Fade>
+        <Fade direction="down">
+          <p className="mb-16 text-gray-800 text-justify">
           I offer a wide range of services designed to bring your digital ideas
           to life and help your business or personal projects succeed online. My
           expertise lies in creating responsive, modern, and engaging websites
@@ -104,6 +106,7 @@ const Services = () => {
           maintainable code and intuitive design to ensure your users enjoy a
           smooth and memorable experience.
         </p>
+        </Fade>
       </div>
 
       {/* Services Grid */}
