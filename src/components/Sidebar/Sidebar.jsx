@@ -9,6 +9,7 @@ import { TfiMenuAlt } from "react-icons/tfi";
 import ProfileSection from "../Components/ProfileSection/ProfileSection";
 import FooterWaves from "../Components/FooterWaves/FooterWaves";
 import { FaRegComments, FaUsers } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -183,28 +184,31 @@ const Sidebar = () => {
         <div className="hidden md:flex flex-col mt-12 relative">
           {/* Top Row */}
           <div className="flex justify-between items-center">
-         <div className="text-2xl font-semibold uppercase text-center ml-6 flex justify-center items-center">
-  <span>L</span>
-  <span>I</span>
-  <motion.span
-    className="text-blue-800 inline-block"
-    animate={{
-      y: [0, -60, -60, 0, -10, 0],   // jump up, stay, come down with bounce
-      rotateY: [0, 0, 360, 0, 0, 0], // flip horizontally while at the top
-    }}
-    transition={{
-      duration: 8, // full cycle duration
-      times: [0, 0.25, 0.625, 0.8, 0.9, 1], // timing keyframes
-      ease: "easeInOut",
-      repeat: Infinity,
-    }}
-    style={{ transformOrigin: "center" }}
-  >
-    M
-  </motion.span>
-  <span>O</span>
-  <span>N</span>
-</div>
+      <Link
+      to="/"
+      className="text-2xl font-semibold uppercase text-center ml-6 flex justify-center items-center cursor-pointer"
+    >
+      <span>L</span>
+      <span>I</span>
+      <motion.span
+        className="text-blue-800 inline-block"
+        animate={{
+          y: [0, -60, -60, 0, -10, 0],   // jump up, stay, bounce
+          rotateY: [0, 0, 360, 0, 0, 0], // 3D flip at the top
+        }}
+        transition={{
+          duration: 8,
+          times: [0, 0.25, 0.625, 0.8, 0.9, 1],
+          ease: "easeInOut",
+          repeat: Infinity,
+        }}
+        style={{ transformOrigin: "center" }}
+      >
+        M
+      </motion.span>
+      <span>O</span>
+      <span>N</span>
+    </Link>
 
 
 

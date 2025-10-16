@@ -175,7 +175,7 @@ const Portfolio = () => {
         <img
           src={item.image}
           alt={item.category}
-          className="w-full md:h-[300px] h-[200px] lg:h-48 object-cover transform group-hover:scale-110 transition-transform duration-300 ease-in-out"
+          className="w-full md:h-[300px] h-[150px] lg:h-48 object-cover transform group-hover:scale-110 transition-transform duration-300 ease-in-out"
         />
 
         {/* Hover Overlay + Link */}
