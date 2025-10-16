@@ -4,7 +4,6 @@ const stats = [
   { number: "5+", label: "Years of Experience" },
   { number: "441+", label: "Satisfied Clients" },
   { number: "550+", label: "Projects Finished" },
-  { number: "10+", label: "Awards Won" },
 ];
 
 const Slider = () => {
