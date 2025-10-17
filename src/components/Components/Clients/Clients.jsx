@@ -81,7 +81,7 @@ const Clients = () => {
           {clientImages.map((img, index) => (
             <div
               key={index}
-              className="flex justify-center cursor-pointer px-2"
+              className="flex justify-center px-2"
               onClick={() => handleOpenSlider(index)}
             >
               <img
@@ -95,7 +95,7 @@ const Clients = () => {
       </div>
 
       {/* Fullscreen Slider */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {openSlider && (
           <motion.div
             className="fixed inset-0 bg-white bg-opacity-95 z-80 flex items-center justify-center p-4"
@@ -142,7 +142,7 @@ const Clients = () => {
             />
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </section>
   );
 };
