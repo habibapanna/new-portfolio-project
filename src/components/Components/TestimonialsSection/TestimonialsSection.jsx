@@ -138,53 +138,55 @@ const TestimonialsSection = () => {
         </Slider>
       </div>
 
-      {/* Fullscreen Slider */}
+           {/* Section Image Slider (not fullscreen) */}
       <AnimatePresence>
-        {openSlider && (
-          <motion.div
-            className="fixed inset-0 bg-white bg-opacity-95 z-80 flex items-center justify-center p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+              {/* Section Image Slider (with slick carousel instead of motion) */}
+      {openSlider && (
+        <div className="absolute inset-0 bg-blue-800 flex flex-col items-center justify-center z-40 py-10">
+          {/* Close Button */}
+          <button
+            onClick={handleCloseSlider}
+            className="absolute top-3 right-5 text-white text-3xl md:text-4xl hover:text-blue-100 cursor-pointer"
           >
-            {/* Close */}
-            <button
-              onClick={handleCloseSlider}
-              className="absolute top-5 right-5 text-blue-800 text-3xl md:text-5xl hover:text-blue-800 cursor-pointer z-50"
-            >
-              <IoClose />
-            </button>
+            <IoClose />
+          </button>
 
-            {/* Prev */}
-            <button
-              onClick={handlePrev}
-              className="absolute left-3 sm:left-8 text-white md:text-4xl sm:text-5xl hover:text-blue-800 cursor-pointer z-50 hover:bg-white bg-blue-800 bg-opacity-60 p-2 rounded-full border border-blue-800"
+          {/* Slick Slider for modal */}
+          <div className="w-[90%] md:w-[80%] lg:w-[70%] mx-auto">
+            <Slider
+              dots={false}
+              infinite={true}
+              speed={500}
+              slidesToShow={1}
+              slidesToScroll={1}
+              initialSlide={currentIndex}
+              nextArrow={
+                <button className="absolute right-[-45px] top-1/2 transform -translate-y-1/2 bg-blue-800 text-white p-2 rounded-full shadow-md hover:bg-white hover:text-blue-800 border border-blue-800 z-10">
+                  <IoArrowForward className="text-2xl" />
+                </button>
+              }
+              prevArrow={
+                <button className="absolute left-[-45px] top-1/2 transform -translate-y-1/2 bg-blue-800 text-white p-2 rounded-full shadow-md hover:bg-white hover:text-blue-800 border border-blue-800 z-10">
+                  <IoArrowBack className="text-2xl" />
+                </button>
+              }
             >
-              <IoArrowBack />
-            </button>
+              {testimonialImages.map((img, index) => (
+                <div key={index} className="flex justify-center">
+                  <img
+                    src={img}
+                    alt={`Testimonial ${index + 1}`}
+                    className="md:w-screen max-h-[70vh] object-contain shadow-lg border border-blue-100"
+                  />
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </div>
+      )}
 
-            {/* Next */}
-            <button
-              onClick={handleNext}
-              className="absolute right-3 sm:right-8 text-white md:text-4xl sm:text-5xl hover:text-blue-800 cursor-pointer z-50 hover:bg-white bg-blue-800 bg-opacity-60 border border-blue-800 p-2 rounded-full"
-            >
-              <IoArrowForward />
-            </button>
-
-            {/* Image */}
-            <motion.img
-              key={currentIndex}
-              src={testimonialImages[currentIndex]}
-              alt={`Testimonial ${currentIndex + 1}`}
-              initial={{ opacity: 0, x: direction > 0 ? 200 : -200 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: direction > 0 ? -200 : 200 }}
-              transition={{ duration: 0.7 }}
-              className="max-w-full max-h-[80vh] shadow-2xl object-contain"
-            />
-          </motion.div>
-        )}
       </AnimatePresence>
+
     </section>
   );
 };
