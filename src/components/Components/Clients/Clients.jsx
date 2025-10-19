@@ -81,7 +81,7 @@ const Clients = () => {
               <img
                 src={img}
                 alt={`Client ${index + 1}`}
-                className="w-32 md:w-40 object-contain shadow-lg shadow-blue-100 hover:scale-105 transition-transform duration-300"
+                className="w-32 md:w-40 object-contain shadow-lg shadow-blue-100 hover:scale-105 transition-transform duration-300 focus:outline-none"
               />
             </div>
           ))}
