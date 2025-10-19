@@ -108,15 +108,9 @@ const TestimonialsSection = () => {
         <Fade direction="down"><h2 className="text-3xl font-bold mb-3 text-black">Testimonials</h2>
         <div className="border-2 border-blue-800 w-16 mb-5"></div></Fade>
        <Fade direction="up"> <p className="text-gray-800 mb-16 text-justify">
-          Our clients are at the heart of everything we do. We take pride in
-          delivering exceptional results, building strong relationships, and
-          providing services that exceed expectations. Here, you can read
-          genuine feedback from our valued clients and partners. Their stories
-          highlight our commitment to quality, creativity, and reliability in
-          every project we undertake. We believe that their experiences reflect
-          the trust and confidence placed in our work, and we continuously
-          strive to make every collaboration a success.
-        </p></Fade>
+    Hear what our clients say about working with us.  
+    Their words reflect our dedication to quality, trust, and lasting partnerships.
+  </p></Fade>
       </div>
 
       {/* Slider Carousel */}
@@ -140,52 +134,63 @@ const TestimonialsSection = () => {
 
            {/* Section Image Slider (not fullscreen) */}
       <AnimatePresence>
-              {/* Section Image Slider (with slick carousel instead of motion) */}
-      {openSlider && (
-        <div className="absolute inset-0 bg-blue-800 flex flex-col items-center justify-center z-40 py-10">
-          {/* Close Button */}
-          <button
-            onClick={handleCloseSlider}
-            className="absolute top-3 right-5 text-white text-3xl md:text-4xl hover:text-blue-100 cursor-pointer"
-          >
-            <IoClose />
-          </button>
+  {openSlider && (
+    <motion.div
+      className="fixed inset-0 mt-96 md:mt-56 bg-black/80 flex items-center md:ml-56 justify-center z-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {/* Modal Container */}
+      <motion.div
+        className="relative bg-blue-5 overflow-hidden w-[100%] md:w-[40%]  p-10 md:p-6"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        {/* Close Button */}
+        <button
+          onClick={handleCloseSlider}
+          className="absolute cursor-pointer md:-top-1 md:-right-1 right-1 top-1 text-white text-3xl hover:text-blue-100"
+        >
+          <IoClose />
+        </button>
 
-          {/* Slick Slider for modal */}
-          <div className="w-[90%] md:w-[80%] lg:w-[70%] mx-auto">
-            <Slider
-              dots={false}
-              infinite={true}
-              speed={500}
-              slidesToShow={1}
-              slidesToScroll={1}
-              initialSlide={currentIndex}
-              nextArrow={
-                <button className="absolute right-[-45px] top-1/2 transform -translate-y-1/2 bg-blue-800 text-white p-2 rounded-full shadow-md hover:bg-white hover:text-blue-800 border border-blue-800 z-10">
-                  <IoArrowForward className="text-2xl" />
-                </button>
-              }
-              prevArrow={
-                <button className="absolute left-[-45px] top-1/2 transform -translate-y-1/2 bg-blue-800 text-white p-2 rounded-full shadow-md hover:bg-white hover:text-blue-800 border border-blue-800 z-10">
-                  <IoArrowBack className="text-2xl" />
-                </button>
-              }
-            >
-              {testimonialImages.map((img, index) => (
-                <div key={index} className="flex justify-center">
-                  <img
-                    src={img}
-                    alt={`Testimonial ${index + 1}`}
-                    className="md:w-screen max-h-[70vh] object-contain shadow-lg border border-blue-100"
-                  />
-                </div>
-              ))}
-            </Slider>
-          </div>
-        </div>
-      )}
+        {/* Slick Slider inside modal */}
+        <Slider
+          dots={false}
+          infinite={true}
+          speed={500}
+          slidesToShow={1}
+          slidesToScroll={1}
+          initialSlide={currentIndex}
+          nextArrow={
+            <button className="absolute right-[-35px] top-1/2 transform -translate-y-1/2 bg-blue-800 text-white p-2 rounded-full shadow-md hover:bg-white hover:text-blue-800 border border-blue-800 z-10">
+              <IoArrowForward className="text-lg" />
+            </button>
+          }
+          prevArrow={
+            <button className="absolute left-[-35px] top-1/2 transform -translate-y-1/2 bg-blue-800 text-white p-2 rounded-full shadow-md hover:bg-white hover:text-blue-800 border border-blue-800 z-10">
+              <IoArrowBack className="text-lg" />
+            </button>
+          }
+        >
+          {testimonialImages.map((img, index) => (
+            <div key={index} className="flex justify-center">
+              <img
+                src={img}
+                alt={`Testimonial ${index + 1}`}
+                className="max-h-[55vh] object-contain shadow-lg"
+              />
+            </div>
+          ))}
+        </Slider>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
-      </AnimatePresence>
 
     </section>
   );

@@ -35,7 +35,7 @@ const Banner = () => {
       onMouseMove={handleMouseMove}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-blue-800/40"></div>
 
       {/* Floating particles */}
       {particles.map((p, index) => (
@@ -61,7 +61,7 @@ const Banner = () => {
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center text-center">
         <motion.div
-          className="text-white space-y-6 z-10 transition-transform duration-200 ease-out pt-32 md:pt-40"
+          className="text-white space-y-6 z-10 transition-transform duration-200 ease-out"
           style={{
             transform: `translate(${offset.x}px, ${offset.y}px)`,
           }}
@@ -71,7 +71,7 @@ const Banner = () => {
         >
           {/* Subtitle */}
           <motion.h2
-            className="text-2xl font-medium"
+            className="text-2xl md:text-3xl font-medium"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
@@ -82,7 +82,7 @@ const Banner = () => {
           {/* Name with typewriter */}
           {/* Name with continuous typewriter */}
 <motion.h1
-  className="text-3xl md:text-5xl font-extrabold uppercase"
+  className="text-2xl md:text-5xl font-extrabold uppercase"
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ delay: 0.5 }}
@@ -109,12 +109,12 @@ const Banner = () => {
 
           {/* Paragraph */}
           <motion.p
-            className="w-3/4 md:w-2/4 mx-auto leading-loose text-gray-50"
+            className="w-4/5 md:w-2/4 mx-auto leading-loose text-white justify-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
           >
-            I'm a software developer with a passion for web design. I enjoy
+            I'm a web developer with a passion for web design. I enjoy
             developing simple, clean and slick websites that provide real value
             to the end user.
           </motion.p>

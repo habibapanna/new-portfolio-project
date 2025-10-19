@@ -63,15 +63,10 @@ const Clients = () => {
                 <div className="border-2 border-blue-800 w-16 mb-5"></div></Fade>
         <Fade direction="up">
           <p className="text-gray-800 mb-16 text-justify">
-          Our clients are at the heart of everything we do. We take pride in
-          delivering exceptional results, building strong relationships, and
-          providing services that exceed expectations. Here, you can read
-          genuine feedback from our valued clients and partners. Their stories
-          highlight our commitment to quality, creativity, and reliability in
-          every project we undertake. We believe that their experiences reflect
-          the trust and confidence placed in our work, and we continuously
-          strive to make every collaboration a success.
-        </p>
+      Collaborating with innovative brands and passionate teams  
+      to create impactful digital experiences that drive results.
+    </p>
+
         </Fade>
       </div>
 
@@ -93,56 +88,6 @@ const Clients = () => {
           ))}
         </Slider>
       </div>
-
-      {/* Fullscreen Slider */}
-      {/* <AnimatePresence>
-        {openSlider && (
-          <motion.div
-            className="fixed inset-0 bg-white bg-opacity-95 z-80 flex items-center justify-center p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <button
-              onClick={handleCloseSlider}
-              className="absolute top-5 right-5 text-blue-800 text-3xl md:text-5xl cursor-pointer z-50"
-            >
-              <IoClose />
-            </button>
-
-            <button
-              onClick={() =>
-                setCurrentIndex((prev) =>
-                  prev === 0 ? clientImages.length - 1 : prev - 1
-                )
-              }
-              className="absolute left-3 md:left-8 text-white md:text-4xl sm:text-5xl cursor-pointer z-0 hover:bg-white bg-blue-800 bg-opacity-60 p-2 rounded-full border hover:text-blue-800 border-blue-800"
-            >
-              <IoArrowBack />
-            </button>
-
-            <button
-              onClick={() =>
-                setCurrentIndex((prev) => (prev + 1) % clientImages.length)
-              }
-              className="absolute right-3 md:right-8 text-white md:text-4xl sm:text-5xl cursor-pointer z-50 hover:bg-white bg-blue-800 bg-opacity-60 p-2 rounded-full border hover:text-blue-800 border-blue-800"
-            >
-              <IoArrowForward />
-            </button>
-
-            <motion.img
-              key={currentIndex}
-              src={clientImages[currentIndex]}
-              alt={`Client ${currentIndex + 1}`}
-              initial={{ opacity: 0, x: 200 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -200 }}
-              transition={{ duration: 0.5 }}
-              className="max-w-full max-h-[80vh] object-contain shadow-2xl"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence> */}
     </section>
   );
 };

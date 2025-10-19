@@ -97,14 +97,11 @@ const Services = () => {
                 <div className="border-2 border-blue-800 w-16 mb-5"></div></Fade>
         <Fade direction="down">
           <p className="mb-16 text-gray-800 text-justify">
-          I offer a wide range of services designed to bring your digital ideas
-          to life and help your business or personal projects succeed online. My
-          expertise lies in creating responsive, modern, and engaging websites
-          that deliver a seamless user experience across all devices. My core
-          services include front-end development, responsive web design, UI/UX
-          design, and building interactive web applications. I focus on clean,
-          maintainable code and intuitive design to ensure your users enjoy a
-          smooth and memorable experience.
+          I provide a range of professional web development services focused on
+      turning your digital ideas into reality. From responsive web design and
+      front-end development to intuitive UI/UX design and interactive
+      applications — every project is built with performance, usability, and
+      clean, maintainable code in mind.
         </p>
         </Fade>
       </div>

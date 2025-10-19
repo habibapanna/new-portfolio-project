@@ -1,5 +1,6 @@
 import { TfiQuoteLeft, TfiQuoteRight } from "react-icons/tfi";
 import { motion } from "framer-motion";
+import { Fade } from "react-awesome-reveal";
 
 const About = () => {
   return (
@@ -24,7 +25,8 @@ const About = () => {
         <section className="md:w-1/2 flex items-center justify-center p-12 relative z-10 bg-white">
           <div className="w-full md:w-3/4">
             {/* Greeting */}
-            <motion.h2
+            <Fade direction="down">
+              <motion.h2
               className="text-2xl md:text-3xl font-bold mb-5 tracking-wide"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -33,9 +35,11 @@ const About = () => {
             >
               Hi, I’m <span className="text-blue-800">Sanwar</span>
             </motion.h2>
+            </Fade>
 
             {/* BELIEVE Section with glowing underline */}
-            <motion.h3
+           <Fade direction="down">
+             <motion.h3
               className="text-3xl md:text-4xl font-extrabold mb-4 text-black bg-clip-text"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -44,13 +48,16 @@ const About = () => {
             >
               I BELIEVE IN
             </motion.h3>
+           </Fade>
 
-            <motion.div
+            <Fade direction="left">
+              <motion.div
               className="h-[3px] bg-gradient-to-r to-blue-800 rounded-full w-0"
               whileInView={{ width: "100%" }}
               transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
               viewport={{ once: true }}
             />
+            </Fade>
 
             {/* Quote Paragraph */}
             <div className="relative mt-8">
@@ -63,7 +70,8 @@ const About = () => {
                 <TfiQuoteLeft />
               </motion.span>
 
-              <motion.p
+             <Fade direction="right">
+               <motion.p
                 className="text-lg md:text-2xl leading-relaxed font-light text-gray-800"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -74,6 +82,7 @@ const About = () => {
                 work for other good clients. If you do bad work for bad clients,
                 it will lead to other bad work for other bad clients.
               </motion.p>
+             </Fade>
 
               <motion.span
                 className="absolute -right-6 md:-right-0 -bottom-4 text-3xl text-blue-800"
