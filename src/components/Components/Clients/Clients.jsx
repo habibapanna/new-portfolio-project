@@ -77,7 +77,6 @@ const Clients = () => {
             <div
               key={index}
               className="flex justify-center px-2"
-              onClick={() => handleOpenSlider(index)}
             >
               <img
                 src={img}

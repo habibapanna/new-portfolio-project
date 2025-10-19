@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
+import { Fade } from "react-awesome-reveal";
 
 const Banner = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [particles, setParticles] = useState([]);
+  const [bgImage, setBgImage] = useState("/myPhoto1.png");
 
   const handleMouseMove = (e) => {
     const { innerWidth, innerHeight } = window;
@@ -14,6 +16,7 @@ const Banner = () => {
   };
 
   useEffect(() => {
+    // Particles
     const newParticles = Array.from({ length: 12 }).map(() => ({
       left: Math.random() * 100,
       top: Math.random() * 100,
@@ -21,13 +24,23 @@ const Banner = () => {
       delay: Math.random() * 5,
     }));
     setParticles(newParticles);
+
+    // Set background based on screen width
+    const handleResize = () => {
+      setBgImage(window.innerWidth < 768 ? "/myPhoto2.png" : "/myPhoto1.png");
+    };
+
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <div
       className="relative min-h-screen bg-center overflow-hidden"
       style={{
-        backgroundImage: "url('/myPhoto1.png')",
+        backgroundImage: `url('${bgImage}')`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -35,7 +48,7 @@ const Banner = () => {
       onMouseMove={handleMouseMove}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-blue-800/40"></div>
+      <div className="absolute inset-0 bg-black/30"></div>
 
       {/* Floating particles */}
       {particles.map((p, index) => (
@@ -80,36 +93,36 @@ const Banner = () => {
           </motion.h2>
 
           {/* Name with typewriter */}
-          {/* Name with continuous typewriter */}
-<motion.h1
-  className="text-2xl md:text-5xl font-extrabold uppercase"
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.5 }}
->
-  <Typewriter
-    words={["Sanwar Hosen Limon"]}
-    loop={true}            // keeps typing continuously
-    cursor
-    cursorStyle="|"
-    typeSpeed={120}
-    deleteSpeed={50}
-    delaySpeed={2000}      // delay before typing again
-  />
-</motion.h1>
-
+          <motion.h1
+            className="text-2xl md:text-5xl font-extrabold uppercase"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <Typewriter
+              words={["Sanwar Hosen Limon"]}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={120}
+              deleteSpeed={50}
+              delaySpeed={2000}
+            />
+          </motion.h1>
 
           {/* Underline */}
-          <motion.div
-            className="border mx-auto border-white w-56"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
-          ></motion.div>
+          <Fade direction="left">
+            <motion.div
+              className="border mx-auto border-white w-64"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
+            ></motion.div>
+          </Fade>
 
           {/* Paragraph */}
           <motion.p
-            className="w-4/5 md:w-2/4 mx-auto leading-loose text-white justify-center"
+            className="w-4/5 md:w-4/5 mx-auto leading-loose text-white justify-center text-lg"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
@@ -125,3 +138,6 @@ const Banner = () => {
 };
 
 export default Banner;
+
+
+

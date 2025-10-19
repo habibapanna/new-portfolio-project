@@ -136,7 +136,7 @@ const TestimonialsSection = () => {
       <AnimatePresence>
   {openSlider && (
     <motion.div
-      className="fixed inset-0 mt-96 md:mt-56 bg-black/80 flex items-center md:ml-56 justify-center z-50"
+      className="fixed inset-0 mt-96 md:mt-56 bg-black/80 flex items-center md:ml-72 justify-center z-50"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -181,7 +181,7 @@ const TestimonialsSection = () => {
               <img
                 src={img}
                 alt={`Testimonial ${index + 1}`}
-                className="max-h-[55vh] object-contain shadow-lg"
+                className="w-full max-h-[50vh] object-contain shadow-lg"
               />
             </div>
           ))}
