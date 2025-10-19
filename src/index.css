@@ -13,6 +13,16 @@ html {
     scroll-behavior: smooth;
   } 
 
+  img {
+  outline: none;   /* removes focus outline */
+  border: none;    /* removes any default border */
+}
+
+img:focus {
+  outline: none;
+  border: none;
+}
+
 
 
   /* Hide scrollbar but keep scroll functionality */
