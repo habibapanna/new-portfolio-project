@@ -12,18 +12,18 @@ const clientImages = Array.from({ length: 20 }, (_, i) => `/client${i + 1}.png`)
 const NextArrow = ({ onClick }) => (
   <button
     onClick={onClick}
-    className="absolute top-1/2 right-0 md:right-[-30px] -translate-y-1/2 bg-blue-800 text-white p-1 rounded-full shadow-md hover:bg-blue-700 z-10 cursor-pointer"
+    className="absolute top-1/2 right-0 md:right-[-30px] -translate-y-1/2 bg-blue-800 text-white p-1 rounded-full shadow-md hover:bg-blue-700 z-10 cursor-pointer md:p-2"
   >
-    <IoArrowForward className="text-lg" />
+    <IoArrowForward className="text-lg md:text-xl" />
   </button>
 );
 
 const PrevArrow = ({ onClick }) => (
   <button
     onClick={onClick}
-    className="absolute top-1/2 left-0 md:left-[-30px] -translate-y-1/2 bg-blue-800 text-white p-1 rounded-full shadow-md hover:bg-blue-700 z-10 cursor-pointer"
+    className="absolute top-1/2 left-0 md:left-[-30px] -translate-y-1/2 bg-blue-800 text-white p-1 rounded-full shadow-md hover:bg-blue-700 z-10 cursor-pointer md:p-2"
   >
-    <IoArrowBack className="text-lg" />
+    <IoArrowBack className="text-lg md:text-xl" />
   </button>
 );
 
@@ -41,7 +41,7 @@ const Clients = () => {
   const sliderSettings = {
     infinite: true,
     speed: 700,
-    slidesToShow: 6,
+    slidesToShow: 8,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,

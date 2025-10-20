@@ -82,10 +82,10 @@ const Layout = () => {
       {!showScrollTop && (
         <button
           onClick={scrollToDown}
-          className="fixed bottom-6 right-6 p-3 text-blue-800 bg-white shadow-lg hover:bg-blue-800 hover:text-white hover:cursor-pointer z-50 transition-transform duration-300 hover:scale-110"
+          className="fixed bottom-6 right-6 p-2 text-blue-800 bg-white shadow-lg hover:bg-blue-800 hover:text-white hover:cursor-pointer z-50 transition-transform duration-300 hover:scale-110"
           title="Scroll Down"
         >
-          <FaArrowDownLong className="md:text-3xl" />
+          <FaArrowDownLong className="md:text-2xl" />
         </button>
       )}
     </div>
