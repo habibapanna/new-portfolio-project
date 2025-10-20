@@ -93,9 +93,9 @@ const Services = () => {
     >
       {/* Section Header */}
       <div className="text-left mb-8">
-        <Fade direction="up"><h2 className="text-3xl font-bold mb-3 text-black">Services</h2>
+        <Fade direction="down"><h2 className="text-3xl font-bold mb-3 text-black">Services</h2>
                 <div className="border-2 border-blue-800 w-16 mb-5"></div></Fade>
-        <Fade direction="down">
+        <Fade direction="up">
           <p className="mb-16 text-gray-800 text-justify">
           I provide a range of professional web development services focused on
       turning your digital ideas into reality. From responsive web design and

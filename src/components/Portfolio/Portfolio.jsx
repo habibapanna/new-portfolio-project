@@ -106,9 +106,9 @@ const Portfolio = () => {
       <section className="py-16 px-6 bg-white relative">
          {/* Section Header */}
 <div className="text-left mb-8">
- <Fade direction="up"><h2 className="text-3xl font-bold mb-3 text-black">Portfolio</h2>
+ <Fade direction="down"><h2 className="text-3xl font-bold mb-3 text-black">Portfolio</h2>
          <div className="border-2 border-blue-800 w-16 mb-5"></div></Fade>
-  <Fade direction="down"><p className="mb-16 text-gray-800 text-justify">
+  <Fade direction="up"><p className="mb-16 text-gray-800 text-justify">
    Welcome to my portfolio — a showcase of projects that highlight my
       front-end development skills, design sense, and creative problem-solving.
       Each project represents my passion for crafting clean, responsive, and
