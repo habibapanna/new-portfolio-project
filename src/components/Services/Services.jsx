@@ -107,14 +107,15 @@ I craft responsive, user-friendly websites that combine clean design, smooth fun
     <motion.div
       key={index}
       className="cursor-pointer flex flex-col justify-between group relative py-6 rounded-2xl h-full"
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.00 }}
       transition={{ type: "spring", stiffness: 200, damping: 15 }}
       onClick={handleClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
       {/* Make inner content flex-grow to fill height */}
-      <div className="flex flex-col items-start text-left space-y-4 flex-grow w-full">
+      <Fade>
+        <div className="flex flex-col items-start text-left space-y-4 flex-grow w-full">
         {/* Icon */}
         <div className="text-4xl text-gray-400 group-hover:text-blue-800 transition-colors duration-300">
           {service.icon}
@@ -161,6 +162,7 @@ I craft responsive, user-friendly websites that combine clean design, smooth fun
           {service.percentage}%
         </motion.div>
       </div>
+      </Fade>
     </motion.div>
   ))}
 </div>
