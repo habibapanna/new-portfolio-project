@@ -71,8 +71,8 @@ const Sidebar = () => {
   { href: "#about", icon: <HiOutlineUser />, label: "About" },
   { href: "#services", icon: <BsHddStack />, label: "Services" },
   { href: "#portfolio", icon: <GrGallery />, label: "Portfolio" },
-  { href: "#testimonials", icon: <FaRegComments />, label: "Testimonials" },
   { href: "#clients", icon: <FaUsers />, label: "Clients" },
+  { href: "#testimonials", icon: <FaRegComments />, label: "Testimonials" },
 ];
   
 
@@ -231,7 +231,7 @@ const Sidebar = () => {
           <AnimatePresence>
             {menuListOpen && (
               <motion.div
-                className="absolute top-13 right-0 w-28 bg-stone-100 shadow-lg overflow-hidden z-[90]"
+                className="absolute top-13 right-0 w-32 bg-stone-100 shadow-lg overflow-hidden z-[90]"
                 initial={{ opacity: 0, y: -15, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
@@ -242,7 +242,7 @@ const Sidebar = () => {
                     <motion.button
                       key={link.href}
                       onClick={() => handleLinkClick(link.href)}
-                      className={`w-full text-left py-2 px-1 flex items-center gap-2 transition-all duration-300 cursor-pointer
+                      className={`w-full text-left py-2 px-2 flex items-center gap-2 transition-all duration-300 cursor-pointer
                         ${
                           activeLink === link.href
                             ? "text-white bg-blue-800 shadow-md"

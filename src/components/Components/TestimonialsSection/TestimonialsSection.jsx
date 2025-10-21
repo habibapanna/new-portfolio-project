@@ -6,23 +6,24 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Fade } from "react-awesome-reveal";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 // Custom Arrow Components
 const NextArrow = ({ onClick }) => (
   <button
     onClick={onClick}
-    className="absolute top-1/2 right-[-45px] transform -translate-y-1/2 bg-blue-800 text-white p-2 rounded-full shadow-md hover:bg-blue-700 z-10 cursor-pointer"
+    className="absolute top-1/2 right-[-45px] transform -translate-y-1/2 text-blue-800 hover:text-blue-700 z-10 cursor-pointer"
   >
-    <IoArrowForward className="text-xl" />
+    <FaChevronRight className="text-lg md:text-xl" />
   </button>
 );
 
 const PrevArrow = ({ onClick }) => (
   <button
     onClick={onClick}
-    className="absolute top-1/2 left-[-45px] transform -translate-y-1/2 bg-blue-800 text-white p-2 rounded-full shadow-md hover:bg-blue-700 z-10 cursor-pointer"
+    className="absolute top-1/2 left-[-45px] transform -translate-y-1/2 text-blue-800 hover:text-blue-7000 z-10 cursor-pointer"
   >
-    <IoArrowBack className="text-xl" />
+    <FaChevronLeft className="text-lg md:text-xl" />
   </button>
 );
 
@@ -177,7 +178,7 @@ const TestimonialsSection = () => {
           }
         >
           {testimonialImages.map((img, index) => (
-            <div key={index} className="flex justify-center">
+            <div key={index} className="flex justify-center focus:outline-none">
               <img
                 src={img}
                 alt={`Testimonial ${index + 1}`}
