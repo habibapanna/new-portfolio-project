@@ -16,6 +16,9 @@ const portfolioData = [
   { id: 1, category: "Cleaning Website", name: "Cleaning Site 1", image: "/cleaning1.webp" },
   { id: 2, category: "Cleaning Website", name: "Cleaning Site 2", image: "/cleaning2.webp" },
   { id: 3, category: "Cleaning Website", name: "Cleaning Site 3", image: "/cleaning3.webp" },
+  { id: 4, category: "Cleaning Website", name: "Cleaning Site 4", image: "/cleaning3.webp" },
+  { id: 5, category: "Cleaning Website", name: "Cleaning Site 5", image: "/cleaning3.webp" },
+ 
 
   // 💼 Business Website (9)
   { id: 3, category: "Business Website", name: "Business Site 1", image: "/business1.webp" },

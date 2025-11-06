@@ -66,20 +66,20 @@ const servicesData = [
       "Creating compelling visuals including logos, social media graphics, and marketing materials that communicate brand identity and attract attention.",
     percentage: 85,
   },
-  {
-    icon: <TbSearch />,
-    title: "SEO Optimization",
-    description:
-      "Enhancing website visibility through effective on-page and off-page SEO strategies, keyword optimization, and performance improvements to increase organic traffic.",
-    percentage: 82,
-  },
-  {
-    icon: <TbSpeakerphone />,
-    title: "Digital Marketing",
-    description:
-      "Promoting your brand with targeted campaigns across social media, email, and web platforms to boost reach, engagement, and conversions effectively.",
-    percentage: 86,
-  },
+  // {
+  //   icon: <TbSearch />,
+  //   title: "SEO Optimization",
+  //   description:
+  //     "Enhancing website visibility through effective on-page and off-page SEO strategies, keyword optimization, and performance improvements to increase organic traffic.",
+  //   percentage: 82,
+  // },
+  // {
+  //   icon: <TbSpeakerphone />,
+  //   title: "Digital Marketing",
+  //   description:
+  //     "Promoting your brand with targeted campaigns across social media, email, and web platforms to boost reach, engagement, and conversions effectively.",
+  //   percentage: 86,
+  // },
 ];
 
 

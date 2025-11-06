@@ -29,8 +29,8 @@ const ServiceDetails = () => {
     "Web Development",
     "Graphic Design",
     "UI/UX Design",
-    "SEO Optimization",
-    "Marketing",
+    // "SEO Optimization",
+    // "Marketing",
   ];
 
   const handleServiceClick = (service) => {
@@ -68,7 +68,7 @@ const ServiceDetails = () => {
               <li>
                 <button
                   onClick={handleNavigateHome}
-                  className="text-white hover:bg-blue-900 cursor-pointer bg-blue-800 px-2"
+                  className="text-white hover:bg-blue-900 cursor-pointer bg-blue-800 px-2 py-1 rounded hover:font-bold"
                 >
                   ← Back to Home
                 </button>
